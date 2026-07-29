@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ADA Compliant | Springbolt Studio</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+/* ============================ PAGE-SPECIFIC: ADA COMPLIANT ============================ */
+
+/* ---- HERO ---- */
+.ada-hero{
+  position:relative;
+  padding: 220px 0 100px;
+  background: var(--sb-black);
+  color: var(--sb-white);
+  overflow:hidden;
+}
+.ada-hero .container{ position:relative; z-index:1; display:grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items:center; }
+.ada-hero h1{ color: var(--sb-white); font-size: 40px; margin-bottom: 24px; }
+.ada-hero p{ color: var(--sb-gray-200); font-size: 16px; }
+.ada-hero-media img{ width:100%; border-radius: var(--radius-card); }
+
+/* ---- HISTORY ---- */
+.history-section h2{ text-align:center; margin-bottom: 56px; }
+.history-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.history-card{ background: var(--sb-black); border-radius: var(--radius-card); padding: 32px; }
+.history-card .year{ color: var(--sb-green-light); font-size: 28px; font-weight: var(--fw-semibold); margin-bottom: 14px; display:block; }
+.history-card p{ color: var(--sb-gray-200); font-size: 14px; margin-bottom: 28px; }
+.history-card img{ max-height: 32px; max-width: 100%; filter: brightness(0) invert(1); opacity:.8; }
+
+/* ---- COMPLIANCE PARTNER ---- */
+.partner-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.partner-card{ background: var(--sb-gray-50); border-radius: var(--radius-card); padding: 28px; border-top: 3px solid var(--sb-green-main); }
+.partner-card h3{ font-size: 19px; margin-bottom: 10px; }
+.partner-card p{ font-size: 14px; color: var(--sb-gray-500); margin:0; }
+
+/* ---- PRICING ---- */
+.ada-pricing-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px; }
+.check-list li p{ margin: 4px 0 0; font-size: 13px; color: var(--sb-gray-500); }
+.check-list li strong{ color: var(--sb-black); font-size: 15px; }
+.custom-bar{
+  background: var(--sb-white);
+  border-radius: var(--radius-card);
+  padding: 32px 40px;
+  box-shadow: 0 8px 30px rgba(0,0,0,.06);
+  display:flex; align-items:center; justify-content:space-between; gap: 24px; flex-wrap:wrap;
+}
+.custom-bar .plan-tag{ display:block; font-size:13px; font-weight:var(--fw-semibold); letter-spacing:1.5px; text-transform:uppercase; color:var(--sb-green-main); margin-bottom:8px; }
+.custom-bar p{ margin:0; max-width:560px; color: var(--sb-gray-700); }
+.custom-bar .price-actions{ display:flex; gap:14px; flex-wrap:wrap; margin:0; }
+
+@media (max-width: 1000px){
+  .ada-hero .container{ grid-template-columns: 1fr; text-align:center; }
+  .history-grid{ grid-template-columns: 1fr; }
+  .partner-grid{ grid-template-columns: 1fr; }
+  .ada-pricing-grid{ grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="index.html">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2026/07/Springbot-logo-horiz-white.svg" alt="Springbolt Studio">
+    </a>
+    <nav class="site-nav">
+      <ul>
+        <li class="has-dropdown">
+          <a href="products.html">Products</a>
+          <div class="dropdown">
+          <div class="dropdown-inner">
+            <a href="website-monitor.html">Website Monitor</a>
+            <a href="design-by-subscription.html">Design By Subscription</a>
+            <a href="go-to-market-accelerator.html">Go To Market Accelerator</a>
+            <a href="ada-compliant.html">ADA Compliant</a>
+            <a href="geofencing.html">Geofencing</a>
+          </div>
+        </div>
+        </li>
+        <li class="has-dropdown">
+          <a href="what-we-do.html">What We Do</a>
+          <div class="dropdown">
+          <div class="dropdown-inner">
+            <a href="what-we-do.html">Overview</a>
+            <a href="service-brand-strategy.html">Brand Strategy</a>
+            <a href="service-web-applications.html">Web Applications</a>
+            <a href="service-digital-marketing.html">Digital Marketing</a>
+            <a href="service-lead-generation.html">Lead Generation</a>
+            <a href="service-ui-ux-design.html">UI/UX Design</a>
+            <a href="service-startup-companies.html">Startup Companies</a>
+            <a href="service-marketing-tech.html">Marketing Tech</a>
+            <a href="service-social-media.html">Social Media</a>
+          </div>
+        </div>
+        </li>
+        <li class="has-dropdown">
+          <a href="work-branding.html">Work</a>
+          <div class="dropdown">
+          <div class="dropdown-inner">
+            <a href="work-branding.html">Branding</a>
+            <a href="work-identity.html">Identity</a>
+            <a href="work-websites.html">Websites</a>
+            <a href="work-collateral.html">Collateral</a>
+            <a href="work-packaging.html">Packaging</a>
+            <a href="work-videos.html">Videos</a>
+          </div>
+        </div>
+        </li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="lets-talk.html">Let's Talk</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="ada-hero">
+  <div class="hero-bg" aria-hidden="true">
+    <canvas data-flag-bg></canvas>
+    <div class="fade"></div>
+  </div>
+  <div class="container">
+    <div class="ada-hero-copy">
+      <h1 class="reveal-heading">
+        <span class="reveal-mask"><span class="reveal-line">Make Your Site ADA Compliant Today.</span></span>
+        <span class="reveal-mask"><span class="reveal-line">We&rsquo;ve Made it Easy.</span></span>
+      </h1>
+      <p class="fade-in-up">Having an ADA compliant website isn&rsquo;t just about following the law&mdash;it&rsquo;s about opening your doors to everyone. This includes people with a wide range of disabilities, such as those who are blind, deaf, or have mobility, cognitive, or neurological limitations.</p>
+    </div>
+    <div class="ada-hero-media fade-in-up">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2024/07/ad-img.png" alt="ADA compliance app preview">
+    </div>
+  </div>
+</section>
+
+<!-- 8 REASONS -->
+<section class="section reasons">
+  <div class="container">
+    <h2 class="reveal-heading">
+      <span class="reveal-mask"><span class="reveal-line">How Non-Compliance Can Hurt Your Business</span></span>
+    </h2>
+    <div class="reasons-grid">
+      <div class="reason-card">
+        <span class="num">1</span>
+        <h3>Legal Headaches</h3>
+        <p>Ignoring the Americans with Disabilities Act (ADA) might land you in a costly lawsuit or lead to hefty fines that can hurt both your wallet.</p>
+      </div>
+      <div class="reason-card">
+        <span class="num">2</span>
+        <h3>Missed Opportunities</h3>
+        <p>If your site can&rsquo;t be accessed by people with disabilities, you&rsquo;re missing out. Inaccessible design excludes millions, and limits your audience potential.</p>
+      </div>
+      <div class="reason-card">
+        <span class="num">3</span>
+        <h3>Reputation at Risk</h3>
+        <p>An inaccessible website might give off the impression that you don&rsquo;t care about all your customers&rsquo; needs, which can tarnish your brand image.</p>
+      </div>
+      <div class="reason-card">
+        <span class="num">4</span>
+        <h3>Diminished SEO</h3>
+        <p>Search engines look favorably on sites that everyone can use. So, if your site falls short, it might also drop in search rankings. Accessible sites rank higher.</p>
+      </div>
+      <div class="reason-card">
+        <span class="num">5</span>
+        <h3>No Government Contracts</h3>
+        <p>Many government contracts now require websites to be ADA compliant. Fall short and you might miss out on some great opportunities.</p>
+      </div>
+      <div class="reason-card">
+        <span class="num">6</span>
+        <h3>Increased Liability</h3>
+        <p>As laws around digital access evolve, the risk of legal issues can grow&mdash;potentially costing you more than just legal fees.</p>
+      </div>
+      <div class="reason-card">
+        <span class="num">7</span>
+        <h3>Losing the Competitive Edge</h3>
+        <p>Falling behind can put you at a disadvantage. Companies that prioritize accessibility show they care, boosting their social credibility.</p>
+      </div>
+      <div class="reason-card">
+        <span class="num">8</span>
+        <h3>Customer Frustration</h3>
+        <p>When users with disabilities can&rsquo;t access your site, their frustration doesn&rsquo;t just lead to poor reviews&mdash;it can influence others&rsquo; decisions too.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HISTORY -->
+<section class="section history-section">
+  <div class="container">
+    <h2 class="reveal-heading text-center">
+      <span class="reveal-mask"><span class="reveal-line">A Brief History of Website ADA Compliance</span></span>
+    </h2>
+    <div class="history-grid stagger">
+      <div class="history-card fade-in-up">
+        <span class="year">2006</span>
+        <p>The legal case, National Federation of the Blind versus Target Corporation establishes that websites connected to physical stores must be accessible to all users.</p>
+        <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2024/07/target.png" alt="Target">
+      </div>
+      <div class="history-card fade-in-up">
+        <span class="year">2017</span>
+        <p>Gil versus Winn-Dixie Stores, Inc., highlights that a lack of website accessibility is like closing your doors to customers in the physical world.</p>
+        <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2024/07/winn.png" alt="Winn-Dixie">
+      </div>
+      <div class="history-card fade-in-up">
+        <span class="year">2019</span>
+        <p>Robles v. Domino&rsquo;s Pizza LLC, determines that both websites and mobile apps of businesses with physical premises must adhere to ADA standards.</p>
+        <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2024/07/doninos.png" alt="Domino's">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPLIANCE PARTNER -->
+<section class="section">
+  <div class="container">
+    <h2 class="reveal-heading text-center">
+      <span class="reveal-mask"><span class="reveal-line">SpringBolt Studio: Your Compliance Partner</span></span>
+    </h2>
+    <div class="partner-grid stagger">
+      <div class="partner-card fade-in-up">
+        <h3>Protection You Can Trust</h3>
+        <p>We specialize in ensuring your site is aligned with the latest standards, including WCAG 2.1, ADA, Section 508, and IS 5568.</p>
+      </div>
+      <div class="partner-card fade-in-up">
+        <h3>Required Documentation</h3>
+        <p>We provide you with solid proof of compliance, giving you peace of mind in case you ever need to demonstrate that your website is up to standard.</p>
+      </div>
+      <div class="partner-card fade-in-up">
+        <h3>Always On, Always Monitoring</h3>
+        <p>Our team keeps an eye on your website 24/7, ensuring it stays compliant and accessible to all your visitors at all times.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section pricing">
+  <div class="container">
+    <div class="pricing-head">
+      <h2 class="reveal-heading">
+        <span class="reveal-mask"><span class="reveal-line">Let&rsquo;s make your website a place that everyone can enjoy, seamlessly.</span></span>
+      </h2>
+    </div>
+
+    <div class="ada-pricing-grid">
+
+      <div class="price-card">
+        <span class="plan-tag">Base</span>
+        <h3 class="price">$650/year for websites under 1,000 pages</h3>
+        <ul class="check-list">
+          <li><span class="ico">&#10003;</span> <div><strong>Compliance Made Easy</strong><p>We make sure your website meets standards like the ADA, AODA, EAA, and WCAG, among others.</p></div></li>
+          <li><span class="ico">&#10003;</span> <div><strong>Assurance of Accessibility</strong><p>Receive an accessibility statement and a certificate proving your site&rsquo;s compliance.</p></div></li>
+          <li><span class="ico">&#10003;</span> <div><strong>Smart Accessibility Tools</strong><p>Enjoy cutting-edge AI-powered screen readers and keyboard navigation options.</p></div></li>
+          <li><span class="ico">&#10003;</span> <div><strong>Customizable Accessibility Widget</strong><p>Easily adjust your site&rsquo;s UI and design to enhance usability.</p></div></li>
+          <li><span class="ico">&#10003;</span> <div><strong>Daily Monitoring</strong><p>Our AI technology constantly checks your site to ensure it stays compliant.</p></div></li>
+          <li><span class="ico">&#10003;</span> <div><strong>Regular Check-Ups</strong><p>Receive detailed monthly audits that keep your accessibility on track.</p></div></li>
+          <li><span class="ico">&#10003;</span> <div><strong>Support When You Need It Most</strong><p>Our Litigation Support Package offers personalized help and a wealth of documentation should your compliance be questioned.</p></div></li>
+        </ul>
+        <div class="price-actions">
+          <a href="https://darkblue-mule-484055.hostingersite.com/book-a-call/" class="btn btn-primary btn-sm">Book a 15 Minute Call</a>
+        </div>
+      </div>
+
+      <div class="price-card">
+        <span class="plan-tag">Enhanced</span>
+        <h3 class="price">$1750/year for websites 1,001 to 10,000 pages</h3>
+        <ul class="check-list">
+          <li><span class="ico">&#10003;</span> <div><strong>Compliance Made Easy</strong><p>We make sure your website meets standards like the ADA, AODA, EAA, and WCAG, among others.</p></div></li>
+          <li><span class="ico">&#10003;</span> <div><strong>Your Assurance of Accessibility</strong><p>Receive an accessibility statement and a certificate proving your site&rsquo;s compliance.</p></div></li>
+          <li><span class="ico">&#10003;</span> <div><strong>Smart Accessibility Tools</strong><p>Enjoy cutting-edge AI-powered screen readers and keyboard navigation options.</p></div></li>
+          <li><span class="ico">&#10003;</span> <div><strong>Customizable Accessibility Widget</strong><p>Easily adjust your site&rsquo;s UI and design to enhance usability.</p></div></li>
+          <li><span class="ico">&#10003;</span> <div><strong>Daily Monitoring</strong><p>Our AI technology checks your site every day to ensure it stays compliant.</p></div></li>
+          <li><span class="ico">&#10003;</span> <div><strong>Regular Check-Ups</strong><p>Receive detailed monthly audits that keep your accessibility on track.</p></div></li>
+          <li><span class="ico">&#10003;</span> <div><strong>Support When You Need It Most</strong><p>Our Litigation Support Package offers personalized help and a wealth of documentation should your compliance be questioned.</p></div></li>
+          <li><span class="ico">&#10003;</span> <div><strong>Customer Support</strong><p>We&rsquo;re always here to help you with any questions or guidance you need.</p></div></li>
+          <li><span class="ico">&#10003;</span> <div><strong>Detailed Monthly Reports</strong><p>Get a comprehensive monthly PDF report detailing the adjustments our tools have made to your site.</p></div></li>
+          <li><span class="ico">&#10003;</span> <div><strong>Team Collaboration Made Simple</strong><p>Manage user roles and permissions effortlessly, allowing secure team access to your dashboard.</p></div></li>
+          <li><span class="ico">&#10003;</span> <div><strong>Efficient Multi-Account Management</strong><p>Handle multiple dashboard accounts under a single user profile, making administration smoother.</p></div></li>
+        </ul>
+        <div class="price-actions">
+          <a href="https://darkblue-mule-484055.hostingersite.com/book-a-call/" class="btn btn-primary btn-sm">Book a 15 Minute Call</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="custom-bar">
+      <div>
+        <span class="plan-tag">Custom Package</span>
+        <p>Don&rsquo;t see anything that fits your needs? Contact us and we&rsquo;ll be happy to discuss a more customized approach.</p>
+      </div>
+      <div class="price-actions">
+        <a href="lets-talk.html" class="btn btn-primary btn-sm">Contact Us</a>
+        <a href="https://darkblue-mule-484055.hostingersite.com/book-a-call/" class="btn btn-outline-dark btn-sm">Book a Call</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <a class="logo" href="index.html">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2026/07/Springbot-logo-horiz-white.svg" alt="Springbolt Studio">
+    </a>
+    <div class="stagger">
+      <div class="tagline fade-in-up">Brand Strategists&nbsp;|&nbsp;Storytellers</div>
+      <div class="copyright fade-in-up">&copy; Raul Varela. All rights reserved.</div>
+    </div>
+  </div>
+</footer>
+
+<script src="hero-bg.js"></script>
+<script src="site.js"></script>
+</body>
+</html>

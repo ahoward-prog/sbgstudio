@@ -1,0 +1,775 @@
+/* =========================================================================
+   SPRINGBOLT STUDIO — SHARED BRAND STYLESHEET
+   Use this file on every page of the new site so type, color, buttons and
+   spacing stay identical throughout. Do not redeclare these values locally —
+   add new component styles beneath the "PAGE-SPECIFIC" marker in each page
+   instead, and always reference the variables below.
+   ========================================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root{
+  /* ---- BRAND COLORS -------------------------------------------------
+     Official palette — do not introduce other hex values on any page.
+     Every color used anywhere in the site must be one of these five. */
+
+  /* Black & white */
+  --sb-black:         #000000;   /* nav bar text, dark sections, footer */
+  --sb-black-soft:    #12181d;   /* near-black — card bg on dark sections, keeps depth off pure black */
+  --sb-navy:          #0b1c2c;   /* hero gradient midpoint only — never used as a flat fill */
+  --sb-white:         #ffffff;
+
+  /* The 3 brand colors */
+  --sb-green-main:    #018076;   /* MAIN — primary buttons, logo, links, default brand color */
+  --sb-green-light:   #00d6be;   /* LIGHT ACCENT — gradients, hover highlights, eyebrows, quote marks */
+  --sb-green-dark:    #004146;   /* DARK — gradients, dark-section accents, hover states */
+
+  /* Back-compat aliases (existing markup references these names —
+     kept so older pages don't need find/replace; new pages should
+     prefer --sb-green-main / -light / -dark above) */
+  --sb-green:         var(--sb-green-main);
+  --sb-green-bright:  var(--sb-green-light);
+  --sb-green-deep:    var(--sb-green-dark);
+
+  /* Supporting neutrals — tints of black/white only, for text and
+     backgrounds where pure black/white would be too harsh. Not part of
+     the 5 brand colors; use sparingly. */
+  --sb-gray-50:       #f6f7f7;   /* light section backgrounds */
+  --sb-gray-200:      #e4e7e8;
+  --sb-gray-500:      #6b7573;   /* body copy on white */
+  --sb-gray-700:      #3a4342;
+
+  /* ---- TYPOGRAPHY ----------------------------------------------------- */
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;   /* titles use semibold, never bold-800 */
+  --fw-bold: 700;
+
+  /* ---- SPACING / SHAPE ------------------------------------------------ */
+  --radius-pill: 999px;   /* every button is fully rounded */
+  --radius-card: 20px;
+  --container: 1320px;
+
+  /* Shared translucent nav fill — used by BOTH the pill and its dropdown
+     panels so they're always the exact same declared color/blur. Opaque
+     enough that whatever page content the dropdown floats over (it's a
+     fixed-header overlay, so it will always sit on top of something)
+     reads as cleanly hidden underneath rather than bleeding through. */
+  --sb-nav-glass: rgba(8,8,9,.94);
+}
+
+*, *::before, *::after{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+body{
+  margin:0;
+  font-family: var(--font-body);
+  color: var(--sb-gray-700);
+  background: var(--sb-white);
+  -webkit-font-smoothing: antialiased;
+}
+img{ max-width:100%; display:block; }
+a{ text-decoration:none; color:inherit; }
+ul{ margin:0; padding:0; list-style:none; }
+
+.container{
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+h1,h2,h3,h4{
+  font-family: var(--font-body);
+  font-weight: var(--fw-semibold);
+  color: var(--sb-black);
+  margin: 0 0 16px;
+  line-height: 1.2;
+}
+h1{ font-size: 76px; }
+h2{ font-size: 46px; }
+h3{ font-size: 26px; }
+
+p{ line-height: 1.75; margin: 0 0 20px; font-size: 18px; }
+
+/* Eyebrow kicker (above every page's H1) — same 108° light-to-dark
+   gradient treatment as "Studio" in the wordmark, so it's consistent
+   site-wide rather than a flat color. */
+.eyebrow{
+  display:block;
+  font-size: 15px;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  background: linear-gradient(108deg, var(--sb-green-main), var(--sb-green-light));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Gradient text treatment — used on "Studio" in the wordmark, reusable
+   anywhere a word needs the same brand-green gradient highlight. */
+.text-gradient{
+  background: linear-gradient(108deg, var(--sb-green-main), var(--sb-green-light));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ---- BUTTONS (always pill-shaped) ------------------------------------ */
+.btn{
+  display:inline-block;
+  font-family: var(--font-body);
+  font-weight: var(--fw-semibold);
+  font-size: 16px;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  padding: 18px 42px;
+  border-radius: var(--radius-pill);
+  border: 2px solid transparent;
+  cursor:pointer;
+  transition: all .2s ease;
+}
+.btn-primary{
+  background: var(--sb-green);
+  color: var(--sb-white);
+  border-color: var(--sb-green);
+}
+.btn-primary:hover{ background: var(--sb-green-deep); border-color: var(--sb-green-deep); }
+
+.btn-outline{
+  background: transparent;
+  color: var(--sb-white);
+  border-color: rgba(255,255,255,.6);
+}
+.btn-outline:hover{ background: rgba(255,255,255,.12); border-color: var(--sb-white); }
+
+.btn-outline-dark{
+  background: transparent;
+  color: var(--sb-black);
+  border-color: var(--sb-gray-700);
+}
+.btn-outline-dark:hover{ background: var(--sb-black); color: var(--sb-white); }
+
+/* Green outline — text/border green by default (not just on hover) */
+.btn-outline-green{
+  background: transparent;
+  color: var(--sb-green-bright);
+  border-color: var(--sb-green-bright);
+}
+.btn-outline-green:hover{ background: var(--sb-green-bright); color: var(--sb-black); }
+
+.btn-sm{ padding: 13px 28px; font-size: 13px; }
+
+/* ---- HEADER / NAV ----------------------------------------------------- */
+/* Sticky glassmorphism nav: a floating pill that hugs its content (logo +
+   links), not a full-width strip. Flat semi-transparent black, standard
+   blur — no gradient sheen, no specular highlight, no liquid-glass effect. */
+.site-header{
+  position: fixed;
+  top: 18px; left: 0; right: 0;
+  z-index: 500;
+  display: flex;
+  justify-content: center;
+  pointer-events: none; /* only the pill itself should catch clicks */
+}
+.site-header .container{
+  position: relative; /* anchors the mobile dropdown panel below */
+  pointer-events: auto;
+  display:flex;
+  align-items:stretch; /* logo + nav row both fill the pill's full content
+                           height, so a dropdown anchored to any nav item
+                           can reach the pill's true bottom edge with a
+                           known, fixed offset (padding-bottom) instead of
+                           an unpredictable gap based on text line-height */
+  justify-content:space-between;
+  gap: 40px;
+  width: auto;
+  max-width: none;
+  padding: 14px 26px;
+  border-radius: var(--radius-pill);
+  background: var(--sb-nav-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,.1);
+  box-shadow: 0 8px 24px rgba(0,0,0,.3);
+  transition: box-shadow .15s ease;
+}
+/* The pill's own drop shadow paints a dark halo directly beneath it — right
+   where an open dropdown sits. Left on, that halo shows through the
+   dropdown's translucent fill and stacks with it, making the dropdown read
+   as visibly darker than the pill even though both use the exact same
+   background value. Kill the shadow the instant a submenu is open so
+   there's nothing extra darkening that region. */
+.site-header .container:has(.has-dropdown:hover),
+.site-header .container:has(.has-dropdown:focus-within){
+  box-shadow: none;
+}
+.site-header .logo img{ height: 34px; }
+.site-nav{ display:flex; align-items:stretch; gap: 8px; } /* holds the ul + the mobile toggle button */
+
+/* Hamburger toggle — hidden on desktop, shown below the mobile breakpoint.
+   Markup (same on every page):
+     <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+       <span></span><span></span><span></span>
+     </button>
+   placed as a sibling of <nav class="site-nav"> inside .site-header .container. */
+.nav-toggle{
+  display:none;
+  flex-direction:column;
+  justify-content:center;
+  gap: 5px;
+  width: 28px;
+  height: 22px;
+  background:none;
+  border:none;
+  padding:0;
+  cursor:pointer;
+}
+.nav-toggle span{
+  display:block;
+  width:100%;
+  height:2px;
+  background: var(--sb-white);
+  border-radius: 2px;
+  transition: transform .25s ease, opacity .2s ease;
+}
+.site-header.nav-open .nav-toggle span:nth-child(1){ transform: translateY(7px) rotate(45deg); }
+.site-header.nav-open .nav-toggle span:nth-child(2){ opacity: 0; }
+.site-header.nav-open .nav-toggle span:nth-child(3){ transform: translateY(-7px) rotate(-45deg); }
+.site-nav ul{ display:flex; gap: 36px; align-items:stretch; }
+/* Each <li> stretches to the pill's full content height too (rather than
+   shrink-wrapping its own text), then re-centers its link internally —
+   see the .site-header .container comment above for why. */
+.site-nav ul > li{ display:flex; align-items:center; }
+.site-nav a{
+  color: var(--sb-white);
+  font-size: 16px;
+  font-weight: var(--fw-medium);
+  letter-spacing: .3px;
+}
+.site-nav a:hover{ color: var(--sb-green-bright); }
+
+/* Dropdown submenu (Products, Work). Two layers, on purpose:
+     <li class="has-dropdown">
+       <a href="...">Products</a>
+       <div class="dropdown">           <-- fixed-size hover BRIDGE only
+         <div class="dropdown-inner">   <-- the visible glass card, floats
+           <a href="website-monitor.html">Website Monitor</a>       below it
+         </div>
+       </div>
+     </li>
+   .dropdown is a small, FIXED-size bridge (always exactly 14px tall — it
+   never grows) sitting flush against the trigger. Being a DOM descendant
+   of the trigger <li>, hovering across it keeps the <li> "hovered" as the
+   cursor travels down (fixes the classic dead-zone bug), but because it's
+   fixed at 14px rather than sized to fit the whole menu, it can't turn
+   into a giant invisible zone that pops the menu open just from hovering
+   somewhere below the nav (that was the previous bug — .dropdown's box
+   was silently as tall as its full menu content at all times, clip-path
+   only hid it visually, not from hit-testing).
+   .dropdown-inner does the real work: it's independently absolutely
+   positioned right below that bridge, sized to its own content, with its
+   OWN clip-path reveal — when collapsed (closed) it is genuinely not
+   hit-testable anywhere outside its 0-height clip region, so empty space
+   below the nav stays empty. Same fill as the pill, no border/shadow of
+   its own, flat top so it reads as a continuation of the pill's curve. */
+.site-nav li.has-dropdown{ position:relative; }
+.site-nav .dropdown{
+  position:absolute;
+  top: 100%; /* flush with the trigger's own (stretched) box — no gap */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 240px;
+  height: 14px; /* fixed bridge down to the pill's true edge — never grows */
+}
+.site-nav .dropdown-inner{
+  position:absolute;
+  top: 100%; /* flush with the bridge above */
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 240px;
+  padding: 10px;
+  display:flex;
+  flex-direction:column;
+  gap: 2px;
+  background: var(--sb-nav-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 0 0 20px 20px; /* flat top = reads as a continuation of the
+                                    pill's curve, not a new shape starting fresh */
+  /* Clip-path reveal instead of a fade: the card is always at full size
+     and position, but clipped away entirely from the bottom up. Animating
+     that clip down to 0 makes it look like a blind sliding open top-to-
+     bottom, rather than fading into place — and (unlike opacity/visibility)
+     clip-path also makes the clipped-away links non-clickable/non-hoverable
+     on its own, so no separate pointer-events toggling is needed. */
+  clip-path: inset(0 0 100% 0 round 0 0 20px 20px);
+  transition: clip-path .38s cubic-bezier(.16,1,.3,1);
+}
+.site-nav .dropdown a{
+  display:block;
+  padding: 11px 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  white-space: nowrap;
+  transition: background .15s ease, color .15s ease;
+}
+.site-nav li.has-dropdown:hover .dropdown-inner,
+.site-nav li.has-dropdown:focus-within .dropdown-inner{
+  clip-path: inset(0 0 0% 0 round 0 0 20px 20px);
+}
+.site-nav .dropdown a:hover{ background: rgba(255,255,255,.1); color: var(--sb-green-light); }
+
+/* ---- MOBILE NAV ---------------------------------------------------------
+   Below 860px: hide the inline link row, show the hamburger, and turn the
+   link list into a dropdown panel (same glass-pill treatment as the
+   Products submenu) anchored under the whole nav pill. Toggled via the
+   ".nav-open" class on .site-header — see site.js. The Products submenu
+   stops floating and just lists inline, indented, since there's no hover
+   on touch devices. */
+@media (max-width: 860px){
+  .site-header .container{ gap: 20px; }
+  .nav-toggle{ display:flex; }
+
+  .site-nav ul{
+    position:absolute;
+    top: calc(100% + 14px);
+    right: 0;
+    flex-direction:column;
+    align-items:stretch;
+    gap: 2px;
+    width: 240px;
+    max-height: 70vh;
+    overflow-y:auto;
+    background: rgba(0,0,0,.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 20px;
+    padding: 10px;
+    box-shadow: 0 8px 24px rgba(0,0,0,.3);
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transform: translateY(-8px);
+    transition: opacity .2s ease, transform .2s ease, visibility .2s;
+  }
+  .site-header.nav-open .site-nav ul{
+    opacity:1; visibility:visible; pointer-events:auto; transform:translateY(0);
+  }
+  .site-nav a{ display:block; padding: 12px 14px; border-radius: 12px; }
+  .site-nav a:hover{ background: rgba(255,255,255,.08); color: var(--sb-green-light); }
+
+  /* Products/Work submenu: on desktop this is a centered card that grows
+     out of the pill's own background — none of that applies on touch, so
+     reset it back to a plain indented inline list under its parent link
+     whenever the mobile panel is open. */
+  .site-nav .dropdown{
+    position:static;
+    display:block;
+    width:auto;
+    height:auto;
+    margin-top: 2px;
+  }
+  .site-nav .dropdown-inner{
+    position:static;
+    transform:none;
+    min-width:0;
+    clip-path:none;
+    background:none;
+    backdrop-filter:none;
+    -webkit-backdrop-filter:none;
+    border-radius:0;
+    padding: 2px 0 2px 14px;
+    gap: 0;
+  }
+  .site-nav .dropdown a{
+    font-size: 13px;
+    padding: 9px 14px;
+  }
+}
+
+/* ---- FOOTER ------------------------------------------------------------ */
+.site-footer{
+  background: var(--sb-black);
+  color: var(--sb-white);
+  text-align:center;
+  padding: 64px 0 32px;
+}
+.site-footer .logo img{ height: 30px; margin: 0 auto 16px; }
+.site-footer .tagline{ color: var(--sb-gray-200); font-size: 14px; margin-bottom: 40px; }
+.site-footer .copyright{ font-size: 12px; color: var(--sb-gray-500); border-top:1px solid rgba(255,255,255,.08); padding-top: 24px; }
+
+/* ---- ANIMATED CHECKERBOARD HERO BACKGROUND -----------------------------
+   Pairs with hero-bg.js. Drop this markup as the first child of any
+   position:relative; overflow:hidden section that should use it:
+     <div class="hero-bg" aria-hidden="true">
+       <canvas data-flag-bg></canvas>
+       <div class="fade"></div>
+     </div>
+   and give that section's real content wrapper position:relative; z-index:1
+   (already done for .hero .container and .wm-hero .container). */
+.hero-bg{ position:absolute; inset:0; overflow:hidden; background:#000000; z-index:0; }
+.hero-bg canvas{ position:absolute; inset:0; width:100%; height:100%; display:block; filter:blur(4px); opacity:.15; }
+.hero-bg .fade{
+  position:absolute; inset:0; pointer-events:none;
+  background: linear-gradient(65deg, #000000 0%, #000000 14%, rgba(0,0,0,.82) 28%, rgba(0,0,0,.55) 44%, rgba(0,0,0,.28) 60%, rgba(0,0,0,.1) 76%, rgba(0,0,0,0) 92%);
+}
+
+/* Real hero background video (the site's own video-bg.mov) — use on pages
+   where the live site's hero is a background video rather than the
+   checkerboard animation. Same darkening .fade overlay so text stays
+   readable either way.
+     <div class="hero-bg-video" aria-hidden="true">
+       <video autoplay muted loop playsinline>
+         <source src="....mov">
+       </video>
+       <div class="fade"></div>
+     </div>
+*/
+.hero-bg-video{ position:absolute; inset:0; overflow:hidden; background:#000000; z-index:0; }
+.hero-bg-video video{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
+.hero-bg-video .fade{
+  position:absolute; inset:0; pointer-events:none;
+  background: linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.55) 55%, rgba(0,0,0,.75) 100%);
+}
+
+/* Real hero background IMAGE (a specific page's own background_image
+   asset, e.g. Geofencing's geofencing-new-bg.png) — same shape as
+   .hero-bg-video, just an <img> instead of a <video>.
+     <div class="hero-bg-image" aria-hidden="true">
+       <img src="....png" alt="">
+       <div class="fade"></div>
+     </div>
+*/
+.hero-bg-image{ position:absolute; inset:0; overflow:hidden; background:#000000; z-index:0; }
+.hero-bg-image img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position: bottom center; display:block; }
+.hero-bg-image .fade{
+  position:absolute; inset:0; pointer-events:none;
+  background: linear-gradient(180deg, rgba(0,0,0,.25) 0%, rgba(0,0,0,.45) 55%, rgba(0,0,0,.65) 100%);
+}
+
+/* ---- SHARED COMPONENTS ---------------------------------------------------
+   Reused as-is across pages — don't redefine these locally, just include
+   the matching markup block (see index.html for a full example of each). */
+
+/* Client logo strip */
+.clients{
+  background: linear-gradient(135deg, var(--sb-green-dark), var(--sb-black));
+  color: var(--sb-white);
+  text-align:center;
+}
+.clients h2{ color: var(--sb-white); margin-bottom: 56px; }
+.logo-grid{
+  display:grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 40px 24px;
+  align-items:center;
+}
+.logo-grid img{
+  max-height: 42px;
+  margin: 0 auto;
+  filter: brightness(0) invert(1);
+  opacity:.85;
+}
+@media (max-width: 900px){
+  .logo-grid{ grid-template-columns: repeat(3,1fr); }
+}
+
+/* Testimonial carousel — JS rotation lives in site.js (auto-detects every
+   .testimonials block on the page, so a page can include more than one). */
+.testimonials{ background: var(--sb-gray-50); text-align:center; }
+.testimonials .container{ max-width: 760px; position:relative; }
+.quote-mark{
+  font-family: Georgia, serif;
+  font-size: 170px;
+  color: var(--sb-green-main);
+  opacity:.25;
+  line-height: 1;
+  margin-bottom: -48px;
+}
+.testimonial-slide{ display:none; }
+.testimonial-slide.active{ display:block; }
+.testimonial-slide p{ font-size: 21px; color: var(--sb-gray-700); font-style: italic; }
+.testimonial-slide .cite{ font-weight: var(--fw-semibold); color: var(--sb-black); font-style: normal; font-size: 14px; }
+.dots{ display:flex; gap:8px; justify-content:center; margin-top: 32px; }
+.dots span{ width:8px; height:8px; border-radius:50%; background: var(--sb-gray-200); display:inline-block; }
+.dots span.active{ background: var(--sb-green-main); }
+
+/* Pricing cards — used on every product page (Website Monitor, Design by
+   Subscription, etc). ".pricing-grid" defaults to two even columns; a page
+   with a third/custom package can override with an inline style or a
+   page-specific modifier (see design-by-subscription.html). */
+.pricing{ background: var(--sb-gray-50); }
+.pricing-head{ display:flex; align-items:center; justify-content:space-between; margin-bottom: 56px; flex-wrap:wrap; gap:16px; }
+.pricing-head h2{ margin:0; }
+.pricing-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+.price-card{
+  background: var(--sb-white);
+  border-radius: var(--radius-card);
+  padding: 40px;
+  box-shadow: 0 8px 30px rgba(0,0,0,.06);
+}
+.price-card .plan-tag{
+  font-size: 13px; font-weight: var(--fw-semibold); letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--sb-green-main); margin-bottom: 10px; display:block;
+}
+.price-card h3.price{ font-size: 26px; margin-bottom: 24px; }
+.check-list{ margin-bottom: 28px; }
+.check-list li{ display:flex; gap: 12px; align-items:flex-start; font-size: 15px; margin-bottom: 12px; color: var(--sb-gray-700); }
+.check-list li .ico{ color: var(--sb-green-main); font-weight: var(--fw-bold); flex-shrink:0; }
+.price-card .sub-head{ font-size: 15px; margin: 28px 0 12px; }
+.arrow-list{ margin-bottom: 20px; }
+.arrow-list li{ display:flex; gap: 10px; font-size: 14px; color: var(--sb-gray-500); margin-bottom: 8px; }
+.arrow-list li .ico{ color: var(--sb-green-light); flex-shrink:0; }
+.price-actions{ display:flex; gap: 14px; margin: 24px 0 16px; flex-wrap:wrap; }
+.price-card .fine-print{ font-size: 12px; color: var(--sb-gray-500); line-height:1.6; }
+.price-card.price-card-compact{ display:flex; flex-direction:column; justify-content:center; }
+.price-card ul.plain-list{ margin: 0 0 8px; padding-left: 18px; }
+.price-card ul.plain-list li{ font-size: 14px; color: var(--sb-gray-500); margin-bottom: 6px; }
+
+/* Tab groups — JS in site.js. Markup:
+     <div class="tab-group">
+       <div class="tab-buttons">
+         <button class="tab-btn active" data-tab-target="a">Tab A</button>
+         <button class="tab-btn" data-tab-target="b">Tab B</button>
+       </div>
+       <div class="tab-panel active" data-tab="a">...</div>
+       <div class="tab-panel" data-tab="b">...</div>
+     </div>
+*/
+.tab-buttons{ display:flex; gap: 28px; margin-bottom: 32px; flex-wrap:wrap; }
+.tab-btn{
+  background:none; border:none; cursor:pointer; padding: 0 0 8px;
+  font-family: var(--font-body); font-weight: var(--fw-semibold);
+  font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--sb-gray-500);
+  border-bottom: 2px solid transparent;
+}
+.tab-btn.active{ color: var(--sb-green-main); border-bottom-color: var(--sb-green-main); }
+.tab-panel{ display:none; }
+.tab-panel.active{ display:block; }
+
+/* Numbered "reasons" grid — used for any "N reasons why..." style section
+   (Website Monitor's 8 Reasons, ADA Compliant's How Non-Compliance Can
+   Hurt Your Business, etc). */
+.reasons{ background: linear-gradient(160deg, var(--sb-gray-50), #eef7f6 60%, var(--sb-gray-50)); }
+.reasons h2{ text-align:center; margin-bottom: 56px; }
+.reasons-grid{ display:grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.reason-card{
+  background: var(--sb-white);
+  border-radius: var(--radius-card);
+  padding: 32px 26px;
+  box-shadow: 0 8px 30px rgba(0,0,0,.05);
+}
+.reason-card .num{
+  font-size: 34px;
+  font-weight: var(--fw-semibold);
+  color: var(--sb-green-main);
+  margin-bottom: 12px;
+  display:block;
+}
+.reason-card h3{ font-size: 18px; margin-bottom: 10px; }
+.reason-card p{ font-size: 14px; color: var(--sb-gray-500); margin:0; }
+@media (max-width: 1000px){ .reasons-grid{ grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px){ .reasons-grid{ grid-template-columns: 1fr; } }
+
+/* Content card grid — image + title + description(+ optional button),
+   used for the Products grid and the What We Do overview grid. */
+.content-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.content-card{
+  background: var(--sb-white);
+  border-radius: var(--radius-card);
+  overflow:hidden;
+  box-shadow: 0 8px 30px rgba(0,0,0,.06);
+}
+.content-card img{ width:100%; height: 200px; object-fit:cover; display:block; }
+.content-card .content-card-body{ padding: 26px; }
+.content-card h3{ font-size: 19px; margin-bottom: 10px; }
+.content-card p{ font-size: 14px; color: var(--sb-gray-500); margin-bottom: 0; }
+.content-card .btn{ margin-top: 18px; }
+@media (max-width: 1000px){ .content-grid{ grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px){ .content-grid{ grid-template-columns: 1fr; } }
+
+/* Hover-zoom modifier — image scales up inside its box on hover, clipped
+   by the card's own overflow:hidden. Used on the Websites work page. */
+.content-card--zoom img{ transition: transform .5s ease; }
+.content-card--zoom:hover img{ transform: scale(1.08); }
+
+/* Shared title-only hero band — same flexbox vertical-centering treatment
+   as Products/What We Do, reused across all 6 Work sub-pages so the title
+   stays balanced under the fixed nav regardless of page. */
+.work-hero{
+  position:relative;
+  min-height: 360px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: 110px 0 50px;
+  background: var(--sb-black);
+  color: var(--sb-white);
+  text-align:center;
+  overflow:hidden;
+}
+.work-hero .container{ position:relative; z-index:1; max-width: 780px; }
+.work-hero h1{ color: var(--sb-white); font-size: 42px; margin:0; }
+
+/* Work / portfolio grid — full-bleed, edge-to-edge photo tile mosaic with
+   a bottom gradient overlay carrying the client name + one-line description.
+   No gutters, no rounded corners — tiles butt directly against each other
+   and the grid spans the full viewport width. Used across the Work
+   sub-pages (Branding, Collateral, Packaging, Videos); markup sits directly
+   inside the <section>, NOT inside a .container, so it can go full-bleed. */
+.work-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 0; width:100%; }
+.work-photo-card{
+  position:relative;
+  overflow:hidden;
+  aspect-ratio: 4 / 3;
+  display:flex;
+  align-items:flex-end;
+  isolation:isolate;
+}
+/* Image sits on its own absolutely-positioned layer so it can scale on
+   hover independently of the text overlay (which stays put). */
+.work-photo-card-img{
+  position:absolute; inset:0;
+  background-size: cover;
+  background-position: center;
+  transition: transform .5s ease;
+  z-index:0;
+}
+.work-photo-card:hover .work-photo-card-img{ transform: scale(1.08); }
+.work-photo-card::after{
+  content:"";
+  position:absolute; inset:0;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,.88) 100%);
+  z-index:1;
+  pointer-events:none;
+}
+.work-photo-card .work-card-body{ position:relative; z-index:2; padding: 22px 24px; }
+.work-photo-card h3{ font-size: 18px; margin-bottom: 4px; color: var(--sb-white); }
+.work-photo-card p{ font-size: 13px; color: var(--sb-gray-200); margin:0; }
+@media (max-width: 1000px){ .work-grid{ grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px){ .work-grid{ grid-template-columns: 1fr; } }
+
+/* Logo-mark card variant — used for the Identity page, whose assets are
+   transparent client logo marks rather than photography. Flex + centered
+   so the logo mark is always dead-center regardless of its aspect ratio
+   (the global img{display:block} reset defeats plain text-align:center). */
+.work-logo-card{
+  background: var(--sb-white);
+  border-radius: var(--radius-card);
+  box-shadow: 0 8px 30px rgba(0,0,0,.06);
+  padding: 32px 24px;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  overflow:hidden;
+}
+.work-logo-card img{
+  height: 56px;
+  max-width: 100%;
+  object-fit: contain;
+  margin: 0 auto 20px;
+  transition: transform .35s ease;
+}
+.work-logo-card:hover img{ transform: scale(1.12); }
+.work-logo-card h4{ font-size: 15px; margin-bottom: 6px; }
+.work-logo-card p{ font-size: 13px; color: var(--sb-gray-500); margin:0; }
+
+/* 4-column density modifier for the content-grid — used on the Identity
+   page, which has far more (smaller) items than a typical 3-col grid. */
+.content-grid--4col{ grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 1000px){ .content-grid--4col{ grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px){ .content-grid--4col{ grid-template-columns: 1fr; } }
+
+/* FAQ accordion-style list (static, no JS toggle — all answers visible) */
+.faq-item{ border-top: 1px solid var(--sb-gray-200); padding: 28px 0; }
+.faq-item:last-child{ border-bottom: 1px solid var(--sb-gray-200); }
+.faq-item h3{ font-size: 19px; margin-bottom: 10px; }
+.faq-item p{ color: var(--sb-gray-500); font-size: 15px; margin:0; }
+
+/* ---- UTILITIES ---------------------------------------------------------*/
+.section{ padding: 128px 0; }
+.section-black{ background: var(--sb-black); color: var(--sb-gray-200); }
+.section-black h2, .section-black h3{ color: var(--sb-white); }
+.text-center{ text-align:center; }
+
+/* =========================================================================
+   SCROLL LOAD-IN TEXT EFFECTS
+   Use on EVERY page, same markup pattern every time, so motion feels
+   identical site-wide. Requires site.js (IntersectionObserver toggles
+   .is-visible; CSS below does all the actual animating).
+
+   1) HEADINGS — "mask reveal": each line sits in an overflow-hidden mask
+      and slides up from underneath it, one line at a time.
+      Markup:
+        <h2 class="reveal-heading">
+          <span class="reveal-mask"><span class="reveal-line">Line one</span></span>
+          <span class="reveal-mask"><span class="reveal-line">Line two</span></span>
+        </h2>
+
+   2) BODY COPY / BUTTONS — Apple-style fade + rise. Group siblings that
+      should stagger in together inside a ".stagger" wrapper.
+      Markup:
+        <div class="stagger">
+          <p class="fade-in-up">...</p>
+          <a class="btn btn-primary fade-in-up">...</a>
+        </div>
+   ========================================================================= */
+
+.reveal-mask{ display:block; overflow:hidden; padding-bottom:.12em; margin-bottom:-.12em; }
+.reveal-line{
+  display:block;
+  transform: translateY(112%);
+  transition: transform 1s cubic-bezier(.16,1,.3,1);
+  will-change: transform;
+}
+.reveal-heading.is-visible .reveal-line{ transform: translateY(0); }
+
+/* stagger up to 5 lines within one heading */
+.reveal-mask:nth-of-type(1) .reveal-line{ transition-delay: 0s; }
+.reveal-mask:nth-of-type(2) .reveal-line{ transition-delay: .09s; }
+.reveal-mask:nth-of-type(3) .reveal-line{ transition-delay: .18s; }
+.reveal-mask:nth-of-type(4) .reveal-line{ transition-delay: .27s; }
+.reveal-mask:nth-of-type(5) .reveal-line{ transition-delay: .36s; }
+
+.fade-in-up{
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .9s cubic-bezier(.16,1,.3,1), transform .9s cubic-bezier(.16,1,.3,1);
+  will-change: opacity, transform;
+}
+.fade-in-up.is-visible{ opacity: 1; transform: none; }
+
+/* stagger up to 6 children within a .stagger wrapper */
+.stagger.is-visible .fade-in-up:nth-child(1){ transition-delay: 0s; }
+.stagger.is-visible .fade-in-up:nth-child(2){ transition-delay: .1s; }
+.stagger.is-visible .fade-in-up:nth-child(3){ transition-delay: .2s; }
+.stagger.is-visible .fade-in-up:nth-child(4){ transition-delay: .3s; }
+.stagger.is-visible .fade-in-up:nth-child(5){ transition-delay: .4s; }
+.stagger.is-visible .fade-in-up:nth-child(6){ transition-delay: .5s; }
+.stagger .fade-in-up{ opacity:0; transform: translateY(22px); }
+.stagger.is-visible .fade-in-up{ opacity:1; transform:none; }
+
+/* Character-by-character variant — same mask-and-slide mechanic as
+   .reveal-heading, but each letter gets its own mask/line pair with an
+   explicit inline transition-delay (set per-character in the markup)
+   instead of the line-level stagger above. Wrap the whole word/phrase in
+   .char-reveal (this sets is-visible + observes like .reveal-heading),
+   each letter in .reveal-mask > .reveal-line as usual. Include a
+   .sr-only twin of the real text alongside it for screen readers. */
+.char-reveal{ display:inline-block; }
+.char-reveal .reveal-mask{ display:inline-block; }
+.char-reveal.is-visible .reveal-line{ transform: translateY(0); }
+
+.sr-only{
+  position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .reveal-line, .fade-in-up{ transition: none !important; transform:none !important; opacity:1 !important; }
+}

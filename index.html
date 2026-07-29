@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Springbolt Studio | Dallas, Texas | Branding | Advertising | Web Design</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+/* ============================ PAGE-SPECIFIC: HOME ============================ */
+
+.hero{
+  position:relative;
+  padding: 260px 0 170px;
+  background: var(--sb-black);
+  color: var(--sb-white);
+  text-align:center;
+  overflow:hidden;
+}
+/* Animated checkerboard background lives in styles.css (.hero-bg, shared
+   site-wide) + hero-bg.js. Reused identically on the Website Monitor hero. */
+.hero .container{ position:relative; z-index:1; }
+.hero h1{ color: var(--sb-white); font-size: 88px; margin-bottom: 12px; }
+.hero .subtitle{
+  font-size: 21px;
+  font-weight: var(--fw-medium);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--sb-gray-200);
+  margin-bottom: 32px;
+}
+.hero .tagline{
+  font-style: italic;
+  font-size: 21px;
+  max-width: 720px;
+  margin: 0 auto 44px;
+  color: var(--sb-gray-200);
+}
+.hero .hero-actions{ display:flex; gap:18px; justify-content:center; }
+
+/* Empathy section */
+.empathy{ text-align:center; }
+.empathy .container{ max-width: 880px; }
+.empathy p{ color: var(--sb-gray-500); font-size: 16px; }
+.empathy .signature-line{
+  font-style: italic;
+  font-weight: var(--fw-semibold);
+  color: var(--sb-black);
+  font-size: 17px;
+  margin: 28px 0 36px;
+}
+
+/* Featured work — alternating two-column rows (text panel / image panel,
+   flipping sides each row). The text panel shows just the client name +
+   title by default; on hover it darkens to brand deep-green and swaps in
+   the body copy, stat line, and the two green buttons. The image panel is
+   untouched by the hover state. */
+.work-section{ padding-top: 96px; padding-bottom: 40px; }
+.work-section > .container > h2{ text-align:center; margin-bottom: 56px; }
+
+.work-row{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 340px;
+  margin-bottom: 24px;
+  border-radius: var(--radius-card);
+  overflow:hidden;
+  cursor:pointer;
+}
+.work-row:nth-child(even) .work-text{ order: 2; }
+.work-row:nth-child(even) .work-image{ order: 1; }
+
+/* image column clips its contents so the scale-up on hover never spills
+   outside the row */
+.work-row .work-image{ position:relative; overflow:hidden; }
+.work-row .work-image img{
+  width:100%; height:100%; object-fit:cover; display:block;
+  transform: scale(1);
+  transition: transform .5s ease;
+}
+.work-row:hover .work-image img{ transform: scale(1.08); }
+
+.work-row .work-text{
+  position:relative;
+  background: var(--sb-black-soft);
+  padding: 48px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  transition: background .35s ease;
+}
+.work-row:hover .work-text{ background: var(--sb-green-deep); }
+
+.work-row .work-face{ transition: opacity .3s ease, visibility .3s ease; }
+.work-row .work-default h3{
+  font-size: 17px;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--sb-green-bright);
+  margin-bottom: 12px;
+}
+.work-row .work-default h2{ color: var(--sb-white); font-size: 34px; margin: 0; }
+
+.work-row .work-hover{
+  position:absolute; inset:0;
+  padding: 48px;
+  display:flex; flex-direction:column; justify-content:center;
+  opacity: 0; visibility: hidden;
+}
+.work-row .work-hover p{ color: var(--sb-white); font-size: 17px; }
+.work-row .work-hover .stat{ color: var(--sb-white); font-weight: var(--fw-semibold); font-size: 17px; margin-bottom: 28px; }
+.work-row .work-actions{ display:flex; gap: 14px; flex-wrap:wrap; }
+
+.work-row:hover .work-default{ opacity: 0; visibility: hidden; }
+.work-row:hover .work-hover{ opacity: 1; visibility: visible; }
+
+/* .clients / .logo-grid / .testimonials — shared, defined in styles.css */
+
+@media (max-width: 900px){
+  .work-row{ grid-template-columns: 1fr; }
+  .work-row:nth-child(even) .work-text,
+  .work-row:nth-child(even) .work-image{ order: initial; }
+  .work-row .work-image{ min-height: 220px; }
+  .hero h1{ font-size: 42px; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="index.html">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2026/07/Springbot-logo-horiz-white.svg" alt="Springbolt Studio">
+    </a>
+    <nav class="site-nav">
+      <ul>
+        <li class="has-dropdown">
+          <a href="products.html">Products</a>
+          <div class="dropdown">
+          <div class="dropdown-inner">
+            <a href="website-monitor.html">Website Monitor</a>
+            <a href="design-by-subscription.html">Design By Subscription</a>
+            <a href="go-to-market-accelerator.html">Go To Market Accelerator</a>
+            <a href="ada-compliant.html">ADA Compliant</a>
+            <a href="geofencing.html">Geofencing</a>
+          </div>
+        </div>
+        </li>
+        <li class="has-dropdown">
+          <a href="what-we-do.html">What We Do</a>
+          <div class="dropdown">
+          <div class="dropdown-inner">
+            <a href="what-we-do.html">Overview</a>
+            <a href="service-brand-strategy.html">Brand Strategy</a>
+            <a href="service-web-applications.html">Web Applications</a>
+            <a href="service-digital-marketing.html">Digital Marketing</a>
+            <a href="service-lead-generation.html">Lead Generation</a>
+            <a href="service-ui-ux-design.html">UI/UX Design</a>
+            <a href="service-startup-companies.html">Startup Companies</a>
+            <a href="service-marketing-tech.html">Marketing Tech</a>
+            <a href="service-social-media.html">Social Media</a>
+          </div>
+        </div>
+        </li>
+        <li class="has-dropdown">
+          <a href="work-branding.html">Work</a>
+          <div class="dropdown">
+          <div class="dropdown-inner">
+            <a href="work-branding.html">Branding</a>
+            <a href="work-identity.html">Identity</a>
+            <a href="work-websites.html">Websites</a>
+            <a href="work-collateral.html">Collateral</a>
+            <a href="work-packaging.html">Packaging</a>
+            <a href="work-videos.html">Videos</a>
+          </div>
+        </div>
+        </li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="lets-talk.html">Let's Talk</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg" aria-hidden="true">
+    <canvas data-flag-bg></canvas>
+    <div class="fade"></div>
+  </div>
+  <div class="container">
+    <h1>
+      <span class="char-reveal" aria-hidden="true"><span class="reveal-mask" style="transition-delay:.000s"><span class="reveal-line" style="transition-delay:.000s">S</span></span><span class="reveal-mask" style="transition-delay:.035s"><span class="reveal-line" style="transition-delay:.035s">p</span></span><span class="reveal-mask" style="transition-delay:.070s"><span class="reveal-line" style="transition-delay:.070s">r</span></span><span class="reveal-mask" style="transition-delay:.105s"><span class="reveal-line" style="transition-delay:.105s">i</span></span><span class="reveal-mask" style="transition-delay:.140s"><span class="reveal-line" style="transition-delay:.140s">n</span></span><span class="reveal-mask" style="transition-delay:.175s"><span class="reveal-line" style="transition-delay:.175s">g</span></span><span class="reveal-mask" style="transition-delay:.210s"><span class="reveal-line" style="transition-delay:.210s">b</span></span><span class="reveal-mask" style="transition-delay:.245s"><span class="reveal-line" style="transition-delay:.245s">o</span></span><span class="reveal-mask" style="transition-delay:.280s"><span class="reveal-line" style="transition-delay:.280s">l</span></span><span class="reveal-mask" style="transition-delay:.315s"><span class="reveal-line" style="transition-delay:.315s">t</span></span><span class="reveal-mask" style="transition-delay:.350s"><span class="reveal-line" style="transition-delay:.350s">&nbsp;</span></span><span class="reveal-mask" style="transition-delay:.385s"><span class="reveal-line" style="transition-delay:.385s;color:#018076">S</span></span><span class="reveal-mask" style="transition-delay:.420s"><span class="reveal-line" style="transition-delay:.420s;color:#019184">t</span></span><span class="reveal-mask" style="transition-delay:.455s"><span class="reveal-line" style="transition-delay:.455s;color:#01a293">u</span></span><span class="reveal-mask" style="transition-delay:.490s"><span class="reveal-line" style="transition-delay:.490s;color:#00b4a1">d</span></span><span class="reveal-mask" style="transition-delay:.525s"><span class="reveal-line" style="transition-delay:.525s;color:#00c5b0">i</span></span><span class="reveal-mask" style="transition-delay:.560s"><span class="reveal-line" style="transition-delay:.560s;color:#00d6be">o</span></span></span>
+      <span class="sr-only">Springbolt Studio</span>
+    </h1>
+    <div class="stagger">
+      <div class="subtitle fade-in-up">Brand Strategists&nbsp; | &nbsp;Storytellers</div>
+      <p class="tagline fade-in-up">Turning complex business challenges into clear, compelling narratives that drive measurable outcomes.</p>
+      <div class="hero-actions">
+        <a href="#" class="btn btn-primary fade-in-up">View My Work</a>
+        <a href="lets-talk.html" class="btn btn-outline fade-in-up">Let's Talk</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EMPATHY -->
+<section class="section empathy">
+  <div class="container">
+    <h2 class="reveal-heading">
+      <span class="reveal-mask"><span class="reveal-line">Empathy Behind the Work</span></span>
+    </h2>
+    <div class="stagger">
+      <p class="fade-in-up">We&rsquo;ve spent three decades learning one fundamental truth: great creative work begins with a deep understanding of the teams we lead. The clients we&rsquo;ve served and the people we&rsquo;ve reach every single day. Since 1994, We&rsquo;ve led creative teams through transformative growth and taught the next generation of designers and strategists as an adjunct professor at Texas A&amp;M University. What we are most proud of isn&rsquo;t the revenue generated or the accolades earned&mdash;it&rsquo;s the relationships forged through genuine empathy and strategic thinking.</p>
+      <p class="signature-line fade-in-up">My approach remains constant: listen deeply, think strategically, create relentlessly.</p>
+      <a href="#" class="btn btn-outline-dark fade-in-up">Learn More About My Journey</a>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED WORK -->
+<section class="work-section section-black">
+  <div class="container">
+    <h2 class="reveal-heading">
+      <span class="reveal-mask"><span class="reveal-line">My Featured Work</span></span>
+    </h2>
+
+    <div class="work-row">
+      <div class="work-text">
+        <div class="work-face work-default">
+          <h3 class="reveal-heading"><span class="reveal-mask"><span class="reveal-line">Aligned Data Centers</span></span></h3>
+          <h2 class="reveal-heading"><span class="reveal-mask"><span class="reveal-line">From One Facility to a $40 Billion Exit</span></span></h2>
+        </div>
+        <div class="work-face work-hover stagger">
+          <p class="fade-in-up">As their embedded marketing partner for eight years, We led brand development and marketing strategy that scaled from one facility to 50 global locations.</p>
+          <p class="stat fade-in-up">Acquired by Microsoft, NVIDIA, BlackRock, and XAI for $40 billion&mdash;the largest transaction in global data center history.</p>
+          <div class="work-actions">
+            <a href="project-template.html" class="btn btn-primary btn-sm fade-in-up">Learn More</a>
+            <a href="#" class="btn btn-outline-green btn-sm fade-in-up">Download the Playbook</a>
+          </div>
+        </div>
+      </div>
+      <div class="work-image">
+        <img src="https://pixandprismmarketing.com/wp-content/uploads/2023/10/img-home_Aligned_Pullups.jpg" alt="Aligned Data Centers">
+      </div>
+    </div>
+
+    <div class="work-row">
+      <div class="work-text">
+        <div class="work-face work-default">
+          <h3 class="reveal-heading"><span class="reveal-mask"><span class="reveal-line">CyrusOne Data Centers</span></span></h3>
+          <h2 class="reveal-heading"><span class="reveal-mask"><span class="reveal-line">Building the Marketing Engine for a $15 Billion Acquisition</span></span></h2>
+        </div>
+        <div class="work-face work-hover stagger">
+          <p class="fade-in-up">Building an entire marketing engine from the ground up, creating enterprise-level infrastructure that proved their market position.</p>
+          <p class="stat fade-in-up">Acquired by KKR and Global Infrastructure Partners for $15 billion.</p>
+          <div class="work-actions">
+            <a href="project-template.html" class="btn btn-primary btn-sm fade-in-up">Learn More</a>
+            <a href="#" class="btn btn-outline-green btn-sm fade-in-up">Download the Playbook</a>
+          </div>
+        </div>
+      </div>
+      <div class="work-image">
+        <img src="https://pixandprismmarketing.com/wp-content/uploads/2026/02/cyrus-one.webp" alt="CyrusOne Data Centers">
+      </div>
+    </div>
+
+    <div class="work-row">
+      <div class="work-text">
+        <div class="work-face work-default">
+          <h3 class="reveal-heading"><span class="reveal-mask"><span class="reveal-line">Mr. Cooper</span></span></h3>
+          <h2 class="reveal-heading"><span class="reveal-mask"><span class="reveal-line">Strategic Marketing for Market-Leading Mortgage Servicer</span></span></h2>
+        </div>
+        <div class="work-face work-hover stagger">
+          <p class="fade-in-up">Developing comprehensive marketing strategies and brand messaging that balanced regulatory compliance with genuine customer connection.</p>
+          <p class="stat fade-in-up">Became one of the nation&rsquo;s largest mortgage servicers. Acquired by Rocket Companies for $9 billion.</p>
+          <div class="work-actions">
+            <a href="project-template.html" class="btn btn-primary btn-sm fade-in-up">Learn More</a>
+            <a href="#" class="btn btn-outline-green btn-sm fade-in-up">Download the Playbook</a>
+          </div>
+        </div>
+      </div>
+      <div class="work-image">
+        <img src="https://pixandprismmarketing.com/wp-content/uploads/2026/02/mr-Ccooper.webp" alt="Mr. Cooper">
+      </div>
+    </div>
+
+    <div class="work-row">
+      <div class="work-text">
+        <div class="work-face work-default">
+          <h3 class="reveal-heading"><span class="reveal-mask"><span class="reveal-line">PICKUP</span></span></h3>
+          <h2 class="reveal-heading"><span class="reveal-mask"><span class="reveal-line">Building a Brand from Zero to 90 Cities and $40M in Funding</span></span></h2>
+        </div>
+        <div class="work-face work-hover stagger">
+          <p class="fade-in-up">We built the complete brand from a blank page, creating the entire identity, voice, and market positioning.</p>
+          <p class="stat fade-in-up">Scaled to 90+ cities, raised $40 million in funding, successfully exited at Series B. Company later acquired.</p>
+          <div class="work-actions">
+            <a href="project-template.html" class="btn btn-primary btn-sm fade-in-up">Learn More</a>
+            <a href="#" class="btn btn-outline-green btn-sm fade-in-up">Download the Playbook</a>
+          </div>
+        </div>
+      </div>
+      <div class="work-image">
+        <img src="https://pixandprismmarketing.com/wp-content/uploads/2026/02/img_home_pickup-truckwrap-2.webp" alt="PICKUP">
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CLIENT LOGOS -->
+<section class="section clients">
+  <div class="container">
+    <h2 class="reveal-heading">
+      <span class="reveal-mask"><span class="reveal-line">It all adds up to success stories.</span></span>
+      <span class="reveal-mask"><span class="reveal-line">Just ask our clients.</span></span>
+    </h2>
+    <div class="logo-grid">
+      <img src="https://pixandprismmarketing.com/wp-content/uploads/2023/10/logo-1-zebra.svg" alt="Zebra">
+      <img src="https://pixandprismmarketing.com/wp-content/uploads/2023/10/logo-2-cyrusone.svg" alt="CyrusOne">
+      <img src="https://pixandprismmarketing.com/wp-content/uploads/2023/10/logo-3-pickup.svg" alt="Pickup">
+      <img src="https://pixandprismmarketing.com/wp-content/uploads/2023/10/logo-4-sml.svg" alt="SML RFID">
+      <img src="https://pixandprismmarketing.com/wp-content/uploads/2023/10/logo-5-nice.svg" alt="NICE">
+      <img src="https://pixandprismmarketing.com/wp-content/uploads/2023/10/logo-6-xome.svg" alt="Xome">
+      <img src="https://pixandprismmarketing.com/wp-content/uploads/2023/10/logo-7-softlayer.svg" alt="Softlayer">
+      <img src="https://pixandprismmarketing.com/wp-content/uploads/2023/10/logo-8-aligned.svg" alt="Aligned">
+      <img src="https://pixandprismmarketing.com/wp-content/uploads/2023/10/logo-9-mrcooper.svg" alt="Mr. Cooper">
+      <img src="https://pixandprismmarketing.com/wp-content/uploads/2023/10/logo-10-baylor.svg" alt="Baylor Scott & White">
+      <img src="https://pixandprismmarketing.com/wp-content/uploads/2023/10/logo-11-tenet.svg" alt="Tenet">
+      <img src="https://pixandprismmarketing.com/wp-content/uploads/2023/10/logo-12-ribbon.svg" alt="Ribbon">
+      <img src="https://pixandprismmarketing.com/wp-content/uploads/2023/10/logo-13-valvoline.svg" alt="Valvoline">
+      <img src="https://pixandprismmarketing.com/wp-content/uploads/2023/10/logo-14-efg.svg" alt="EFG Companies">
+      <img src="https://pixandprismmarketing.com/wp-content/uploads/2023/10/logo-15-gdf.svg" alt="Good Day Farm">
+      <img src="https://pixandprismmarketing.com/wp-content/uploads/2023/10/logo-16-abc.svg" alt="ABC">
+      <img src="https://pixandprismmarketing.com/wp-content/uploads/2023/10/logo-18-vizient.svg" alt="Vizient">
+      <img src="https://pixandprismmarketing.com/wp-content/uploads/2023/10/logo-17-tbi.svg" alt="Texas Back Institute">
+      <img src="https://pixandprismmarketing.com/wp-content/uploads/2023/10/logo-19-sniffle.svg" alt="Sniffle">
+      <img src="https://pixandprismmarketing.com/wp-content/uploads/2023/10/logo-20-tos.svg" alt="Total Office Solutions">
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section testimonials">
+  <div class="container">
+    <div class="quote-mark">&ldquo;</div>
+
+    <div class="testimonial-slide active">
+      <p>Speaking as Raul&rsquo;s client of several years; He does a great job of carrying our messaging on every platform; digital, print, airwave and cable media. Can&rsquo;t recommend him enough.</p>
+      <div class="cite">Michael Monette / Total Office Solutions, LLP</div>
+    </div>
+
+    <div class="testimonial-slide">
+      <p>Raul and his team has been a growth partner with Aligned Data Centers for more than five years and has helped us build a powerful brand with coherent assets and effective messaging. Their creativity, responsiveness and flexibility has contributed to our culture of innovation and the rapid scaling of our business. We depend on them as a vital extension of our internal team.</p>
+      <div class="cite">Joanna Soucy / Aligned Data Centers</div>
+    </div>
+
+    <div class="testimonial-slide">
+      <p>&lsquo;Vendor&rsquo; is never a word I would use to describe Raul. He truly has been our partner for almost a decade and continues to surprise us with their fresh, relevant, and results-focused thinking and execution.</p>
+      <div class="cite">Jenny Rappaport / EFG Companies</div>
+    </div>
+
+    <div class="testimonial-slide">
+      <p>I&rsquo;ve worked with Raul and his team for years on many projects of different types. They consistently deliver ON TIME and with OUTSTANDING QUALITY. I consider them my secret weapon.</p>
+      <div class="cite">Brenda Stoner / ByteTrail</div>
+    </div>
+
+    <div class="testimonial-slide">
+      <p>Thank you Raul for all the support you&rsquo;ve given us this past year&mdash;especially how you refined our messaging to achieve greater visual impact on our proposals. We&rsquo;ve had some amazing results!</p>
+      <div class="cite">Chris G. William / Airport Dimensions</div>
+    </div>
+
+    <div class="dots">
+      <span class="active"></span><span></span><span></span><span></span><span></span>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <a class="logo" href="index.html">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2026/07/Springbot-logo-horiz-white.svg" alt="Springbolt Studio">
+    </a>
+    <div class="stagger">
+      <div class="tagline fade-in-up">Brand Strategists&nbsp;|&nbsp;Storytellers</div>
+      <div class="copyright fade-in-up">&copy; Raul Varela. All rights reserved.</div>
+    </div>
+  </div>
+</footer>
+
+<script src="hero-bg.js"></script>
+<script src="site.js"></script>
+</body>
+</html>

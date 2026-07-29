@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Monitor | Springbolt Studio</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+/* ============================ PAGE-SPECIFIC: WEBSITE MONITOR ============================ */
+
+/* ---- HERO ---- */
+.wm-hero{
+  position:relative;
+  padding: 220px 0 100px;
+  background: var(--sb-black);
+  color: var(--sb-white);
+  overflow:hidden;
+}
+/* Same animated checkerboard background as the homepage hero — markup +
+   animation live in hero-bg.js, base styling in styles.css (.hero-bg). */
+.wm-hero .container{ position:relative; z-index:1; display:grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items:center; }
+.wm-hero .eyebrow{ color: var(--sb-green-light); }
+.wm-hero h1{ color: var(--sb-white); font-size: 46px; margin-bottom: 40px; }
+.wm-feature-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.wm-feature{
+  display:flex; align-items:flex-start; gap: 14px;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: var(--radius-card);
+  padding: 20px;
+}
+.wm-feature img{ width: 30px; height:30px; flex-shrink:0; }
+.wm-feature p{ margin:0; font-size: 14px; color: var(--sb-gray-200); line-height:1.5; }
+.wm-hero-media img{ width:100%; border-radius: var(--radius-card); }
+
+/* .reasons / .reasons-grid / .reason-card — shared, defined in styles.css */
+
+/* ---- WHAT YOU GET ---- */
+.included{ background: var(--sb-black); color: var(--sb-gray-200); }
+.included h2{ color: var(--sb-white); text-align:center; max-width: 760px; margin: 0 auto 64px; font-size: 32px; }
+.included-layout{ display:grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items:start; margin-bottom: 90px; }
+.included-list{ display:grid; grid-template-columns: 1fr 1fr; gap: 32px 40px; }
+.included-list h3{ color: var(--sb-green-light); font-size: 19px; margin-bottom: 8px; }
+.included-list p{ font-size: 15px; color: var(--sb-gray-200); margin:0; }
+.included-media img{ width:100%; border-radius: var(--radius-card); }
+
+.included-secondary{ display:grid; grid-template-columns: repeat(4, 1fr); gap: 32px; border-top: 1px solid rgba(255,255,255,.1); padding-top: 56px; }
+.included-secondary h3{ color: var(--sb-green-light); font-size: 18px; margin-bottom: 8px; }
+.included-secondary p{ font-size: 14px; color: var(--sb-gray-200); margin:0; }
+
+/* .pricing / .price-card / .faq-item — shared, defined in styles.css */
+
+@media (max-width: 1000px){
+  .wm-hero .container{ grid-template-columns: 1fr; }
+  .included-layout{ grid-template-columns: 1fr; }
+  .included-secondary{ grid-template-columns: 1fr 1fr; }
+  .pricing-grid{ grid-template-columns: 1fr; }
+  .pricing-head{ flex-direction:column; align-items:flex-start; gap:16px; }
+}
+@media (max-width: 600px){
+  .included-list{ grid-template-columns: 1fr; }
+  .included-secondary{ grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="index.html">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2026/07/Springbot-logo-horiz-white.svg" alt="Springbolt Studio">
+    </a>
+    <nav class="site-nav">
+      <ul>
+        <li class="has-dropdown">
+          <a href="products.html">Products</a>
+          <div class="dropdown">
+          <div class="dropdown-inner">
+            <a href="website-monitor.html">Website Monitor</a>
+            <a href="design-by-subscription.html">Design By Subscription</a>
+            <a href="go-to-market-accelerator.html">Go To Market Accelerator</a>
+            <a href="ada-compliant.html">ADA Compliant</a>
+            <a href="geofencing.html">Geofencing</a>
+          </div>
+        </div>
+        </li>
+        <li class="has-dropdown">
+          <a href="what-we-do.html">What We Do</a>
+          <div class="dropdown">
+          <div class="dropdown-inner">
+            <a href="what-we-do.html">Overview</a>
+            <a href="service-brand-strategy.html">Brand Strategy</a>
+            <a href="service-web-applications.html">Web Applications</a>
+            <a href="service-digital-marketing.html">Digital Marketing</a>
+            <a href="service-lead-generation.html">Lead Generation</a>
+            <a href="service-ui-ux-design.html">UI/UX Design</a>
+            <a href="service-startup-companies.html">Startup Companies</a>
+            <a href="service-marketing-tech.html">Marketing Tech</a>
+            <a href="service-social-media.html">Social Media</a>
+          </div>
+        </div>
+        </li>
+        <li class="has-dropdown">
+          <a href="work-branding.html">Work</a>
+          <div class="dropdown">
+          <div class="dropdown-inner">
+            <a href="work-branding.html">Branding</a>
+            <a href="work-identity.html">Identity</a>
+            <a href="work-websites.html">Websites</a>
+            <a href="work-collateral.html">Collateral</a>
+            <a href="work-packaging.html">Packaging</a>
+            <a href="work-videos.html">Videos</a>
+          </div>
+        </div>
+        </li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="lets-talk.html">Let's Talk</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="wm-hero">
+  <div class="hero-bg" aria-hidden="true">
+    <canvas data-flag-bg></canvas>
+    <div class="fade"></div>
+  </div>
+  <div class="container">
+    <div class="wm-hero-copy">
+      <span class="eyebrow">Website Monitor</span>
+      <h1 class="reveal-heading">
+        <span class="reveal-mask"><span class="reveal-line">Avoid Downtime with 24/7/365</span></span>
+        <span class="reveal-mask"><span class="reveal-line">Website Monitoring and Instant</span></span>
+        <span class="reveal-mask"><span class="reveal-line">Restoration Services.</span></span>
+      </h1>
+      <div class="wm-feature-grid stagger">
+        <div class="wm-feature fade-in-up">
+          <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2024/05/refresh_11712114-1.svg" alt="">
+          <p>24/7 monitoring detects and resolves issues instantly</p>
+        </div>
+        <div class="wm-feature fade-in-up">
+          <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2024/05/monitoring_12735749-1.svg" alt="">
+          <p>Secure defense against cyber attacks and security threats</p>
+        </div>
+        <div class="wm-feature fade-in-up">
+          <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2024/05/configuration_9978744-1.svg" alt="">
+          <p>Trusted by over 400 companies and big brands worldwide</p>
+        </div>
+        <div class="wm-feature fade-in-up">
+          <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2024/05/reporting_8505449-1.svg" alt="">
+          <p>Unlike our competitors, we actually fix your website</p>
+        </div>
+      </div>
+    </div>
+    <div class="wm-hero-media fade-in-up">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2024/05/web-monitor-img.png" alt="Website Monitor app preview">
+    </div>
+  </div>
+</section>
+
+<!-- 8 REASONS -->
+<section class="section reasons">
+  <div class="container">
+    <h2 class="reveal-heading">
+      <span class="reveal-mask"><span class="reveal-line">Eight Reasons Your Site Might Go Down</span></span>
+    </h2>
+    <div class="reasons-grid">
+      <div class="reason-card">
+        <span class="num">1</span>
+        <h3>A Plugin, Theme or Web Browser is Outdated or Discontinued</h3>
+        <p>This issue can sneak up on you and crash your site, scaring off your web visitors when you least expect it.</p>
+      </div>
+      <div class="reason-card">
+        <span class="num">2</span>
+        <h3>A WordPress Security Breach Exposes Your Malware</h3>
+        <p>Unpatched vulnerabilities make your website a target for hackers, which can lead to a data breach.</p>
+      </div>
+      <div class="reason-card">
+        <span class="num">3</span>
+        <h3>No Backups Leads to Total Data Loss and No Recovery Options</h3>
+        <p>Many businesses overlook the necessity of website backups, a critical oversight&mdash;a costly mistake..</p>
+      </div>
+      <div class="reason-card">
+        <span class="num">4</span>
+        <h3>A Browser Update Slows Down Your Legacy Website</h3>
+        <p>Ignoring updates and optimizations can severely slow down your website, leading to user frustration.</p>
+      </div>
+      <div class="reason-card">
+        <span class="num">5</span>
+        <h3>Google&rsquo;s Algorithm Updates Penalize Out-of-Date Websites</h3>
+        <p>Google is designed to enhance user protection by steering traffic away from less secure websites.</p>
+      </div>
+      <div class="reason-card">
+        <span class="num">6</span>
+        <h3>An Expired Domain Leads to Website Downtime</h3>
+        <p>This can cause your website to go offline unexpectedly, leading to lost access and missed opportunities.</p>
+      </div>
+      <div class="reason-card">
+        <span class="num">7</span>
+        <h3>SSL Certificate Expiration Undermines Trust</h3>
+        <p>This expiration can trigger security warnings, deterring visitors and diminishing trust in your website.</p>
+      </div>
+      <div class="reason-card">
+        <span class="num">8</span>
+        <h3>CPU, Memory, and Storage Demands on Server Increases</h3>
+        <p>Failing to monitor and upgrade server resources can lead to overloads and crashes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU GET -->
+<section class="section included">
+  <div class="container">
+    <h2 class="reveal-heading">
+      <span class="reveal-mask"><span class="reveal-line">Here&rsquo;s What You Get with SpringBolt Studio Website Monitor:</span></span>
+    </h2>
+
+    <div class="included-layout">
+      <div class="included-list stagger">
+        <div class="fade-in-up">
+          <h3>Instant Site Restoration</h3>
+          <p>A team of programmers ready to get your site up the moment it goes down</p>
+        </div>
+        <div class="fade-in-up">
+          <h3>Quick Restorations</h3>
+          <p>Rapid website recovery from the latest backup at the push of a button</p>
+        </div>
+        <div class="fade-in-up">
+          <h3>Security Monitoring</h3>
+          <p>Daily checks and immediate alerts for potential security incidents</p>
+        </div>
+        <div class="fade-in-up">
+          <h3>Regular Reporting</h3>
+          <p>Monthly reports detailing the maintenance activities performed</p>
+        </div>
+        <div class="fade-in-up">
+          <h3>Scheduled Backups</h3>
+          <p>Daily backups to cloud and off-site locations, ensuring your data&rsquo;s safety</p>
+        </div>
+        <div class="fade-in-up">
+          <h3>Comprehensive Updates</h3>
+          <p>Includes ongoing updates to WordPress, themes, and plugins.</p>
+        </div>
+      </div>
+      <div class="included-media fade-in-up">
+        <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2024/05/monitor-lg-1.png" alt="Website monitor dashboard preview">
+      </div>
+    </div>
+
+    <div class="included-secondary stagger">
+      <div class="fade-in-up">
+        <h3>Uptime Monitoring</h3>
+        <p>Frequent checks to ensure website is always updated, accessible and running smoothly for users.</p>
+      </div>
+      <div class="fade-in-up">
+        <h3>Reliable Backups</h3>
+        <p>Secure, redundant backups every single day on Amazon S3, Google Cloud, and our private off-site storage</p>
+      </div>
+      <div class="fade-in-up">
+        <h3>Programming Support</h3>
+        <p>Includes an hour of minor updates monthly, with additional support available at a competitive rate</p>
+      </div>
+      <div class="fade-in-up">
+        <h3>World-Class Support - Fast!</h3>
+        <p>We evaluate problems at the code level and have 12-years of experiences supporting WordPress website.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section pricing">
+  <div class="container">
+    <div class="pricing-head">
+      <h2 class="reveal-heading">
+        <span class="reveal-mask"><span class="reveal-line">Pricing Plans</span></span>
+      </h2>
+      <a href="lets-talk.html" class="btn btn-outline-dark">Contact Us</a>
+    </div>
+
+    <div class="pricing-grid">
+
+      <div class="price-card">
+        <span class="plan-tag">Monthly</span>
+        <h3 class="price">$250 Per Month (No Contract)</h3>
+        <ul class="check-list">
+          <li><span class="ico">&#10003;</span> 24/7 website monitoring</li>
+          <li><span class="ico">&#10003;</span> 1 hour of basic website edits per month*</li>
+          <li><span class="ico">&#10003;</span> Rapid response site restoration**</li>
+          <li><span class="ico">&#10003;</span> Pause or cancel anytime</li>
+        </ul>
+
+        <h4 class="sub-head">What to Expect After Purchase</h4>
+        <ul class="arrow-list">
+          <li><span class="ico">&#8594;</span> Our technical team will reach out within 24 hours to begin setup. Please have these essential details ready to enable speedy setup:</li>
+          <li><span class="ico">&#8594;</span> Website URL</li>
+          <li><span class="ico">&#8594;</span> WordPress admin login credentials</li>
+          <li><span class="ico">&#8594;</span> Emergency contact information</li>
+        </ul>
+
+        <h4 class="sub-head">Once Setup is Complete, You&rsquo;ll Receive</h4>
+        <ul class="arrow-list">
+          <li><span class="ico">&#8594;</span> Confirmation of active monitoring</li>
+          <li><span class="ico">&#8594;</span> An SLA (Service level agreement)</li>
+          <li><span class="ico">&#8594;</span> Emergency contact procedures</li>
+          <li><span class="ico">&#8594;</span> Monthly report on services rendered</li>
+          <li><span class="ico">&#8594;</span> Support email for your website edit requests</li>
+        </ul>
+
+        <div class="price-actions">
+          <a href="https://buy.stripe.com/bIYeYr8xC5kBglW14f" class="btn btn-primary btn-sm">Sign Up</a>
+          <a href="https://darkblue-mule-484055.hostingersite.com/book-a-call/" class="btn btn-outline-dark btn-sm">Book a 15 Minute Call</a>
+        </div>
+        <p class="fine-print">*Any unused website editing hours will roll over to the next billing period<br>**Rapid response site restoration could take anwyhere from 15 minutes to 24 hours.</p>
+      </div>
+
+      <div class="price-card">
+        <span class="plan-tag">Bi-Annually</span>
+        <h3 class="price">$1250 For 6 Months Paid in Advance (Save $250!)</h3>
+        <ul class="check-list">
+          <li><span class="ico">&#10003;</span> 24/7 website monitoring</li>
+          <li><span class="ico">&#10003;</span> 6 hours of basic website edits upfront per billing period*</li>
+          <li><span class="ico">&#10003;</span> Rapid response site restoration**</li>
+          <li><span class="ico">&#10003;</span> Pause or cancel anytime</li>
+        </ul>
+
+        <h4 class="sub-head">What to Expect After Purchase</h4>
+        <ul class="arrow-list">
+          <li><span class="ico">&#8594;</span> Our technical team will reach out within 24 hours to begin setup. Please have these essential details ready to enable speedy setup:</li>
+          <li><span class="ico">&#8594;</span> Website URL</li>
+          <li><span class="ico">&#8594;</span> WordPress admin login credentials</li>
+          <li><span class="ico">&#8594;</span> Emergency contact information</li>
+        </ul>
+
+        <h4 class="sub-head">Once Setup is Complete, You&rsquo;ll Receive</h4>
+        <ul class="arrow-list">
+          <li><span class="ico">&#8594;</span> Confirmation of active monitoring</li>
+          <li><span class="ico">&#8594;</span> An SLA (Service level agreement)</li>
+          <li><span class="ico">&#8594;</span> Emergency contact procedures</li>
+          <li><span class="ico">&#8594;</span> Monthly report on services rendered</li>
+          <li><span class="ico">&#8594;</span> Support email for your website edit requests</li>
+        </ul>
+
+        <div class="price-actions">
+          <a href="https://buy.stripe.com/6oEdUn8xC5kB4De4gy" class="btn btn-primary btn-sm">Sign Up</a>
+          <a href="https://darkblue-mule-484055.hostingersite.com/book-a-call/" class="btn btn-outline-dark btn-sm">Book a 15 Minute Call</a>
+        </div>
+        <p class="fine-print">*Any unused website editing hours will roll over to the next billing period<br>**Rapid response site restoration could take anwyhere from 15 minutes to 24 hours.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section faq">
+  <div class="container">
+    <h2 class="reveal-heading text-center">
+      <span class="reveal-mask"><span class="reveal-line">FAQs</span></span>
+    </h2>
+
+    <div class="faq-item">
+      <h3>Does my subscription cover the cost of getting my site back up if it gets shut down?</h3>
+      <p>Yes, your fee includes restoring your website if it shuts down. We monitor your website&rsquo;s performance around the clock, often addressing issues proactively before they become apparent, and we will provide you with a report detailing all activities. In the event that your site does go down, getting it back up and running immediately is part of our service commitment to you.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What are considered &lsquo;basic website edits&rsquo; in your plans?</h3>
+      <p>Basic website edits refers to copy edits, image updates, and other simple edits intended to keep your website current.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What is not considered a &lsquo;basic website edit&rsquo; in your plans?</h3>
+      <p>This does not include comprehensive website redesigns, custom programming, adding new pages, SEO, or extensive content edits. However, should you require any of these services, we are more than willing to provide an estimate and discuss how we can support your broader website needs.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Do unused website edit hours carry over?</h3>
+      <p>Yes, all unused editing hours roll over to the next period, tracked accurately to ensure transparency and fairness, and your hours never expire.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What if I decide to cancel my service?</h3>
+      <p>You can cancel either pricing plan at any time. If you have signed up for the bi-annual plan, the fees for any unused months will be refunded to you.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <a class="logo" href="index.html">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2026/07/Springbot-logo-horiz-white.svg" alt="Springbolt Studio">
+    </a>
+    <div class="stagger">
+      <div class="tagline fade-in-up">Brand Strategists&nbsp;|&nbsp;Storytellers</div>
+      <div class="copyright fade-in-up">&copy; Raul Varela. All rights reserved.</div>
+    </div>
+  </div>
+</footer>
+
+<script src="hero-bg.js"></script>
+<script src="site.js"></script>
+</body>
+</html>

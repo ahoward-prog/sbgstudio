@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Go To Market Accelerator | Springbolt Studio</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+/* ============================ PAGE-SPECIFIC: GO-TO-MARKET ACCELERATOR ============================ */
+
+/* ---- HERO ---- */
+.gtm-hero{
+  position:relative;
+  padding: 240px 0 90px;
+  background: var(--sb-black);
+  color: var(--sb-white);
+  text-align:center;
+  overflow:hidden;
+}
+.gtm-hero .container{ position:relative; z-index:1; max-width: 1040px; }
+.gtm-hero .eyebrow{ text-align:center; }
+.gtm-hero h1{ color: var(--sb-white); font-size: 42px; margin-bottom: 32px; }
+.gtm-reasons{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 14px;
+  margin: 0 auto 40px;
+  text-align:left;
+}
+.gtm-reason-card{
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: var(--radius-card);
+  padding: 20px;
+}
+.gtm-reason-card p{ font-size: 14px; color: var(--sb-gray-200); margin:0; line-height:1.55; }
+.gtm-hero .hero-actions{ display:flex; gap:16px; justify-content:center; }
+
+/* ---- WHAT YOU GET / TIMELINE ---- */
+.gtm-get{ background: var(--sb-gray-50); }
+.gtm-get .tab-buttons{ justify-content:center; }
+.gtm-get > .container > p{ text-align:center; max-width: 820px; margin: 0 auto 48px; color: var(--sb-gray-500); }
+.gtm-get > .container > p a{ color: var(--sb-green-main); font-weight: var(--fw-semibold); }
+
+.timeline-grid{ display:grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; align-items:start; }
+.timeline-col{
+  background: var(--sb-white);
+  border-radius: var(--radius-card);
+  padding: 24px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.05);
+}
+.timeline-col.emphasis{ background: var(--sb-black); }
+.timeline-head{
+  text-align:center;
+  font-weight: var(--fw-semibold);
+  font-size: 15px;
+  letter-spacing: .5px;
+  padding: 12px 16px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 20px;
+  background: var(--sb-gray-50);
+  color: var(--sb-black);
+}
+.timeline-col.emphasis .timeline-head{ background: var(--sb-green-main); color: var(--sb-white); }
+.timeline-row{
+  display:flex; align-items:center; gap: 14px;
+  padding: 12px 0;
+  border-top: 1px solid var(--sb-gray-200);
+  font-size: 14px;
+  color: var(--sb-gray-700);
+}
+.timeline-col.emphasis .timeline-row{ border-top-color: rgba(255,255,255,.12); color: var(--sb-gray-200); }
+.timeline-row:first-of-type{ border-top:none; }
+.timeline-row .n{
+  flex-shrink:0;
+  width: 30px; height:30px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-size: 12px; font-weight: var(--fw-semibold);
+  background: var(--sb-green-main); color: var(--sb-white);
+}
+.timeline-col.emphasis .timeline-row .n{ background: var(--sb-green-light); color: var(--sb-black); }
+
+/* ---- VALUE GRID ---- */
+.value-section{ background: var(--sb-black); color: var(--sb-gray-200); }
+.value-section h2{ color: var(--sb-white); text-align:center; margin-bottom: 56px; max-width: 760px; margin-left:auto; margin-right:auto; }
+.value-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.value-grid h3{ color: var(--sb-green-light); font-size: 18px; margin-bottom: 8px; }
+.value-grid p{ font-size: 15px; color: var(--sb-gray-200); margin:0; }
+
+/* ---- WHY INTEGRATE ---- */
+.why-integrate h2{ text-align:center; margin-bottom: 40px; max-width: 700px; margin-left:auto; margin-right:auto; }
+.integrate-list{ max-width: 760px; margin: 0 auto; }
+.integrate-list li{ display:flex; gap: 14px; align-items:flex-start; font-size: 16px; color: var(--sb-gray-700); margin-bottom: 16px; }
+.integrate-list .ico{ color: var(--sb-green-main); font-weight: var(--fw-bold); flex-shrink:0; }
+
+/* ---- DIY VS ACCELERATOR ---- */
+.compare-section h2{ text-align:center; margin-bottom: 16px; }
+.compare-section > .container > p{ text-align:center; max-width: 720px; margin: 0 auto 56px; color: var(--sb-gray-500); }
+.compare-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.compare-card{ border-radius: var(--radius-card); padding: 40px; }
+.compare-card h3{ text-align:center; font-size: 15px; letter-spacing: 1.5px; text-transform:uppercase; margin-bottom: 28px; }
+.compare-card.diy{ background: var(--sb-black); color: var(--sb-gray-200); }
+.compare-card.diy h3{ color: var(--sb-gray-200); }
+.compare-card.accelerator{ background: var(--sb-green-dark); color: var(--sb-gray-200); }
+.compare-card.accelerator h3{ color: var(--sb-white); }
+.compare-card ul{ display:flex; flex-direction:column; gap: 18px; }
+.compare-card li{ display:flex; gap: 12px; align-items:flex-start; font-size: 15px; line-height:1.6; }
+.compare-card strong{ color: var(--sb-white); }
+.compare-card.diy .ico{ color: var(--sb-gray-500); flex-shrink:0; font-weight: var(--fw-bold); }
+.compare-card.accelerator .ico{ color: var(--sb-green-light); flex-shrink:0; font-weight: var(--fw-bold); }
+
+/* ---- WHY SPRINGBOLT ---- */
+.why-grid{ display:grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.why-card{ background: var(--sb-black); border-radius: var(--radius-card); padding: 28px; }
+.why-card .n{ font-size: 30px; font-weight: var(--fw-semibold); color: var(--sb-green-light); margin-bottom: 12px; display:block; }
+.why-card p{ color: var(--sb-gray-200); font-size: 14px; margin:0; }
+
+/* ---- CTA BANNER ---- */
+.cta-banner{
+  background: linear-gradient(135deg, var(--sb-green-dark), var(--sb-black));
+  color: var(--sb-white);
+  text-align:center;
+}
+.cta-banner h2{ color: var(--sb-white); margin-bottom: 32px; }
+.cta-banner .hero-actions{ display:flex; gap:16px; justify-content:center; }
+
+/* ---- CASE STUDIES ---- */
+.case-section h2{ text-align:center; margin-bottom: 56px; }
+.case-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.case-card{ background: var(--sb-black); border-radius: var(--radius-card); overflow:hidden; }
+.case-card img{ width:100%; height:180px; object-fit:cover; display:block; }
+.case-card .case-body{ padding: 24px; }
+.case-card .tag{
+  display:inline-block; font-size: 12px; font-weight: var(--fw-semibold);
+  letter-spacing: 1px; text-transform:uppercase; color: var(--sb-green-light);
+  margin-bottom: 10px;
+}
+.case-card h3{ color: var(--sb-white); font-size: 20px; margin-bottom: 16px; }
+.case-card .label{ color: var(--sb-green-light); font-size: 13px; font-weight: var(--fw-semibold); margin-bottom: 4px; }
+.case-card p{ color: var(--sb-gray-200); font-size: 14px; margin-bottom: 16px; }
+.case-card p:last-child{ margin-bottom:0; }
+
+@media (max-width: 1000px){
+  .timeline-grid{ grid-template-columns: 1fr; }
+  .value-grid{ grid-template-columns: 1fr 1fr; }
+  .compare-grid{ grid-template-columns: 1fr; }
+  .why-grid{ grid-template-columns: 1fr 1fr; }
+  .case-grid{ grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px){
+  .value-grid{ grid-template-columns: 1fr; }
+  .why-grid{ grid-template-columns: 1fr; }
+  .case-grid{ grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="index.html">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2026/07/Springbot-logo-horiz-white.svg" alt="Springbolt Studio">
+    </a>
+    <nav class="site-nav">
+      <ul>
+        <li class="has-dropdown">
+          <a href="products.html">Products</a>
+          <div class="dropdown">
+          <div class="dropdown-inner">
+            <a href="website-monitor.html">Website Monitor</a>
+            <a href="design-by-subscription.html">Design By Subscription</a>
+            <a href="go-to-market-accelerator.html">Go To Market Accelerator</a>
+            <a href="ada-compliant.html">ADA Compliant</a>
+            <a href="geofencing.html">Geofencing</a>
+          </div>
+        </div>
+        </li>
+        <li class="has-dropdown">
+          <a href="what-we-do.html">What We Do</a>
+          <div class="dropdown">
+          <div class="dropdown-inner">
+            <a href="what-we-do.html">Overview</a>
+            <a href="service-brand-strategy.html">Brand Strategy</a>
+            <a href="service-web-applications.html">Web Applications</a>
+            <a href="service-digital-marketing.html">Digital Marketing</a>
+            <a href="service-lead-generation.html">Lead Generation</a>
+            <a href="service-ui-ux-design.html">UI/UX Design</a>
+            <a href="service-startup-companies.html">Startup Companies</a>
+            <a href="service-marketing-tech.html">Marketing Tech</a>
+            <a href="service-social-media.html">Social Media</a>
+          </div>
+        </div>
+        </li>
+        <li class="has-dropdown">
+          <a href="work-branding.html">Work</a>
+          <div class="dropdown">
+          <div class="dropdown-inner">
+            <a href="work-branding.html">Branding</a>
+            <a href="work-identity.html">Identity</a>
+            <a href="work-websites.html">Websites</a>
+            <a href="work-collateral.html">Collateral</a>
+            <a href="work-packaging.html">Packaging</a>
+            <a href="work-videos.html">Videos</a>
+          </div>
+        </div>
+        </li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="lets-talk.html">Let's Talk</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="gtm-hero">
+  <div class="hero-bg-video" aria-hidden="true">
+    <video autoplay muted loop playsinline>
+      <source src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2024/05/video-bg.mov" type="video/mp4">
+    </video>
+    <div class="fade"></div>
+  </div>
+  <div class="container">
+    <span class="eyebrow">Go-to-Market Accelerator</span>
+    <h1 class="reveal-heading">
+      <span class="reveal-mask"><span class="reveal-line">Launch Integrated Sales &amp;</span></span>
+      <span class="reveal-mask"><span class="reveal-line">Marketing For Your Startup In</span></span>
+      <span class="reveal-mask"><span class="reveal-line">Just 90 Days.</span></span>
+    </h1>
+    <div class="gtm-reasons stagger">
+      <div class="gtm-reason-card fade-in-up"><p>Hit sales &amp; marketing milestones, even without a Marketing Director or Chief Marketing Officer.</p></div>
+      <div class="gtm-reason-card fade-in-up"><p>Save valuable time by skipping the traditional search for an expensive advertising agency.</p></div>
+      <div class="gtm-reason-card fade-in-up"><p>A Go-to-Market strategy increases investor confidence versus &rdquo;Do It Yourself Marketing&rdquo;.</p></div>
+      <div class="gtm-reason-card fade-in-up"><p>The tools to build a brand, validate ROI, and activate prospects&mdash;at an affordable price.</p></div>
+      <div class="gtm-reason-card fade-in-up"><p>After 90 days, you can transition to one of our ongoing design support subscription packages.</p></div>
+    </div>
+    <div class="hero-actions">
+      <a href="https://darkblue-mule-484055.hostingersite.com/book-a-call/" class="btn btn-primary">Schedule a Call</a>
+      <a href="lets-talk.html" class="btn btn-outline">Contact Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU GET -->
+<section class="section gtm-get">
+  <div class="container">
+    <h2 class="reveal-heading text-center">
+      <span class="reveal-mask"><span class="reveal-line">What You Get from Go-to-Market Accelerator</span></span>
+    </h2>
+
+    <div class="tab-group">
+      <div class="tab-buttons">
+        <button class="tab-btn active" data-tab-target="startups">Accelerator For Startups</button>
+        <button class="tab-btn" data-tab-target="enterprise">Accelerator For Enterprise</button>
+      </div>
+
+      <div class="tab-panel active" data-tab="startups">
+        <p>Whether you&rsquo;re a startup or established company launching a new product or service, our Go-to-Market Accelerators can be tailored to fit your specific needs. This flexible approach allows for customization of any tactic listed, with adjustable timelines to focus on the most crucial needs for your business. Tactics from any month can be added, removed, or modified to create a plan that works best for you. <a href="https://darkblue-mule-484055.hostingersite.com/book-a-call/">Book a call</a> today to discuss how a customized 3-month plan can be crafted to align with your specific business phase and objectives.</p>
+
+        <div class="timeline-grid">
+          <div class="timeline-col">
+            <div class="timeline-head">30 DAYS: $9,950</div>
+            <div class="timeline-row"><span class="n">01</span> Logo and Brand Guidelines + Templates</div>
+            <div class="timeline-row"><span class="n">02</span> AI Sales Copilot</div>
+            <div class="timeline-row"><span class="n">03</span> Prospect Email Outreach Plan</div>
+            <div class="timeline-row"><span class="n">04</span> 4 pg. Investor / Sales Website + Content + Blog</div>
+            <div class="timeline-row"><span class="n">05</span> LinkedIn Social Media Plan + Assets</div>
+          </div>
+          <div class="timeline-col emphasis">
+            <div class="timeline-head">60 DAYS: $9,950</div>
+            <div class="timeline-row"><span class="n">01</span> Keyword and Link Gap Analysis</div>
+            <div class="timeline-row"><span class="n">02</span> 3 Whitepapers</div>
+            <div class="timeline-row"><span class="n">03</span> 8 Blog Posts</div>
+            <div class="timeline-row"><span class="n">04</span> 60 Second Brand Awareness Video</div>
+            <div class="timeline-row"><span class="n">05</span> Prospect Database + Activation</div>
+          </div>
+          <div class="timeline-col">
+            <div class="timeline-head">90 DAYS: $9,950</div>
+            <div class="timeline-row"><span class="n">01</span> SEO Optimization for Microsite</div>
+            <div class="timeline-row"><span class="n">02</span> Launch Retargeting Campaign</div>
+            <div class="timeline-row"><span class="n">03</span> Trade Show Graphics</div>
+            <div class="timeline-row"><span class="n">04</span> 60 Second Testimonial Video</div>
+            <div class="timeline-row"><span class="n">05</span> Ongoing Marketing Support Plan</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" data-tab="enterprise">
+        <p>Whether you&rsquo;re a startup or established company launching a new product or service, our Go-to-Market Accelerators can be tailored to fit your specific needs. This flexible approach allows for customization of any tactic listed, with adjustable timelines to focus on the most crucial needs for your business. Tactics from any month can be added, removed, or modified to create a plan that works best for you. <a href="https://darkblue-mule-484055.hostingersite.com/book-a-call/">Book a call</a> today to discuss how a customized 3-month plan can be crafted to align with your specific business phase and objectives.</p>
+
+        <div class="timeline-grid">
+          <div class="timeline-col">
+            <div class="timeline-head">30 DAYS: $9,950</div>
+            <div class="timeline-row"><span class="n">01</span> Pursuit Strategy</div>
+            <div class="timeline-row"><span class="n">02</span> Pursuit Roadmap</div>
+            <div class="timeline-row"><span class="n">03</span> Content Strategy</div>
+            <div class="timeline-row"><span class="n">04</span> Social Media Plan</div>
+            <div class="timeline-row"><span class="n">05</span> Buying Committee Analysis</div>
+          </div>
+          <div class="timeline-col emphasis">
+            <div class="timeline-head">60 DAYS: $9,950</div>
+            <div class="timeline-row"><span class="n">01</span> Website Refresh Plan</div>
+            <div class="timeline-row"><span class="n">02</span> CRM Integration</div>
+            <div class="timeline-row"><span class="n">03</span> Graphic Design Execution</div>
+            <div class="timeline-row"><span class="n">04</span> Content Development</div>
+            <div class="timeline-row"><span class="n">05</span> Tactical Execution</div>
+          </div>
+          <div class="timeline-col">
+            <div class="timeline-head">90 DAYS: $9,950</div>
+            <div class="timeline-row"><span class="n">01</span> Prospect Activation</div>
+            <div class="timeline-row"><span class="n">02</span> Tactics Finalized</div>
+            <div class="timeline-row"><span class="n">03</span> Website Launched</div>
+            <div class="timeline-row"><span class="n">04</span> Nurture Campaigns</div>
+            <div class="timeline-row"><span class="n">05</span> Thought Leadership/Social Media</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUE GRID -->
+<section class="section value-section">
+  <div class="container">
+    <h2 class="reveal-heading">
+      <span class="reveal-mask"><span class="reveal-line">Every package includes over $24,000 in added value.</span></span>
+    </h2>
+    <div class="value-grid stagger">
+      <div class="fade-in-up">
+        <h3>In-depth Competitor Analysis</h3>
+        <p>Understand your market positioning ($5,000 value)</p>
+      </div>
+      <div class="fade-in-up">
+        <h3>Customer Profile Database</h3>
+        <p>Tailored database of perfect prospects ($2,500 value)</p>
+      </div>
+      <div class="fade-in-up">
+        <h3>Verified Contact List</h3>
+        <p>Up to 2,000 high-quality leads with contact info ($1,000 value)</p>
+      </div>
+      <div class="fade-in-up">
+        <h3>Lead Generation Agent</h3>
+        <p>Boost outreach with intelligent automation ($10,000 value)</p>
+      </div>
+      <div class="fade-in-up">
+        <h3>Automated LinkedIn Marketing</h3>
+        <p>Streamline your LinkedIn presence ($3,000 value)</p>
+      </div>
+      <div class="fade-in-up">
+        <h3>Integrated Meeting Scheduler</h3>
+        <p>Seamlessly book sales appointments ($3,000 value)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY INTEGRATE -->
+<section class="section why-integrate">
+  <div class="container">
+    <h2 class="reveal-heading text-center">
+      <span class="reveal-mask"><span class="reveal-line">Why Integrate Sales and Marketing?</span></span>
+    </h2>
+    <ul class="integrate-list stagger">
+      <li class="fade-in-up"><span class="ico">&#10003;</span> Avoids misalignment, commonly seen with a traditional, siloed approach</li>
+      <li class="fade-in-up"><span class="ico">&#10003;</span> Encourages startup leaders to focus on economic factors driving success</li>
+      <li class="fade-in-up"><span class="ico">&#10003;</span> Provides KPIs that your team, partners and investors want.</li>
+      <li class="fade-in-up"><span class="ico">&#10003;</span> Makes everything more transparent, smoother, and extremely efficient</li>
+    </ul>
+  </div>
+</section>
+
+<!-- DIY VS ACCELERATOR -->
+<section class="section compare-section" style="background:var(--sb-gray-50);">
+  <div class="container">
+    <h2 class="reveal-heading">
+      <span class="reveal-mask"><span class="reveal-line">Do It Yourself Marketing Versus Go-to-Market Accelerator</span></span>
+    </h2>
+    <p>We get it. Your startup isn&rsquo;t ready to hire a full-time marketing expert or big advertising agency yet. But that doesn&rsquo;t mean you have to get by or just do the marketing yourself. In fact, there are big risks in taking this approach that can create some big problems down the road.</p>
+
+    <div class="compare-grid">
+      <div class="compare-card diy">
+        <h3>Do It Yourself Marketing</h3>
+        <ul>
+          <li><span class="ico">&#8212;</span> <span><strong>Funding and resources</strong> are not managed well leading to missed opportunities.</span></li>
+          <li><span class="ico">&#8212;</span> <span><strong>Brand messaging</strong> is inconsistent, confusing, or ineffective and reduces impact.</span></li>
+          <li><span class="ico">&#8212;</span> <span><strong>Measurement</strong> of sales and marketing efforts is non-existent, making it difficult to track ROI.</span></li>
+          <li><span class="ico">&#8212;</span> <span><strong>Learning</strong> happens slowly as you inevitably make mistakes and delay your success.</span></li>
+          <li><span class="ico">&#8212;</span> <span><strong>Investors</strong> may get nervous about your lack of a clear go-to-market strategy.</span></li>
+          <li><span class="ico">&#8212;</span> <span><strong>Speed-to-market</strong> is hindered by indecision and lack of expertise leads to costly mistakes.</span></li>
+        </ul>
+      </div>
+      <div class="compare-card accelerator">
+        <h3>Go-to-Market Accelerator</h3>
+        <ul>
+          <li><span class="ico">&#10003;</span> <span><strong>Funding and resources</strong> management plan is clearly defined up-front.</span></li>
+          <li><span class="ico">&#10003;</span> <span><strong>Brand messaging</strong> is consistent, impactful, and based on market analysis.</span></li>
+          <li><span class="ico">&#10003;</span> <span><strong>Measurement</strong> based on clear objectives and tactics are optimized as you move forward.</span></li>
+          <li><span class="ico">&#10003;</span> <span><strong>Learning</strong> is accelerated as you let a seasoned marketing experts do all the heavy lifting.</span></li>
+          <li><span class="ico">&#10003;</span> <span><strong>Investors</strong> are impressed by the expertise and thoughtfulness behind your plan.</span></li>
+          <li><span class="ico">&#10003;</span> <span><strong>Speed-to-market</strong> is baked into the solution, including quickly pivoting when necessary.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY SPRINGBOLT -->
+<section class="section section-black">
+  <div class="container">
+    <h2 class="reveal-heading text-center">
+      <span class="reveal-mask"><span class="reveal-line">Why SpringBolt Studio?</span></span>
+    </h2>
+    <div class="why-grid stagger">
+      <div class="why-card fade-in-up">
+        <span class="n">1</span>
+        <p>30 years of marketing innovation and technology implementation expertise.</p>
+      </div>
+      <div class="why-card fade-in-up">
+        <span class="n">2</span>
+        <p>Extensive experience in helping scale businesses to profitability.</p>
+      </div>
+      <div class="why-card fade-in-up">
+        <span class="n">3</span>
+        <p>Proven track record in helping startups, backed by success stories.</p>
+      </div>
+      <div class="why-card fade-in-up">
+        <span class="n">4</span>
+        <p>All deliverables are vetted by a seasoned Executives and Creative Directors.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUR CLIENTS -->
+<section class="section clients">
+  <div class="container">
+    <h2 class="reveal-heading">
+      <span class="reveal-mask"><span class="reveal-line">Our Clients</span></span>
+    </h2>
+    <div class="logo-grid">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2023/10/logo-1-zebra.svg" alt="Zebra">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2023/10/logo-2-cyrusone.svg" alt="CyrusOne">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2023/10/logo-3-pickup.svg" alt="Pickup">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2023/10/logo-4-sml.svg" alt="SML RFID">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2023/10/logo-5-nice.svg" alt="NICE">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2023/10/logo-6-xome.svg" alt="Xome">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2023/10/logo-7-softlayer.svg" alt="Softlayer">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2023/10/logo-8-aligned.svg" alt="Aligned">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2023/10/logo-9-mrcooper.svg" alt="Mr. Cooper">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2023/10/logo-10-baylor.svg" alt="Baylor Scott & White">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2023/10/logo-11-tenet.svg" alt="Tenet">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2023/10/logo-12-ribbon.svg" alt="Ribbon">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2023/10/logo-13-valvoline.svg" alt="Valvoline">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2023/10/logo-14-efg.svg" alt="EFG Companies">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2023/10/logo-15-gdf.svg" alt="Good Day Farm">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2023/10/logo-16-abc.svg" alt="ABC">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2023/10/logo-18-vizient.svg" alt="Vizient">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2023/10/logo-17-tbi.svg" alt="Texas Back Institute">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2023/10/logo-19-sniffle.svg" alt="Sniffle">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2023/10/logo-20-tos.svg" alt="Total Office Solutions">
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section testimonials">
+  <div class="container">
+    <h2 class="reveal-heading">
+      <span class="reveal-mask"><span class="reveal-line">What Our Clients Have Said</span></span>
+    </h2>
+    <div class="quote-mark">&ldquo;</div>
+
+    <div class="testimonial-slide active">
+      <p>&ldquo;SpringBolt Studio has been a growth partner for more than five years. We depend on them as a vital extension of our internal team.&rdquo;</p>
+      <div class="cite">Joanna Soucy | Aligned Data Centers</div>
+    </div>
+    <div class="testimonial-slide">
+      <p>&lsquo;This team continues to surprise us with their fresh, relevant, and results-focused thinking and execution.&rdquo;</p>
+      <div class="cite">Jenny Rappaport | EFG Companies</div>
+    </div>
+    <div class="testimonial-slide">
+      <p>&ldquo;Thank you to the team at SpringBolt Studio for all the support you&rsquo;ve given us. We&rsquo;ve had some amazing results!&rdquo;</p>
+      <div class="cite">Chris G. William | Airport Dimensions</div>
+    </div>
+    <div class="testimonial-slide">
+      <p>&ldquo;I've worked with the SpringBolt Studio team for years. I consider them my secret weapon.&rdquo;</p>
+      <div class="cite">Brenda Stoner | ByteTrail</div>
+    </div>
+
+    <div class="dots">
+      <span class="active"></span><span></span><span></span><span></span>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section cta-banner">
+  <div class="container">
+    <h2 class="reveal-heading">
+      <span class="reveal-mask"><span class="reveal-line">How Do I Get Started?</span></span>
+    </h2>
+    <div class="hero-actions">
+      <a href="https://darkblue-mule-484055.hostingersite.com/book-a-call/" class="btn btn-primary">Schedule a Call</a>
+      <a href="lets-talk.html" class="btn btn-outline">Contact Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section class="section case-section">
+  <div class="container">
+    <h2 class="reveal-heading">
+      <span class="reveal-mask"><span class="reveal-line">Our Case Studies</span></span>
+    </h2>
+    <div class="case-grid stagger">
+
+      <div class="case-card fade-in-up">
+        <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2024/06/sniffle.png" alt="Sniffle">
+        <div class="case-body">
+          <span class="tag">5 Million Raised to Date</span>
+          <h3>SNIFFLE</h3>
+          <div class="label">Startup Story</div>
+          <p>This app delivers a virtual care ecosystem, including AI-powered instant diagnosis, virtual appointments, discount prescriptions, and more.</p>
+          <div class="label">Success Story</div>
+          <p>Launched through a partnership with AthenaHealth, Sniffle is currently focused on supplementing employer benefits packages.</p>
+        </div>
+      </div>
+
+      <div class="case-card fade-in-up">
+        <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2024/06/outbound.png" alt="Outbound Engine">
+        <div class="case-body">
+          <span class="tag">52 Million Raised + Exit</span>
+          <h3>OUTBOUND ENGINE</h3>
+          <div class="label">Startup Story</div>
+          <p>Delivering comprehensive marketing automation packages, their customers can easily develop a sales pipeline and see growth.</p>
+          <div class="label">Success Story</div>
+          <p>After raising $30M, the company achieved profitability within only 3 years and was sold to Aquiline Partners in 2021 for a multiple of ARR.</p>
+        </div>
+      </div>
+
+      <div class="case-card fade-in-up">
+        <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2024/06/pickup.png" alt="PICKUP">
+        <div class="case-body">
+          <span class="tag">40 Million Raised + Exit</span>
+          <h3>PICKUP</h3>
+          <div class="label">Startup Story</div>
+          <p>Labeled as &ldquo;Uber for stuff&rdquo; this on-demand delivery service evolved into partnerships with big and heavy retailers across the country.</p>
+          <div class="label">Success Story</div>
+          <p>PICKUP expanded to over 90 major cities and served half the country. It raised over $40 million through Series A and B, and was acquired.</p>
+        </div>
+      </div>
+
+      <div class="case-card fade-in-up">
+        <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2024/06/games.png" alt="Games2U">
+        <div class="case-body">
+          <span class="tag">Company Acquired in 2012</span>
+          <h3>GAMES2U</h3>
+          <div class="label">Startup Story</div>
+          <p>From video game trucks to laser tag to climbing walls, all types of games are delivered to birthday parties and other events.</p>
+          <div class="label">Success Story</div>
+          <p>Once a finalist on TV&rsquo;s Shark Tank, this concept quickly grew into 160 franchises within 2 years. It continues to thrive today.</p>
+        </div>
+      </div>
+
+      <div class="case-card fade-in-up">
+        <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2024/06/kallasy.png" alt="Kallassy's Swing Magic">
+        <div class="case-body">
+          <span class="tag">Product Licensed in 2010</span>
+          <h3>KALLASSY&rsquo;S SWING MAGIC</h3>
+          <div class="label">Startup Story</div>
+          <p>Most golfers want to improve their swing but don&rsquo;t know how. This training device was designed to do just that.</p>
+          <div class="label">Success Story</div>
+          <p>Swing Magic was the most successful new golf product of the early 2000&rsquo;s and is now licensed by legendary instructor Hank Haney.</p>
+        </div>
+      </div>
+
+      <div class="case-card fade-in-up">
+        <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2024/06/enversa.png" alt="Enversa Companies">
+        <div class="case-body">
+          <span class="tag">Company Acquired in 2009</span>
+          <h3>ENVERSA COMPANIES</h3>
+          <div class="label">Startup Story</div>
+          <p>This web-based media negotiation tool changed the way agencies and advertisers buy and sell print, digital media, TV, and radio advertising.</p>
+          <div class="label">Success Story</div>
+          <p>One of 2006&rsquo;s fastest growing public companies, it scaled from 0 to $15M and $5M in EBITDA. It was acquired by Cornerworld Corporation.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <a class="logo" href="index.html">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2026/07/Springbot-logo-horiz-white.svg" alt="Springbolt Studio">
+    </a>
+    <div class="stagger">
+      <div class="tagline fade-in-up">Brand Strategists&nbsp;|&nbsp;Storytellers</div>
+      <div class="copyright fade-in-up">&copy; Raul Varela. All rights reserved.</div>
+    </div>
+  </div>
+</footer>
+
+<script src="site.js"></script>
+</body>
+</html>

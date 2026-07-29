@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design By Subscription | Springbolt Studio</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+/* ============================ PAGE-SPECIFIC: DESIGN BY SUBSCRIPTION ============================ */
+
+/* ---- HERO ---- */
+.dbs-hero{
+  position:relative;
+  padding: 240px 0 90px;
+  background: var(--sb-black);
+  color: var(--sb-white);
+  text-align:center;
+  overflow:hidden;
+}
+.dbs-hero .container{ position:relative; z-index:1; max-width: 900px; }
+.dbs-hero .eyebrow{ text-align:center; }
+.dbs-hero h1{ color: var(--sb-white); font-size: 44px; margin-bottom: 48px; }
+.dbs-get-row{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  border-top: 1px solid rgba(255,255,255,.12);
+  padding-top: 40px;
+}
+.dbs-get-row .get-label{
+  font-size: 13px; font-weight: var(--fw-semibold); letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--sb-green-light); grid-column: 1 / -1;
+  margin-bottom: 8px; text-align:center;
+}
+.dbs-get-item{ font-size: 15px; color: var(--sb-gray-200); line-height:1.5; }
+
+/* ---- HOW IT WORKS ---- */
+.how-it-works h2{ text-align:center; margin-bottom: 64px; }
+.how-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 48px; }
+.how-grid h3{ color: var(--sb-green-main); font-size: 20px; margin-bottom: 12px; }
+.how-grid p{ color: var(--sb-gray-500); font-size: 15px; margin:0; }
+
+/* ---- OUR WORK ---- */
+.our-work h2{ text-align:center; margin-bottom: 56px; }
+.work-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.work-thumb{ border-radius: var(--radius-card); overflow:hidden; margin-bottom: 14px; background: var(--sb-gray-50); }
+.work-thumb img{ width:100%; display:block; }
+.work-grid h3{ font-size: 18px; margin:0; }
+
+/* ---- PRICING (page-specific: 3-package layout) ---- */
+.dbs-pricing-grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 24px;
+}
+.dbs-pricing-grid .starter{ grid-column: 1; grid-row: 1; }
+.dbs-pricing-grid .custom{ grid-column: 1; grid-row: 2; }
+.dbs-pricing-grid .pro{ grid-column: 2; grid-row: 1 / span 2; }
+
+@media (max-width: 1000px){
+  .dbs-get-row{ grid-template-columns: 1fr 1fr; }
+  .how-grid{ grid-template-columns: 1fr; }
+  .work-grid{ grid-template-columns: 1fr 1fr; }
+  .dbs-pricing-grid{ grid-template-columns: 1fr; }
+  .dbs-pricing-grid .starter, .dbs-pricing-grid .custom, .dbs-pricing-grid .pro{ grid-column: 1; grid-row: auto; }
+  .pricing-head{ flex-direction:column; align-items:flex-start; gap:16px; }
+}
+@media (max-width: 600px){
+  .dbs-get-row{ grid-template-columns: 1fr; }
+  .work-grid{ grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="index.html">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2026/07/Springbot-logo-horiz-white.svg" alt="Springbolt Studio">
+    </a>
+    <nav class="site-nav">
+      <ul>
+        <li class="has-dropdown">
+          <a href="products.html">Products</a>
+          <div class="dropdown">
+          <div class="dropdown-inner">
+            <a href="website-monitor.html">Website Monitor</a>
+            <a href="design-by-subscription.html">Design By Subscription</a>
+            <a href="go-to-market-accelerator.html">Go To Market Accelerator</a>
+            <a href="ada-compliant.html">ADA Compliant</a>
+            <a href="geofencing.html">Geofencing</a>
+          </div>
+        </div>
+        </li>
+        <li class="has-dropdown">
+          <a href="what-we-do.html">What We Do</a>
+          <div class="dropdown">
+          <div class="dropdown-inner">
+            <a href="what-we-do.html">Overview</a>
+            <a href="service-brand-strategy.html">Brand Strategy</a>
+            <a href="service-web-applications.html">Web Applications</a>
+            <a href="service-digital-marketing.html">Digital Marketing</a>
+            <a href="service-lead-generation.html">Lead Generation</a>
+            <a href="service-ui-ux-design.html">UI/UX Design</a>
+            <a href="service-startup-companies.html">Startup Companies</a>
+            <a href="service-marketing-tech.html">Marketing Tech</a>
+            <a href="service-social-media.html">Social Media</a>
+          </div>
+        </div>
+        </li>
+        <li class="has-dropdown">
+          <a href="work-branding.html">Work</a>
+          <div class="dropdown">
+          <div class="dropdown-inner">
+            <a href="work-branding.html">Branding</a>
+            <a href="work-identity.html">Identity</a>
+            <a href="work-websites.html">Websites</a>
+            <a href="work-collateral.html">Collateral</a>
+            <a href="work-packaging.html">Packaging</a>
+            <a href="work-videos.html">Videos</a>
+          </div>
+        </div>
+        </li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="lets-talk.html">Let's Talk</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="dbs-hero">
+  <div class="hero-bg-video" aria-hidden="true">
+    <video autoplay muted loop playsinline>
+      <source src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2024/05/video-bg.mov" type="video/mp4">
+    </video>
+    <div class="fade"></div>
+  </div>
+  <div class="container">
+    <span class="eyebrow">Design by Subscription</span>
+    <h1 class="reveal-heading">
+      <span class="reveal-mask"><span class="reveal-line">When a Freelancer is Not Enough,</span></span>
+      <span class="reveal-mask"><span class="reveal-line">and a Traditional Agency is Too Much.</span></span>
+    </h1>
+    <div class="dbs-get-row stagger">
+      <div class="get-label fade-in-up">With SpringBolt Studio Subscription, You Get:</div>
+      <div class="dbs-get-item fade-in-up">Unlimited design requests + unlimited revisions</div>
+      <div class="dbs-get-item fade-in-up">48-hour turnaround time on most projects</div>
+      <div class="dbs-get-item fade-in-up">A U.S.-based team with 30 years of experience</div>
+      <div class="dbs-get-item fade-in-up">Creative Directors Manage All Projects</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW DOES IT WORK -->
+<section class="section how-it-works">
+  <div class="container">
+    <h2 class="reveal-heading text-center">
+      <span class="reveal-mask"><span class="reveal-line">How Does It Work?</span></span>
+    </h2>
+    <div class="how-grid stagger">
+      <div class="fade-in-up">
+        <h3>Select a package that fits your needs.</h3>
+        <p>Not sure if you&rsquo;ll have enough projects to justify a subscription? No problem. You can pause at any time and reactivate later.</p>
+      </div>
+      <div class="fade-in-up">
+        <h3>Complete our onboarding process.</h3>
+        <p>This includes a live session with one of our team members to walk you through requests, revisions, support, and more.</p>
+      </div>
+      <div class="fade-in-up">
+        <h3>Begin submitting your requests.</h3>
+        <p>Just jump into our request platform and get started. See the information below for the types of projects included with each package.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUR CLIENTS -->
+<section class="section clients">
+  <div class="container">
+    <h2 class="reveal-heading">
+      <span class="reveal-mask"><span class="reveal-line">Our Clients</span></span>
+    </h2>
+    <div class="logo-grid">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2023/10/logo-1-zebra.svg" alt="Zebra">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2023/10/logo-2-cyrusone.svg" alt="CyrusOne">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2023/10/logo-3-pickup.svg" alt="Pickup">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2023/10/logo-4-sml.svg" alt="SML RFID">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2023/10/logo-5-nice.svg" alt="NICE">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2023/10/logo-6-xome.svg" alt="Xome">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2023/10/logo-7-softlayer.svg" alt="Softlayer">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2023/10/logo-8-aligned.svg" alt="Aligned">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2023/10/logo-9-mrcooper.svg" alt="Mr. Cooper">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2023/10/logo-10-baylor.svg" alt="Baylor Scott & White">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2023/10/logo-11-tenet.svg" alt="Tenet">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2023/10/logo-12-ribbon.svg" alt="Ribbon">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2023/10/logo-13-valvoline.svg" alt="Valvoline">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2023/10/logo-14-efg.svg" alt="EFG Companies">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2023/10/logo-15-gdf.svg" alt="Good Day Farm">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2023/10/logo-16-abc.svg" alt="ABC">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2023/10/logo-18-vizient.svg" alt="Vizient">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2023/10/logo-17-tbi.svg" alt="Texas Back Institute">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2023/10/logo-19-sniffle.svg" alt="Sniffle">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2023/10/logo-20-tos.svg" alt="Total Office Solutions">
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section testimonials">
+  <div class="container">
+    <h2 class="reveal-heading">
+      <span class="reveal-mask"><span class="reveal-line">What Our Clients Have Said</span></span>
+    </h2>
+    <div class="quote-mark">&ldquo;</div>
+
+    <div class="testimonial-slide active">
+      <p>&ldquo;SpringBolt Studio has been a growth partner for more than five years. We depend on them as a vital extension of our internal team.&rdquo;</p>
+      <div class="cite">Joanna Soucy | Aligned Data Centers</div>
+    </div>
+    <div class="testimonial-slide">
+      <p>&lsquo;This team continues to surprise us with their fresh, relevant, and results-focused thinking and execution.&rdquo;</p>
+      <div class="cite">Jenny Rappaport | EFG Companies</div>
+    </div>
+    <div class="testimonial-slide">
+      <p>&ldquo;Thank you to the team at SpringBolt Studio for all the support you&rsquo;ve given us. We&rsquo;ve had some amazing results!&rdquo;</p>
+      <div class="cite">Chris G. William | Airport Dimensions</div>
+    </div>
+    <div class="testimonial-slide">
+      <p>&ldquo;I've worked with the SpringBolt Studio team for years. I consider them my secret weapon.&rdquo;</p>
+      <div class="cite">Brenda Stoner | ByteTrail</div>
+    </div>
+
+    <div class="dots">
+      <span class="active"></span><span></span><span></span><span></span>
+    </div>
+  </div>
+</section>
+
+<!-- OUR WORK -->
+<section class="section our-work">
+  <div class="container">
+    <h2 class="reveal-heading">
+      <span class="reveal-mask"><span class="reveal-line">Our Work</span></span>
+    </h2>
+    <div class="work-grid stagger">
+      <div class="fade-in-up">
+        <div class="work-thumb"><img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2024/05/Img.svg" alt="UI/UX Design"></div>
+        <h3>UI/UX Design</h3>
+      </div>
+      <div class="fade-in-up">
+        <div class="work-thumb"><img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2024/05/Img-1.svg" alt="Branding"></div>
+        <h3>Branding</h3>
+      </div>
+      <div class="fade-in-up">
+        <div class="work-thumb"><img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2024/05/twu.svg" alt="Website Design"></div>
+        <h3>Website Design</h3>
+      </div>
+      <div class="fade-in-up">
+        <div class="work-thumb"><img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2024/05/Img-3.svg" alt="Data Visualization"></div>
+        <h3>Data Visualization</h3>
+      </div>
+      <div class="fade-in-up">
+        <div class="work-thumb"><img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2024/05/Img-4.svg" alt="Advertising"></div>
+        <h3>Advertising</h3>
+      </div>
+      <div class="fade-in-up">
+        <div class="work-thumb"><img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2024/05/Img-5.svg" alt="Collateral"></div>
+        <h3>Collateral</h3>
+      </div>
+      <div class="fade-in-up">
+        <div class="work-thumb"><img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2024/05/Img-6.svg" alt="Tradeshow Displays"></div>
+        <h3>Tradeshow Displays</h3>
+      </div>
+      <div class="fade-in-up">
+        <div class="work-thumb"><img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2024/05/Img-7.svg" alt="Social Media"></div>
+        <h3>Social Media</h3>
+      </div>
+      <div class="fade-in-up">
+        <div class="work-thumb"><img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2024/05/Img-8.svg" alt="Presentation Design"></div>
+        <h3>Presentation Design</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section pricing">
+  <div class="container">
+    <div class="pricing-head">
+      <h2 class="reveal-heading">
+        <span class="reveal-mask"><span class="reveal-line">Select a Package</span></span>
+      </h2>
+      <a href="lets-talk.html" class="btn btn-outline-dark">Contact Us</a>
+    </div>
+
+    <div class="dbs-pricing-grid">
+
+      <div class="price-card starter">
+        <span class="plan-tag">Starter Package</span>
+        <h3 class="price">$2999 per month</h3>
+        <ul class="check-list">
+          <li><span class="ico">&#10003;</span> Unlimited design requests</li>
+          <li><span class="ico">&#10003;</span> Unlimited revisions</li>
+          <li><span class="ico">&#10003;</span> One request or revision round at a time</li>
+          <li><span class="ico">&#10003;</span> Unlimited use of stock images</li>
+          <li><span class="ico">&#10003;</span> Unlimited brands</li>
+          <li><span class="ico">&#10003;</span> Requests + revisions sent through Monday</li>
+          <li><span class="ico">&#10003;</span> 2 live meetings per month</li>
+          <li><span class="ico">&#10003;</span> Pause or cancel anytime</li>
+        </ul>
+
+        <h4 class="sub-head">Level 1 Projects (Average 48 Hour Turnaround Time)</h4>
+        <ul class="plain-list">
+          <li>Landing pages</li>
+          <li>Single website pages</li>
+          <li>Mobile app graphics</li>
+          <li>Presentation Design (PowerPoint or Google Slides)</li>
+          <li>Social posts</li>
+          <li>Digital ads</li>
+          <li>Custom graphics</li>
+          <li>Illustrations</li>
+          <li>Icon design</li>
+          <li>Print flyers and brochures</li>
+          <li>Email Design</li>
+          <li>T-Shirt designs</li>
+          <li>Trade show graphics</li>
+          <li>Canva design</li>
+          <li>Blog graphics</li>
+        </ul>
+
+        <div class="price-actions">
+          <a href="https://buy.stripe.com/4gw4jN7ty4gx9Xy9AJ" class="btn btn-primary btn-sm">Sign Up</a>
+          <a href="https://darkblue-mule-484055.hostingersite.com/book-a-call/" class="btn btn-outline-dark btn-sm">Book a 15 Minute Call</a>
+        </div>
+      </div>
+
+      <div class="price-card custom price-card-compact">
+        <span class="plan-tag">Custom Package</span>
+        <h3 class="price">Don&rsquo;t see anything that fits your needs? Contact us and we&rsquo;ll be happy to discuss a more customized approach.</h3>
+        <div class="price-actions">
+          <a href="https://darkblue-mule-484055.hostingersite.com/book-a-call/" class="btn btn-primary btn-sm">Book a 15 Minute Call</a>
+        </div>
+      </div>
+
+      <div class="price-card pro">
+        <span class="plan-tag">Pro Package</span>
+        <h3 class="price">$4999 per month</h3>
+        <ul class="check-list">
+          <li><span class="ico">&#10003;</span> Unlimited design requests</li>
+          <li><span class="ico">&#10003;</span> Unlimited revisions</li>
+          <li><span class="ico">&#10003;</span> One request or revision round at a time</li>
+          <li><span class="ico">&#10003;</span> Unlimited use of stock images</li>
+          <li><span class="ico">&#10003;</span> Unlimited brands</li>
+          <li><span class="ico">&#10003;</span> Requests + revisions sent through Monday</li>
+          <li><span class="ico">&#10003;</span> 4 live meetings per month</li>
+          <li><span class="ico">&#10003;</span> Pause or cancel anytime</li>
+        </ul>
+
+        <h4 class="sub-head">Level 1 Projects (Average 48 Hour Turnaround Time)</h4>
+        <ul class="plain-list">
+          <li>Landing pages</li>
+          <li>Single website pages</li>
+          <li>Mobile app graphics</li>
+          <li>Presentation Design (PowerPoint or Google Slides)</li>
+          <li>Social posts</li>
+          <li>Digital ads</li>
+          <li>Custom graphics</li>
+          <li>Illustrations</li>
+          <li>Icon design</li>
+          <li>Print flyers and brochures</li>
+          <li>Email Design</li>
+          <li>T-Shirt designs</li>
+          <li>Trade show graphics</li>
+          <li>Canva design</li>
+          <li>Blog graphics</li>
+        </ul>
+
+        <h4 class="sub-head">Level 2 Projects (Turnaround Times Vary)</h4>
+        <ul class="plain-list">
+          <li>Brand audit</li>
+          <li>Website audit</li>
+          <li>Logo design</li>
+          <li>Visual identity design</li>
+          <li>Print collateral design</li>
+          <li>Trade show booth design</li>
+          <li>Packaging design</li>
+          <li>Wireframing</li>
+          <li>UI/UX design</li>
+          <li>Motion graphics</li>
+          <li>Copy editing</li>
+          <li>Simple website refresh (up to 5 pages)</li>
+          <li>Ongoing web maintenance edits</li>
+          <li>Creative writing</li>
+          <li>Includes addional project types not lsted here</li>
+        </ul>
+
+        <div class="price-actions">
+          <a href="https://buy.stripe.com/7sIaIb4hmfZf1r2aEM" class="btn btn-primary btn-sm">Sign Up</a>
+          <a href="https://darkblue-mule-484055.hostingersite.com/book-a-call/" class="btn btn-outline-dark btn-sm">Book a 15 Minute Call</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section faq">
+  <div class="container">
+    <h2 class="reveal-heading text-center">
+      <span class="reveal-mask"><span class="reveal-line">FAQs</span></span>
+    </h2>
+
+    <div class="faq-item">
+      <h3>How is a subscription from SpringBolt Studio different from an agency retainer?</h3>
+      <p>An agency retainer is typically based on a number of agency hours dedicated to your account per month. With a subscription, you don&rsquo;t have to track hours. You can submit as many requests and revisions as you like.</p>
+    </div>
+    <div class="faq-item">
+      <h3>How do I know I will receive quality design work?</h3>
+      <p>SpringBolt Studio has been helping marketers succeed for 30 years and every assignment is reviewed by a Creative Director.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Why do you request that I only submit one request or one revision at a time?</h3>
+      <p>The subscription model is a more streamlined version of the traditional agency model. As such, designers need to work more efficiently and being allowed to focus on one assignment at a time makes this possible.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What is if I need more than what is available through your subscriptions?</h3>
+      <p>No problem. Just give us a call and we can discuss a more customized approach to your needs.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Does your company believe that the traditional agency model is dead?</h3>
+      <p>Not at all. However, we also understand that customers are generally better served when they have more choices. This was the inspiration for offering design subscriptions.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <a class="logo" href="index.html">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2026/07/Springbot-logo-horiz-white.svg" alt="Springbolt Studio">
+    </a>
+    <div class="stagger">
+      <div class="tagline fade-in-up">Brand Strategists&nbsp;|&nbsp;Storytellers</div>
+      <div class="copyright fade-in-up">&copy; Raul Varela. All rights reserved.</div>
+    </div>
+  </div>
+</footer>
+
+<script src="site.js"></script>
+</body>
+</html>

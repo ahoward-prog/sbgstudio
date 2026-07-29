@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Startup Companies | Springbolt Studio</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+/* ============================ PAGE-SPECIFIC: STARTUP COMPANIES ============================ */
+
+/* ---- HERO ---- */
+.svc-hero{
+  position:relative;
+  min-height: 460px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: 130px 0 60px;
+  background: var(--sb-black);
+  color: var(--sb-white);
+  text-align:center;
+  overflow:hidden;
+}
+.svc-hero .container{ position:relative; z-index:1; max-width: 780px; }
+.svc-hero .eyebrow{ text-align:center; }
+.svc-hero h1{ color: var(--sb-white); font-size: 44px; margin-bottom: 22px; }
+.svc-hero p{ color: var(--sb-gray-200); font-size: 17px; margin:0; }
+
+/* ---- APPROACH CARD ---- */
+.svc-approach{ background: linear-gradient(160deg, var(--sb-gray-50), #eef7f6 60%, var(--sb-gray-50)); }
+.svc-card{
+  background: var(--sb-white);
+  border-radius: var(--radius-card);
+  padding: 48px;
+  box-shadow: 0 12px 40px rgba(0,0,0,.06);
+  max-width: 900px;
+  margin: 0 auto;
+}
+.svc-card > h2.label{ font-size: 15px; font-weight: var(--fw-semibold); letter-spacing:1.5px; text-transform:uppercase; color: var(--sb-gray-500); margin-bottom: 36px; }
+.svc-card > *:not(:first-child){ border-top: 1px solid var(--sb-gray-200); margin-top: 36px; padding-top: 36px; }
+.svc-block{ display:flex; gap: 24px; align-items:flex-start; }
+.svc-block img{ width: 44px; height:44px; flex-shrink:0; margin-top: 4px; }
+.svc-block h3{ font-size: 21px; margin-bottom: 8px; color: var(--sb-green-main); }
+.svc-block .lead{ font-weight: var(--fw-semibold); color: var(--sb-black); font-size: 16px; margin-bottom: 10px; }
+.svc-block p{ font-size: 15px; color: var(--sb-gray-500); margin-bottom: 0; }
+.svc-block p + p{ margin-top: 14px; }
+
+/* ---- CASE STUDIES (3-up) ---- */
+.svc-cases-section h2{ text-align:center; margin-bottom: 56px; }
+.svc-mini-case-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.svc-mini-case{
+  background: var(--sb-white);
+  border-radius: var(--radius-card);
+  overflow:hidden;
+  box-shadow: 0 8px 30px rgba(0,0,0,.06);
+  display:flex;
+  flex-direction:column;
+}
+.svc-mini-case img{ width:100%; height: 170px; object-fit:cover; }
+.svc-mini-case .body{ padding: 26px; display:flex; flex-direction:column; flex:1; }
+.svc-mini-case h3{ font-size: 19px; margin-bottom: 16px; }
+.svc-mini-case .field{ margin-bottom: 14px; }
+.svc-mini-case .field-label{ display:block; font-size: 11px; font-weight: var(--fw-semibold); letter-spacing: 1.5px; text-transform:uppercase; color: var(--sb-green-main); margin-bottom: 4px; }
+.svc-mini-case .field p{ font-size: 13.5px; color: var(--sb-gray-500); margin:0; }
+.svc-mini-case .btn{ margin-top: auto; align-self:flex-start; }
+
+/* ---- CTA ---- */
+.svc-cta{ text-align:center; }
+.svc-cta h2{ margin-bottom: 24px; }
+.svc-cta p{ max-width: 560px; margin: 0 auto 32px; color: var(--sb-gray-500); }
+
+@media (max-width: 1000px){
+  .svc-mini-case-grid{ grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 700px){
+  .svc-card{ padding: 32px 24px; }
+  .svc-block{ flex-direction:column; }
+  .svc-hero h1{ font-size: 34px; }
+  .svc-mini-case-grid{ grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="index.html">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2026/07/Springbot-logo-horiz-white.svg" alt="Springbolt Studio">
+    </a>
+    <nav class="site-nav">
+      <ul>
+        <li class="has-dropdown">
+          <a href="products.html">Products</a>
+          <div class="dropdown">
+          <div class="dropdown-inner">
+            <a href="website-monitor.html">Website Monitor</a>
+            <a href="design-by-subscription.html">Design By Subscription</a>
+            <a href="go-to-market-accelerator.html">Go To Market Accelerator</a>
+            <a href="ada-compliant.html">ADA Compliant</a>
+            <a href="geofencing.html">Geofencing</a>
+          </div>
+        </div>
+        </li>
+        <li class="has-dropdown">
+          <a href="what-we-do.html">What We Do</a>
+          <div class="dropdown">
+          <div class="dropdown-inner">
+            <a href="what-we-do.html">Overview</a>
+            <a href="service-brand-strategy.html">Brand Strategy</a>
+            <a href="service-web-applications.html">Web Applications</a>
+            <a href="service-digital-marketing.html">Digital Marketing</a>
+            <a href="service-lead-generation.html">Lead Generation</a>
+            <a href="service-ui-ux-design.html">UI/UX Design</a>
+            <a href="service-startup-companies.html">Startup Companies</a>
+            <a href="service-marketing-tech.html">Marketing Tech</a>
+            <a href="service-social-media.html">Social Media</a>
+          </div>
+        </div>
+        </li>
+        <li class="has-dropdown">
+          <a href="work-branding.html">Work</a>
+          <div class="dropdown">
+          <div class="dropdown-inner">
+            <a href="work-branding.html">Branding</a>
+            <a href="work-identity.html">Identity</a>
+            <a href="work-websites.html">Websites</a>
+            <a href="work-collateral.html">Collateral</a>
+            <a href="work-packaging.html">Packaging</a>
+            <a href="work-videos.html">Videos</a>
+          </div>
+        </div>
+        </li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="lets-talk.html">Let's Talk</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="svc-hero">
+  <div class="hero-bg-image" aria-hidden="true">
+    <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2023/10/img-hero-a50-00009.jpg" alt="">
+    <div class="fade"></div>
+  </div>
+  <div class="container">
+    <span class="eyebrow">What We Do</span>
+    <h1 class="reveal-heading">
+      <span class="reveal-mask"><span class="reveal-line">Startup Companies</span></span>
+    </h1>
+    <div class="stagger">
+      <p class="fade-in-up">There&rsquo;s a difference between advising startups and being a founder. We&rsquo;ve been on both sides: raising Series A and B rounds, scaling operations across markets, building teams from zero to hundreds, and navigating exits. That experience changes how you think about brand, positioning, and growth.</p>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section class="section svc-approach">
+  <div class="container">
+    <div class="svc-card">
+      <h2 class="label">Our Approach</h2>
+
+      <div class="svc-block">
+        <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2021/02/Icon-mountain.svg" alt="">
+        <div>
+          <h3>Building Toward Exit From Day One</h3>
+          <p class="lead">The companies that commanded higher multiples built brand equity that translated to enterprise value.</p>
+          <p>Most founders don&rsquo;t think about exit strategy until they&rsquo;re ready to sell. By then, it&rsquo;s too late to fix the problems that reduce valuation. This means different things at different stages: at seed, proof of concept; at Series A, proving you can scale; at Series B, unit economics; at exit, how much brand equity an acquirer can leverage.</p>
+        </div>
+      </div>
+
+      <div class="svc-block">
+        <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2021/02/icon-target.svg" alt="">
+        <div>
+          <h3>Why Most Startups Fail to Raise</h3>
+          <p class="lead">The difference between a $5M and $20M valuation is usually the story, not the product.</p>
+          <p>Investors see hundreds of pitches. Most fail for the same reason: founders can&rsquo;t articulate why they&rsquo;ll win, not why their product is better. The companies that raised successfully told a story about market timing, competitive advantage, and team capability &mdash; investors don&rsquo;t fund better mousetraps.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section class="section svc-cases-section" style="background:var(--sb-gray-50);">
+  <div class="container">
+    <h2 class="reveal-heading">
+      <span class="reveal-mask"><span class="reveal-line">Founder-Led Case Studies</span></span>
+    </h2>
+
+    <div class="svc-mini-case-grid stagger">
+      <div class="svc-mini-case fade-in-up">
+        <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2021/03/img-pickupnow.jpg" alt="PICKUP">
+        <div class="body">
+          <h3>PICKUP</h3>
+          <div class="field">
+            <span class="field-label">The Challenge</span>
+            <p>68% of shoppers abandon purchases due to delivery friction for big items.</p>
+          </div>
+          <div class="field">
+            <span class="field-label">What We Built</span>
+            <p>As co-founder and Brand Director, we built the &ldquo;Good Guys&rdquo; driver model, scaled to 90+ cities, raised $40M across Series A and B, and landed contracts with 20 of the top retailers in the country. Exited at Series B.</p>
+          </div>
+          <div class="field">
+            <span class="field-label">What We Learned</span>
+            <p>Early stage proves the model works in one market. Series A proves multiple markets. Series B proves unit economics at scale &mdash; the marketing that works at each stage is completely different.</p>
+          </div>
+          <a href="https://pickupnow.com/" class="btn btn-outline-dark btn-sm">Learn More</a>
+        </div>
+      </div>
+
+      <div class="svc-mini-case fade-in-up">
+        <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2021/03/img-kallassy-1.jpg" alt="Kallassy's Swing Magic">
+        <div class="body">
+          <h3>Kallassy&rsquo;s Swing Magic</h3>
+          <div class="field">
+            <span class="field-label">The Challenge</span>
+            <p>Golfers struggle to improve swing mechanics without professional instruction; most training aids are expensive or ineffective.</p>
+          </div>
+          <div class="field">
+            <span class="field-label">What We Built</span>
+            <p>Swing Magic launched through direct response infomercial marketing, selling over 750,000 units worldwide as the most successful new golf product of its era.</p>
+          </div>
+          <div class="field">
+            <span class="field-label">What We Learned</span>
+            <p>Licensed by golf instructor Hank Haney and endorsed by top pros, it became a category-defining product that proved infomercial marketing could work for sports training equipment.</p>
+          </div>
+          <a href="https://www.ispot.tv/ad/78px/swing-magic-perfect-your-swing" class="btn btn-outline-dark btn-sm">Learn More</a>
+        </div>
+      </div>
+
+      <div class="svc-mini-case fade-in-up">
+        <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2021/03/img-g2u.jpg" alt="Games2U">
+        <div class="body">
+          <h3>Games2U</h3>
+          <div class="field">
+            <span class="field-label">The Challenge</span>
+            <p>Parents wanted premium entertainment for kids&rsquo; parties and events without the hassle of venue booking and travel.</p>
+          </div>
+          <div class="field">
+            <span class="field-label">What We Built</span>
+            <p>As an early investor, we helped the company raise their first million and developed the complete marketing package: game concepts, website, graphics, operating system, and franchise sales materials.</p>
+          </div>
+          <div class="field">
+            <span class="field-label">What We Learned</span>
+            <p>Games2U appeared on Shark Tank and sold 70 franchises in year one, 160 in year two. The founder successfully sold the company, which continues operating under new management.</p>
+          </div>
+          <a href="https://www.g2u.com/" class="btn btn-outline-dark btn-sm">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section svc-cta">
+  <div class="container">
+    <h2 class="reveal-heading text-center">
+      <span class="reveal-mask"><span class="reveal-line">Ready to Build Toward Your Exit?</span></span>
+    </h2>
+    <p>Let&rsquo;s talk about the story investors and acquirers actually fund.</p>
+    <a href="lets-talk.html" class="btn btn-primary">Let's Talk</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <a class="logo" href="index.html">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2026/07/Springbot-logo-horiz-white.svg" alt="Springbolt Studio">
+    </a>
+    <div class="stagger">
+      <div class="tagline fade-in-up">Brand Strategists&nbsp;|&nbsp;Storytellers</div>
+      <div class="copyright fade-in-up">&copy; Raul Varela. All rights reserved.</div>
+    </div>
+  </div>
+</footer>
+
+<script src="site.js"></script>
+</body>
+</html>

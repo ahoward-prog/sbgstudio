@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Springbolt Studio — Style Guide (Reference Only)</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+/* ============================ PAGE-SPECIFIC: STYLE GUIDE ============================
+   This page is a living reference, not a site page — it isn't linked from
+   the nav. Open it whenever building a new page to confirm color, type,
+   button, and motion usage before writing markup. */
+
+body{ padding-top: 120px; }
+.guide-section{ padding: 64px 0; border-bottom: 1px solid var(--sb-gray-200); }
+.guide-section h2{ margin-bottom: 8px; }
+.guide-section .note{ color: var(--sb-gray-500); font-size: 15px; margin-bottom: 40px; }
+
+/* swatches */
+.swatch-grid{ display:grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
+.swatch{ border-radius: var(--radius-card); overflow:hidden; border:1px solid var(--sb-gray-200); }
+.swatch .fill{ height: 110px; }
+.swatch .label{ padding: 14px 16px; }
+.swatch .label .name{ font-weight: var(--fw-semibold); font-size: 14px; color: var(--sb-black); display:block; }
+.swatch .label .hex{ font-family: monospace; font-size: 13px; color: var(--sb-gray-500); }
+
+/* type specimen */
+.type-row{ display:flex; align-items:baseline; gap: 24px; padding: 18px 0; border-top: 1px solid var(--sb-gray-200); }
+.type-row:first-of-type{ border-top:none; }
+.type-row .tag{ width: 90px; flex-shrink:0; font-family: monospace; font-size: 13px; color: var(--sb-gray-500); }
+.type-row .sample{ margin:0; }
+
+/* button rows */
+.btn-row{ display:flex; gap: 20px; flex-wrap:wrap; align-items:center; padding: 24px; border-radius: var(--radius-card); margin-bottom: 16px; }
+.btn-row.on-white{ background: var(--sb-gray-50); }
+.btn-row.on-dark{ background: var(--sb-black); }
+.btn-row.on-green{ background: var(--sb-green-dark); }
+
+/* radius / spacing demo */
+.token-list{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.token-card{ border:1px solid var(--sb-gray-200); border-radius: var(--radius-card); padding: 24px; }
+.token-card .demo{ background: var(--sb-gray-50); margin-bottom: 16px; }
+
+/* motion demo boxes */
+.motion-demo{ background: var(--sb-black); border-radius: var(--radius-card); padding: 48px; text-align:center; }
+.motion-demo p{ color: var(--sb-gray-200); font-size: 15px; }
+
+code{ background: var(--sb-gray-50); padding: 2px 8px; border-radius: 6px; font-size: 14px; }
+pre{ background: var(--sb-black); color: var(--sb-gray-200); padding: 24px; border-radius: var(--radius-card); overflow-x:auto; font-size: 13px; line-height:1.6; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="index.html">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2026/07/Springbot-logo-horiz-white.svg" alt="Springbolt Studio">
+    </a>
+    <nav class="site-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#colors">Colors</a></li>
+        <li><a href="#type">Type</a></li>
+        <li><a href="#buttons">Buttons</a></li>
+        <li><a href="#motion">Motion</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+
+  <div class="guide-section" style="padding-top:0;">
+    <h2>Springbolt Studio — Style Guide</h2>
+    <p class="note">Reference this page before building any new page. Every color, type size, button, and motion pattern used across the site is documented here with the exact class names to reuse from <code>styles.css</code> / <code>site.js</code>. Don't introduce new colors, fonts, or button shapes — extend this system instead.</p>
+  </div>
+
+  <!-- COLORS -->
+  <section class="guide-section" id="colors">
+    <h2>Color Palette</h2>
+    <p class="note">Five colors, full stop: one main brand color, a light accent, a dark accent, plus black and white. Grays below are neutral tints for text/background only — they don't count as additional brand colors.</p>
+    <div class="swatch-grid">
+      <div class="swatch">
+        <div class="fill" style="background:var(--sb-green-main);"></div>
+        <div class="label"><span class="name">Main</span><span class="hex">#018076 &nbsp;--sb-green-main</span></div>
+      </div>
+      <div class="swatch">
+        <div class="fill" style="background:var(--sb-green-light);"></div>
+        <div class="label"><span class="name">Light Accent</span><span class="hex">#00d6be &nbsp;--sb-green-light</span></div>
+      </div>
+      <div class="swatch">
+        <div class="fill" style="background:var(--sb-green-dark);"></div>
+        <div class="label"><span class="name">Dark Accent</span><span class="hex">#004146 &nbsp;--sb-green-dark</span></div>
+      </div>
+      <div class="swatch">
+        <div class="fill" style="background:var(--sb-black);"></div>
+        <div class="label"><span class="name">Black</span><span class="hex">#000000 &nbsp;--sb-black</span></div>
+      </div>
+      <div class="swatch">
+        <div class="fill" style="background:var(--sb-white); border-bottom:1px solid var(--sb-gray-200);"></div>
+        <div class="label"><span class="name">White</span><span class="hex">#ffffff &nbsp;--sb-white</span></div>
+      </div>
+    </div>
+
+    <h3 style="margin-top:48px; font-size:20px;">Neutrals (supporting only)</h3>
+    <div class="swatch-grid">
+      <div class="swatch">
+        <div class="fill" style="background:var(--sb-black-soft);"></div>
+        <div class="label"><span class="name">Black Soft</span><span class="hex">#12181d &nbsp;--sb-black-soft</span></div>
+      </div>
+      <div class="swatch">
+        <div class="fill" style="background:var(--sb-gray-50); border-bottom:1px solid var(--sb-gray-200);"></div>
+        <div class="label"><span class="name">Gray 50</span><span class="hex">#f6f7f7 &nbsp;--sb-gray-50</span></div>
+      </div>
+      <div class="swatch">
+        <div class="fill" style="background:var(--sb-gray-200);"></div>
+        <div class="label"><span class="name">Gray 200</span><span class="hex">#e4e7e8 &nbsp;--sb-gray-200</span></div>
+      </div>
+      <div class="swatch">
+        <div class="fill" style="background:var(--sb-gray-500);"></div>
+        <div class="label"><span class="name">Gray 500</span><span class="hex">#6b7573 &nbsp;--sb-gray-500</span></div>
+      </div>
+      <div class="swatch">
+        <div class="fill" style="background:var(--sb-gray-700);"></div>
+        <div class="label"><span class="name">Gray 700</span><span class="hex">#3a4342 &nbsp;--sb-gray-700</span></div>
+      </div>
+    </div>
+
+    <h3 style="margin-top:48px; font-size:20px;">Gradient</h3>
+    <p class="note">The one approved gradient: light accent → dark accent, 108°. Used on the hero wordmark and available anywhere a word needs a highlight.</p>
+    <div class="swatch" style="max-width:340px;">
+      <div class="fill" style="background:linear-gradient(108deg, var(--sb-green-main), var(--sb-green-light));"></div>
+      <div class="label"><span class="name">.text-gradient</span><span class="hex">linear-gradient(108deg, #018076, #00d6be)</span></div>
+    </div>
+  </section>
+
+  <!-- TYPE -->
+  <section class="guide-section" id="type">
+    <h2>Typography</h2>
+    <p class="note">Font is Inter everywhere, no exceptions. Titles are semibold (600) — never the 700/800 weights. Body copy is regular 400.</p>
+
+    <div class="type-row"><div class="tag">h1 / 76px</div><h1 class="sample" style="margin:0;">Aa Springbolt</h1></div>
+    <div class="type-row"><div class="tag">h2 / 46px</div><h2 class="sample" style="margin:0;">Aa Springbolt</h2></div>
+    <div class="type-row"><div class="tag">h3 / 26px</div><h3 class="sample" style="margin:0;">Aa Springbolt</h3></div>
+    <div class="type-row"><div class="tag">eyebrow</div><span class="eyebrow" style="margin:0;">Aa Springbolt Eyebrow Label</span></div>
+    <div class="type-row"><div class="tag">body / 18px</div><p class="sample">Body copy is Inter Regular at 18px with 1.75 line-height. This is the size and weight used for every paragraph on the site — do not go smaller than 16px for running text.</p></div>
+
+    <p style="margin-top:24px;">Font stack: <code>'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif</code>. Weights in use: <code>400</code> regular, <code>500</code> medium (nav links, subtitle), <code>600</code> semibold (all headings, buttons).</p>
+  </section>
+
+  <!-- BUTTONS -->
+  <section class="guide-section" id="buttons">
+    <h2>Buttons</h2>
+    <p class="note">Always fully rounded (pill). Never use a squared or slightly-rounded button anywhere on the site.</p>
+
+    <div class="btn-row on-white">
+      <a href="#" class="btn btn-primary">Primary</a>
+      <a href="#" class="btn btn-outline-dark">Outline Dark</a>
+      <a href="#" class="btn btn-outline-green">Outline Green</a>
+    </div>
+    <div class="btn-row on-dark">
+      <a href="#" class="btn btn-primary">Primary</a>
+      <a href="#" class="btn btn-outline">Outline (on dark)</a>
+      <a href="#" class="btn btn-outline-green">Outline Green</a>
+    </div>
+    <div class="btn-row on-green">
+      <a href="#" class="btn btn-primary btn-sm">Primary — Small</a>
+      <a href="#" class="btn btn-outline-green btn-sm">Outline Green — Small</a>
+    </div>
+
+    <p style="margin-top:8px;">Classes: <code>.btn</code> (base) + one of <code>.btn-primary</code> / <code>.btn-outline</code> (white, for dark backgrounds) / <code>.btn-outline-dark</code> (black, for light backgrounds) / <code>.btn-outline-green</code> (green by default, not just on hover). Add <code>.btn-sm</code> for the smaller card/row size.</p>
+  </section>
+
+  <!-- SHAPE / SPACING -->
+  <section class="guide-section" id="shape">
+    <h2>Shape &amp; Spacing</h2>
+    <div class="token-list">
+      <div class="token-card">
+        <div class="demo" style="height:80px; border-radius:var(--radius-pill);"></div>
+        <strong>--radius-pill</strong> — 999px<br>every button
+      </div>
+      <div class="token-card">
+        <div class="demo" style="height:80px; border-radius:var(--radius-card);"></div>
+        <strong>--radius-card</strong> — 20px<br>images, cards, panels
+      </div>
+      <div class="token-card">
+        <div class="demo" style="height:80px;"></div>
+        <strong>--container</strong> — 1320px<br>max page width, 32px side padding
+      </div>
+    </div>
+    <p style="margin-top:24px;">Section vertical rhythm: <code>.section</code> = 128px top/bottom padding. Nav is a fixed floating pill (liquid glass), 18px from the top of the viewport on every page.</p>
+  </section>
+
+  <!-- MOTION -->
+  <section class="guide-section" id="motion" style="border-bottom:none;">
+    <h2>Load-in Motion</h2>
+    <p class="note">Two patterns, used site-wide. Scroll down and back up on this page to re-trigger them — see the live homepage for the full effect in context.</p>
+
+    <h3 style="font-size:20px;">1. Heading mask-reveal</h3>
+    <p class="note" style="margin-bottom:16px;">Each line (or, for the hero wordmark only, each character) sits in an overflow-hidden mask and slides up into place on scroll.</p>
+<pre>&lt;h2 class="reveal-heading"&gt;
+  &lt;span class="reveal-mask"&gt;&lt;span class="reveal-line"&gt;Line one&lt;/span&gt;&lt;/span&gt;
+  &lt;span class="reveal-mask"&gt;&lt;span class="reveal-line"&gt;Line two&lt;/span&gt;&lt;/span&gt;
+&lt;/h2&gt;</pre>
+
+    <h3 style="font-size:20px; margin-top:32px;">2. Body copy / buttons — fade + rise</h3>
+    <p class="note" style="margin-bottom:16px;">Apple-style: fades in while rising 22px, staggered across siblings inside a <code>.stagger</code> wrapper.</p>
+<pre>&lt;div class="stagger"&gt;
+  &lt;p class="fade-in-up"&gt;...&lt;/p&gt;
+  &lt;a class="btn btn-primary fade-in-up"&gt;...&lt;/a&gt;
+&lt;/div&gt;</pre>
+
+    <p class="note" style="margin-top:24px;">Both require <code>site.js</code> included before <code>&lt;/body&gt;</code> — it's what toggles <code>.is-visible</code> via IntersectionObserver. Include it on every page alongside <code>styles.css</code>.</p>
+  </section>
+
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <a class="logo" href="index.html">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2026/07/Springbot-logo-horiz-white.svg" alt="Springbolt Studio">
+    </a>
+    <div class="tagline">Brand Strategists&nbsp;|&nbsp;Storytellers</div>
+    <div class="copyright">&copy; Raul Varela. All rights reserved.</div>
+  </div>
+</footer>
+
+<script src="site.js"></script>
+</body>
+</html>

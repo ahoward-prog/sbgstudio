@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Geofencing | Springbolt Studio</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+/* ============================ PAGE-SPECIFIC: GEOFENCING ============================ */
+
+/* ---- HERO ---- */
+.geo-hero{
+  position:relative;
+  padding: 240px 0 90px;
+  background: var(--sb-black);
+  color: var(--sb-white);
+  text-align:center;
+  overflow:hidden;
+}
+.geo-hero .container{ position:relative; z-index:1; max-width: 780px; }
+.geo-hero .eyebrow{ text-align:center; }
+.geo-hero h1{ color: var(--sb-white); font-size: 40px; margin-bottom: 32px; }
+.geo-hero .strategy-label{
+  font-size: 14px; font-weight: var(--fw-semibold); letter-spacing: 1px;
+  color: var(--sb-gray-200); margin-bottom: 20px;
+}
+.geo-chip-row{ display:flex; gap: 14px; justify-content:center; flex-wrap:wrap; }
+.geo-chip{
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: var(--radius-card);
+  padding: 16px 22px;
+  font-size: 14px;
+  color: var(--sb-gray-200);
+  max-width: 220px;
+}
+
+/* ---- WHAT IS GEOFENCING ---- */
+.geo-what{ background: linear-gradient(160deg, var(--sb-gray-50), #eef7f6 60%, var(--sb-gray-50)); }
+.geo-card{
+  background: var(--sb-white);
+  border-radius: var(--radius-card);
+  padding: 44px;
+  box-shadow: 0 12px 40px rgba(0,0,0,.06);
+  max-width: 880px;
+  margin: 0 auto;
+}
+.geo-card h2{ font-size: 26px; margin-bottom: 8px; }
+.geo-card .lead{ font-weight: var(--fw-semibold); color: var(--sb-black); font-size: 16px; margin-bottom: 10px; }
+.geo-card p{ font-size: 15px; color: var(--sb-gray-500); }
+.geo-subblock{ border-top: 1px solid var(--sb-gray-200); margin-top: 28px; padding-top: 28px; }
+.geo-subblock h3{ font-size: 19px; margin-bottom: 8px; color: var(--sb-green-main); }
+.geo-preview-row{ display:grid; grid-template-columns: repeat(3,1fr); gap: 20px; max-width: 880px; margin: 32px auto 0; }
+.geo-preview-row img{ width:100%; border-radius: var(--radius-card); box-shadow: 0 8px 24px rgba(0,0,0,.08); }
+
+/* ---- WHERE TO USE ---- */
+.geo-use h2.label{ text-align:center; font-size: 15px; font-weight: var(--fw-semibold); letter-spacing:1.5px; text-transform:uppercase; color: var(--sb-gray-500); margin-bottom: 48px; }
+.geo-use-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.geo-use-grid h3{ color: var(--sb-green-main); font-size: 19px; margin-bottom: 10px; }
+.geo-use-grid p{ font-size: 14px; color: var(--sb-gray-500); margin:0; }
+
+/* ---- VALUE CARDS ---- */
+.value-section-light h2{ text-align:center; margin-bottom: 56px; }
+.value-cards-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.value-card{ background: var(--sb-gray-50); border-radius: var(--radius-card); padding: 28px; }
+.value-card img{ width: 40px; height:40px; margin-bottom: 16px; }
+.value-card h3{ font-size: 17px; margin-bottom: 8px; }
+.value-card p{ font-size: 14px; color: var(--sb-gray-500); margin:0; }
+
+/* ---- INDUSTRIES ---- */
+.industries h2{ text-align:center; margin-bottom: 56px; }
+.industries-cols{ display:grid; grid-template-columns: 1fr 1fr; gap: 24px 32px; }
+.industry-item{ display:flex; gap: 18px; align-items:flex-start; margin-bottom: 28px; }
+.industry-item img{ width: 110px; height: 84px; object-fit:cover; border-radius: var(--radius-card); flex-shrink:0; }
+.industry-item h3{ font-size: 17px; margin-bottom: 6px; }
+.industry-item p{ font-size: 14px; color: var(--sb-gray-500); margin:0; }
+
+/* ---- PRICING ---- */
+.geo-pricing-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.geo-pricing-grid .price-card .fine-print{ margin-top: 16px; }
+
+@media (max-width: 1000px){
+  .geo-preview-row{ grid-template-columns: 1fr; }
+  .geo-use-grid{ grid-template-columns: 1fr 1fr; }
+  .value-cards-grid{ grid-template-columns: 1fr 1fr; }
+  .industries-cols{ grid-template-columns: 1fr; }
+  .geo-pricing-grid{ grid-template-columns: 1fr; }
+  .pricing-head{ flex-direction:column; align-items:flex-start; gap:16px; }
+}
+@media (max-width: 600px){
+  .geo-use-grid{ grid-template-columns: 1fr; }
+  .value-cards-grid{ grid-template-columns: 1fr; }
+  .industry-item{ flex-direction:column; }
+  .industry-item img{ width:100%; height:160px; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="index.html">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2026/07/Springbot-logo-horiz-white.svg" alt="Springbolt Studio">
+    </a>
+    <nav class="site-nav">
+      <ul>
+        <li class="has-dropdown">
+          <a href="products.html">Products</a>
+          <div class="dropdown">
+          <div class="dropdown-inner">
+            <a href="website-monitor.html">Website Monitor</a>
+            <a href="design-by-subscription.html">Design By Subscription</a>
+            <a href="go-to-market-accelerator.html">Go To Market Accelerator</a>
+            <a href="ada-compliant.html">ADA Compliant</a>
+            <a href="geofencing.html">Geofencing</a>
+          </div>
+        </div>
+        </li>
+        <li class="has-dropdown">
+          <a href="what-we-do.html">What We Do</a>
+          <div class="dropdown">
+          <div class="dropdown-inner">
+            <a href="what-we-do.html">Overview</a>
+            <a href="service-brand-strategy.html">Brand Strategy</a>
+            <a href="service-web-applications.html">Web Applications</a>
+            <a href="service-digital-marketing.html">Digital Marketing</a>
+            <a href="service-lead-generation.html">Lead Generation</a>
+            <a href="service-ui-ux-design.html">UI/UX Design</a>
+            <a href="service-startup-companies.html">Startup Companies</a>
+            <a href="service-marketing-tech.html">Marketing Tech</a>
+            <a href="service-social-media.html">Social Media</a>
+          </div>
+        </div>
+        </li>
+        <li class="has-dropdown">
+          <a href="work-branding.html">Work</a>
+          <div class="dropdown">
+          <div class="dropdown-inner">
+            <a href="work-branding.html">Branding</a>
+            <a href="work-identity.html">Identity</a>
+            <a href="work-websites.html">Websites</a>
+            <a href="work-collateral.html">Collateral</a>
+            <a href="work-packaging.html">Packaging</a>
+            <a href="work-videos.html">Videos</a>
+          </div>
+        </div>
+        </li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="lets-talk.html">Let's Talk</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="geo-hero">
+  <div class="hero-bg-image" aria-hidden="true">
+    <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2024/08/geofencing-new-bg.png" alt="">
+    <div class="fade"></div>
+  </div>
+  <div class="container">
+    <span class="eyebrow">Geofencing</span>
+    <h1 class="reveal-heading">
+      <span class="reveal-mask"><span class="reveal-line">Geofence Your Way to 2.5X</span></span>
+      <span class="reveal-mask"><span class="reveal-line">More Customer Engagement.</span></span>
+    </h1>
+    <div class="stagger">
+      <div class="strategy-label fade-in-up">Strategically Utilize Geofencing to:</div>
+      <div class="geo-chip-row">
+        <div class="geo-chip fade-in-up">Target Prospects Within a Defined Area</div>
+        <div class="geo-chip fade-in-up">Create Immediate Audience Engagement</div>
+        <div class="geo-chip fade-in-up">Save Costs, Compared to Other Digital Media</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT IS GEOFENCING -->
+<section class="section geo-what">
+  <div class="container">
+    <div class="geo-card">
+      <h2 class="reveal-heading"><span class="reveal-mask"><span class="reveal-line">What is Geofencing?</span></span></h2>
+      <p class="lead">A smart way to connect, engaging people exactly where and when it matters most.</p>
+      <p>Imagine setting up an invisible digital fence around your favorite spots on a map. Whenever someone steps in or out of this zone with their smartphone&rsquo;s location services turned on, it kicks off a series of actions&mdash;personalized ads, alerts, or other cool stuff tailored just for them. It&rsquo;s a smart way to connect, engaging people exactly where and when it matters most.</p>
+
+      <div class="geo-subblock">
+        <h3>Beyond Google and Facebook</h3>
+        <p class="lead">Geofencing outshines Google Ads and Facebook Ads by 2.5 times.</p>
+        <p>We&rsquo;ve harnessed the kind of high-powered advertising technology that big companies thrive on and simplified it so everyone can get in on the action. Fact: when it comes to boosting conversions, geofencing outshines Google Ads and Facebook Ads by 2.5 times. So, you get results without breaking the bank.</p>
+      </div>
+
+      <div class="geo-subblock">
+        <h3>Personalized Impact Where and When it Counts</h3>
+        <p class="lead">Ensure your ads meet the exact audience you desire.</p>
+        <p>Now you can pinpoint your messages to reach only those who are most likely to engage with your product. With over 200,000 unique audience characteristics&mdash;from demographics and interests to behaviors, we ensure your ads meet the exact audience you desire.</p>
+      </div>
+    </div>
+
+    <div class="geo-preview-row">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2024/08/tb1.png" alt="Geofencing preview 1">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2024/08/tb2.png" alt="Geofencing preview 2">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2024/08/tb3.png" alt="Geofencing preview 3">
+    </div>
+  </div>
+</section>
+
+<!-- WHERE TO USE -->
+<section class="section geo-use">
+  <div class="container">
+    <h2 class="label">Where to Use Geofencing:</h2>
+    <div class="geo-use-grid stagger">
+      <div class="fade-in-up">
+        <h3>Local Ads for Businesses</h3>
+        <p>For small businesses, targeting ads locally means you can entice nearby customers with offers when they&rsquo;re most likely to stop by, whether it&rsquo;s a lunch special at your cafe or a flash sale at your boutique.</p>
+      </div>
+      <div class="fade-in-up">
+        <h3>Competitor Targeting</h3>
+        <p>Use geo-targeting to turn competitors into opportunities. Send a tempting offer to someone&rsquo;s device right when they&rsquo;re at your rival&rsquo;s location&mdash;it&rsquo;s a strategic nudge that could swing them your way.</p>
+      </div>
+      <div class="fade-in-up">
+        <h3>Combining Tactics</h3>
+        <p>Amp up your geo-targeting by mixing it with demographic or custom audience filters. Imagine you want to target ads only to women over 40 in a specific area, or you have a list of customers you only want to reach when they&rsquo;re close by&mdash;geo-targeting makes this seamless.</p>
+      </div>
+      <div class="fade-in-up">
+        <h3>B2B Marketing</h3>
+        <p>Big deals need precise targeting. Geofencing targets ads to the corporate headquarters of a potential business client, or tailor your messages to reach multiple companies on your prospect list directly at their offices.</p>
+      </div>
+      <div class="fade-in-up">
+        <h3>Event Targeting</h3>
+        <p>Miss out on a booth at a big conference? No problem. Geo-target the event location to ensure your ads reach the attendees, making your presence felt without being there physically.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUE -->
+<section class="section value-section-light" style="background:var(--sb-gray-50);">
+  <div class="container">
+    <h2 class="reveal-heading">
+      <span class="reveal-mask"><span class="reveal-line">How SpringBolt Studio Delivers Value</span></span>
+    </h2>
+    <div class="value-cards-grid stagger">
+      <div class="value-card fade-in-up">
+        <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2024/08/ic_01.svg" alt="">
+        <h3>World-Class Partnerships:</h3>
+        <p>We collaborate with top-tier technology providers to ensure our geofencing capabilities are cutting-edge. This means you benefit from the most advanced and reliable geofencing technology available.</p>
+      </div>
+      <div class="value-card fade-in-up">
+        <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2024/08/ic_02.svg" alt="">
+        <h3>Rapid Response Times:</h3>
+        <p>In the dynamic world of digital marketing, timing is everything. Our team is structured to respond quickly to your needs and adjustments, enabling real-time optimization of campaigns to leverage opportunities as they arise.</p>
+      </div>
+      <div class="value-card fade-in-up">
+        <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2024/08/ic_03.svg" alt="">
+        <h3>Dedicated Support Teams:</h3>
+        <p>We believe support is paramount. Our team ensures that from campaign conception to execution, you have expert guidance every step of the way, helping to optimize your marketing strategies and achieve desired outcomes.</p>
+      </div>
+      <div class="value-card fade-in-up">
+        <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2024/08/ic_04.svg" alt="">
+        <h3>Data Driven Strategies:</h3>
+        <p>We utilize detailed analytics to understand your audience deeply and refine targeting strategies. This helps in delivering personalized content to the right audience at the right time, significantly improving conversion rates and reducing waste.</p>
+      </div>
+      <div class="value-card fade-in-up">
+        <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2024/08/ic_05.svg" alt="">
+        <h3>Comprehensive Campaign Management</h3>
+        <p>From creating precise ad fences for your desired audience to crafting actionable ads that drive conversions, our approach is results-oriented. We continuously optimize campaigns, ensuring your advertising spend yields the highest return.</p>
+      </div>
+      <div class="value-card fade-in-up">
+        <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2024/08/ic_06.svg" alt="">
+        <h3>Extensive Industry Experience</h3>
+        <p>SpringBolt Studio gives you seasoned professionals, supported by an agency with more than 30 years of client success stories. We live and breathe strategic marketing every day so that you can rest easy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section class="section industries">
+  <div class="container">
+    <h2 class="reveal-heading">
+      <span class="reveal-mask"><span class="reveal-line">Industries that Benefit from Geofencing</span></span>
+    </h2>
+    <div class="industries-cols">
+      <div class="industries-col">
+        <div class="industry-item">
+          <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2024/08/img-01.png" alt="Retail">
+          <div><h3>Retail</h3><p>Retailers can use geofencing to send promotional notifications or discount offers to customers when they are near a store. This encourages foot traffic and can directly increase sales.</p></div>
+        </div>
+        <div class="industry-item">
+          <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2024/08/img-03.png" alt="Automotive">
+          <div><h3>Automotive</h3><p>Car dealerships utilize geofencing to target potential customers with special deals when they are near a dealership. This can also be effective for service reminders when past customers are nearby.</p></div>
+        </div>
+        <div class="industry-item">
+          <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2024/08/img-05.png" alt="Hospitality and Tourism">
+          <div><h3>Hospitality and Tourism</h3><p>Hotels and tourist attractions use geofencing to offer welcome messages, deals on upgrades, or information about amenities as guests arrive. Tourist attractions can promote exhibits or special discounts as visitors approach.</p></div>
+        </div>
+        <div class="industry-item">
+          <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2024/08/img-07.png" alt="Health and Fitness">
+          <div><h3>Health and Fitness</h3><p>Gyms and health clubs can target promotions for membership or classes to people who frequently visit nearby areas, or perhaps are near a competitor&rsquo;s location.</p></div>
+        </div>
+      </div>
+      <div class="industries-col">
+        <div class="industry-item">
+          <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2024/08/img-02.png" alt="Real Estate">
+          <div><h3>Real Estate</h3><p>Agents can trigger property alerts to potential buyers when they enter a specific neighborhood or pass near a property for sale, providing timely and relevant information that can aid in the buying process.</p></div>
+        </div>
+        <div class="industry-item">
+          <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2024/08/img-04.png" alt="Events and Entertainment">
+          <div><h3>Events and Entertainment</h3><p>For concerts, theaters, and sports events, geofencing can promote ticket sales and special events to individuals within a certain vicinity of the venue or inform them about upcoming events they might be interested in.</p></div>
+        </div>
+        <div class="industry-item">
+          <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2024/08/img-06.png" alt="Food and Beverage">
+          <div><h3>Food and Beverage</h3><p>Restaurants and bars can attract more customers by sending push notifications about daily specials or happy hour deals to people within a nearby area. This tactic can effectively increase immediate foot traffic.</p></div>
+        </div>
+        <div class="industry-item">
+          <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2024/08/img-08.png" alt="Education">
+          <div><h3>Education</h3><p>Educational institutions, especially colleges and universities, can use geofencing to target prospective students with information about open days, campus tours, or special programs when they are nearby.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section pricing">
+  <div class="container">
+    <div class="pricing-head">
+      <h2 class="reveal-heading">
+        <span class="reveal-mask"><span class="reveal-line">Ready to Get Started?</span></span>
+      </h2>
+      <a href="lets-talk.html" class="btn btn-outline-dark">Contact Us</a>
+    </div>
+
+    <div class="geo-pricing-grid">
+
+      <div class="price-card">
+        <span class="plan-tag">Basic Package</span>
+        <h3 class="price">Approximately $200-$500 per month*</h3>
+        <ul class="check-list">
+          <li><span class="ico">&#10003;</span> Setup and management of up to 10 geofences</li>
+          <li><span class="ico">&#10003;</span> Basic campaign analytics and reporting</li>
+          <li><span class="ico">&#10003;</span> Customer success team support</li>
+          <li><span class="ico">&#10003;</span> Collaboration with clients to craft and optimize messages</li>
+          <li><span class="ico">&#10003;</span> 2 live meetings per month</li>
+        </ul>
+        <div class="price-actions">
+          <a href="https://darkblue-mule-484055.hostingersite.com/book-a-call/" class="btn btn-primary btn-sm">Book a 15 Minute Call</a>
+        </div>
+      </div>
+
+      <div class="price-card">
+        <span class="plan-tag">Standard Package</span>
+        <h3 class="price">Approximately $1,000-$2,000 per month</h3>
+        <ul class="check-list">
+          <li><span class="ico">&#10003;</span> Setup and management of up 20-50 geofences</li>
+          <li><span class="ico">&#10003;</span> Enhanced analytical reports</li>
+          <li><span class="ico">&#10003;</span> Priority customer support</li>
+          <li><span class="ico">&#10003;</span> Tailored message crafting with ongoing optimization</li>
+          <li><span class="ico">&#10003;</span> Integration of geofencing with your existing digital marketing strategies</li>
+        </ul>
+        <div class="price-actions">
+          <a href="https://darkblue-mule-484055.hostingersite.com/book-a-call/" class="btn btn-primary btn-sm">Book a 15 Minute Call</a>
+        </div>
+      </div>
+
+      <div class="price-card">
+        <span class="plan-tag">Premium Package</span>
+        <h3 class="price">Approximately $2,500-$5,000 per month</h3>
+        <ul class="check-list">
+          <li><span class="ico">&#10003;</span> Advanced setup with unlimited geofences</li>
+          <li><span class="ico">&#10003;</span> Comprehensive data analytics and insights</li>
+          <li><span class="ico">&#10003;</span> Dedicated account manager and customer success team</li>
+          <li><span class="ico">&#10003;</span> Continuous collaboration on campaign message optimization</li>
+          <li><span class="ico">&#10003;</span> Advanced targeting options including competitor targeting and event-based geofencing</li>
+        </ul>
+        <div class="price-actions">
+          <a href="https://darkblue-mule-484055.hostingersite.com/book-a-call/" class="btn btn-primary btn-sm">Book a 15 Minute Call</a>
+        </div>
+      </div>
+
+    </div>
+    <p class="fine-print" style="text-align:center; margin-top:24px;">*Actual budget will be determined based on client objectives. Contact us to learn more.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section faq">
+  <div class="container">
+    <h2 class="reveal-heading text-center">
+      <span class="reveal-mask"><span class="reveal-line">FAQs</span></span>
+    </h2>
+
+    <div class="faq-item">
+      <h3>How does SpringBolt Studio set up a geofence?</h3>
+      <p>This typically involves selecting a geofencing platform or service, defining the geographical boundaries on a digital map, and specifying the actions that should occur when someone enters or exits the boundary. This setup can be customized according to specific business needs.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What geofencing services does SpringBolt Studio offer?</h3>
+      <p>SpringBolt Studio provides comprehensive geofencing solutions that include creating and managing virtual boundaries, crafting targeted marketing messages, executing campaigns, and analyzing the results to optimize performance. Our services are designed to enhance customer engagement through personalized location-based marketing.</p>
+    </div>
+    <div class="faq-item">
+      <h3>How does SpringBolt Studio enhance customer engagement with geofencing?</h3>
+      <p>We use geofencing to send personalized messages to customers when they enter a specific geographic area. This could include promotions, alerts, or special offers tailored to the customer&rsquo;s location and behavior, increasing the relevance and effectiveness of marketing efforts.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Can SpringBolt Studio help with geofencing for events?</h3>
+      <p>Yes, SpringBolt Studio specializes in event geofencing, which involves setting up geofences around event venues to engage attendees with timely and relevant information, offers, and experiences. This service is perfect for enhancing brand presence and interaction at trade shows, concerts, festivals, and other events.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What makes SpringBolt Studio geofencing services unique?</h3>
+      <p>SpringBolt Studio partners with world-class technology providers to deliver advanced geofencing solutions. We offer a dedicated customer success team that collaborates closely with clients to tailor messages and campaigns that resonate with their target audience. Our data-driven approach ensures high precision in targeting and maximizing return on investment.</p>
+    </div>
+    <div class="faq-item">
+      <h3>How does SpringBolt Studio ensure the effectiveness of a geofencing campaign?</h3>
+      <p>We continuously monitor and analyze the performance of each campaign and make data-driven adjustments to improve outcomes. Our services include detailed reporting that provides insights into campaign effectiveness, audience behavior, and conversion tracking.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What is required from a business to start a geofencing campaign with SpringBolt Studio?</h3>
+      <p>To start a geofencing campaign, businesses need to define their campaign goals, target geographic areas, and customer demographics. SpringBolt Studio will then collaborate with the business to develop customized messaging and implement the campaign, providing full support and optimization along the way.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <a class="logo" href="index.html">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2026/07/Springbot-logo-horiz-white.svg" alt="Springbolt Studio">
+    </a>
+    <div class="stagger">
+      <div class="tagline fade-in-up">Brand Strategists&nbsp;|&nbsp;Storytellers</div>
+      <div class="copyright fade-in-up">&copy; Raul Varela. All rights reserved.</div>
+    </div>
+  </div>
+</footer>
+
+<script src="site.js"></script>
+</body>
+</html>

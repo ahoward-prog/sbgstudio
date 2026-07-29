@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Let's Talk | Springbolt Studio</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+/* ============================ PAGE-SPECIFIC: LET'S TALK ============================ */
+
+/* .work-hero (shared, styles.css) supplies the title-only hero band */
+
+.talk-section{ background: linear-gradient(160deg, var(--sb-gray-50), #eef7f6 60%, var(--sb-gray-50)); }
+.talk-grid{ display:grid; grid-template-columns: 3fr 2fr; gap: 32px; align-items:start; }
+
+/* ---- FORM CARD ---- */
+.talk-form-card{
+  background: var(--sb-white);
+  border-radius: var(--radius-card);
+  padding: 48px;
+  box-shadow: 0 12px 40px rgba(0,0,0,.06);
+}
+.talk-form-card h2{ font-size: 28px; margin-bottom: 8px; }
+.talk-form-card .required-note{ font-size: 13px; color: var(--sb-gray-500); margin-bottom: 32px; }
+.form-row{ display:grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.form-group{ margin-bottom: 22px; }
+.form-group label{
+  display:block;
+  font-size: 13px;
+  font-weight: var(--fw-semibold);
+  letter-spacing: .5px;
+  color: var(--sb-black);
+  margin-bottom: 8px;
+}
+.form-group label .req{ color: var(--sb-green-main); }
+.form-group input,
+.form-group textarea{
+  width:100%;
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--sb-black);
+  background: var(--sb-gray-50);
+  border: 1px solid var(--sb-gray-200);
+  border-radius: 12px;
+  padding: 14px 16px;
+  transition: border-color .2s ease, background .2s ease;
+}
+.form-group input:focus,
+.form-group textarea:focus{
+  outline:none;
+  border-color: var(--sb-green-main);
+  background: var(--sb-white);
+}
+.form-group textarea{ min-height: 140px; resize: vertical; }
+.talk-form-card .btn{ width:100%; text-align:center; border:none; }
+@media (max-width:600px){ .form-row{ grid-template-columns: 1fr; } }
+
+/* ---- INFO CARD ---- */
+.talk-info-card{
+  background: linear-gradient(150deg, var(--sb-green-dark), var(--sb-black));
+  color: var(--sb-white);
+  border-radius: var(--radius-card);
+  padding: 44px 40px;
+}
+.talk-info-card .info-block{ margin-bottom: 32px; }
+.talk-info-card .info-block:last-child{ margin-bottom:0; }
+.talk-info-card .info-label{
+  display:block;
+  font-size: 13px;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--sb-green-light);
+  margin-bottom: 10px;
+}
+.talk-info-card p{ color: var(--sb-gray-200); font-size: 15.5px; margin:0 0 4px; }
+.talk-info-card a{ color: var(--sb-white); }
+.talk-info-card a:hover{ color: var(--sb-green-light); }
+.talk-info-card hr{ border:none; border-top: 1px solid rgba(255,255,255,.14); margin: 32px 0; }
+
+@media (max-width: 900px){
+  .talk-grid{ grid-template-columns: 1fr; }
+}
+@media (max-width: 600px){
+  .talk-form-card{ padding: 32px 24px; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="index.html">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2026/07/Springbot-logo-horiz-white.svg" alt="Springbolt Studio">
+    </a>
+    <nav class="site-nav">
+      <ul>
+        <li class="has-dropdown">
+          <a href="products.html">Products</a>
+          <div class="dropdown">
+          <div class="dropdown-inner">
+            <a href="website-monitor.html">Website Monitor</a>
+            <a href="design-by-subscription.html">Design By Subscription</a>
+            <a href="go-to-market-accelerator.html">Go To Market Accelerator</a>
+            <a href="ada-compliant.html">ADA Compliant</a>
+            <a href="geofencing.html">Geofencing</a>
+          </div>
+        </div>
+        </li>
+        <li class="has-dropdown">
+          <a href="what-we-do.html">What We Do</a>
+          <div class="dropdown">
+          <div class="dropdown-inner">
+            <a href="what-we-do.html">Overview</a>
+            <a href="service-brand-strategy.html">Brand Strategy</a>
+            <a href="service-web-applications.html">Web Applications</a>
+            <a href="service-digital-marketing.html">Digital Marketing</a>
+            <a href="service-lead-generation.html">Lead Generation</a>
+            <a href="service-ui-ux-design.html">UI/UX Design</a>
+            <a href="service-startup-companies.html">Startup Companies</a>
+            <a href="service-marketing-tech.html">Marketing Tech</a>
+            <a href="service-social-media.html">Social Media</a>
+          </div>
+        </div>
+        </li>
+        <li class="has-dropdown">
+          <a href="work-branding.html">Work</a>
+          <div class="dropdown">
+          <div class="dropdown-inner">
+            <a href="work-branding.html">Branding</a>
+            <a href="work-identity.html">Identity</a>
+            <a href="work-websites.html">Websites</a>
+            <a href="work-collateral.html">Collateral</a>
+            <a href="work-packaging.html">Packaging</a>
+            <a href="work-videos.html">Videos</a>
+          </div>
+        </div>
+        </li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="lets-talk.html">Let's Talk</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="work-hero">
+  <div class="hero-bg-image" aria-hidden="true">
+    <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2026/02/contact-scaled.jpg" alt="">
+    <div class="fade"></div>
+  </div>
+  <div class="container">
+    <h1 class="reveal-heading">
+      <span class="reveal-mask"><span class="reveal-line">Let's Talk</span></span>
+    </h1>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section talk-section">
+  <div class="container">
+    <div class="talk-grid">
+
+      <div class="talk-form-card">
+        <h2>Send Us a Message</h2>
+        <p class="required-note">&ldquo;*&rdquo; indicates required fields</p>
+
+        <form>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="talk-name">Name <span class="req">*</span></label>
+              <input type="text" id="talk-name" name="name" required>
+            </div>
+            <div class="form-group">
+              <label for="talk-phone">Phone</label>
+              <input type="tel" id="talk-phone" name="phone">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="talk-email">Email <span class="req">*</span></label>
+            <input type="email" id="talk-email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="talk-message">Message</label>
+            <textarea id="talk-message" name="message"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+      </div>
+
+      <div class="talk-info-card">
+        <div class="info-block">
+          <span class="info-label">Address</span>
+          <p>4502 Shinnecock Hills Cir</p>
+          <p>Garland, TX 75044</p>
+        </div>
+        <hr>
+        <div class="info-block">
+          <span class="info-label">Email</span>
+          <p><a href="mailto:info@agency50.com">info@agency50.com</a></p>
+        </div>
+        <hr>
+        <div class="info-block">
+          <span class="info-label">Phone</span>
+          <p><a href="tel:972-672-9701">972-672-9701</a></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <a class="logo" href="index.html">
+      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2026/07/Springbot-logo-horiz-white.svg" alt="Springbolt Studio">
+    </a>
+    <div class="stagger">
+      <div class="tagline fade-in-up">Brand Strategists&nbsp;|&nbsp;Storytellers</div>
+      <div class="copyright fade-in-up">&copy; Raul Varela. All rights reserved.</div>
+    </div>
+  </div>
+</footer>
+
+<script src="site.js"></script>
+</body>
+</html>
