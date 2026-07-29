@@ -463,18 +463,23 @@ p{ line-height: 1.75; margin: 0 0 20px; font-size: 18px; }
 .clients h2{ color: var(--sb-white); margin-bottom: 56px; }
 .logo-grid{
   display:grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 40px 24px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 48px 32px;
   align-items:center;
 }
 .logo-grid img{
-  max-height: 42px;
+  max-height: 68px;
+  width:auto;
   margin: 0 auto;
   filter: brightness(0) invert(1);
-  opacity:.85;
+  opacity:.9;
 }
 @media (max-width: 900px){
   .logo-grid{ grid-template-columns: repeat(3,1fr); }
+  .logo-grid img{ max-height: 56px; }
+}
+@media (max-width: 600px){
+  .logo-grid{ grid-template-columns: repeat(2,1fr); }
 }
 
 /* Testimonial carousel — JS rotation lives in site.js (auto-detects every

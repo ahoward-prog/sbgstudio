@@ -123,6 +123,13 @@
   .work-row .work-image{ min-height: 220px; }
   .hero h1{ font-size: 42px; }
 }
+@media (max-width: 420px){
+  /* The wordmark's two words are joined with a non-breaking space by
+     design (never wrap "Springbolt Studio" apart) — on the narrowest
+     phones that forces the line wider than the viewport at 42px, so
+     step it down further here rather than let it scroll horizontally. */
+  .hero h1{ font-size: 30px; }
+}
 </style>
 </head>
 <body>
