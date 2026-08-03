@@ -191,7 +191,7 @@ p{ line-height: 1.75; margin: 0 0 20px; font-size: 18px; }
   background: var(--sb-nav-glass);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.06);
   box-shadow: 0 8px 24px rgba(0,0,0,.3);
   transition: box-shadow .15s ease;
 }
