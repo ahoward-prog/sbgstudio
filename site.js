@@ -54,24 +54,48 @@ document.addEventListener('DOMContentLoaded', () => {
   // window is resized back above the mobile breakpoint while open.
   const header = document.querySelector('.site-header');
   const navToggle = document.querySelector('.nav-toggle');
+  const closeAllDropdowns = () => {
+    header.querySelectorAll('.has-dropdown.dropdown-open').forEach((li) => {
+      li.classList.remove('dropdown-open');
+      const btn = li.querySelector('.dropdown-toggle');
+      if (btn) btn.setAttribute('aria-expanded', 'false');
+    });
+  };
   if (header && navToggle) {
     navToggle.addEventListener('click', () => {
       const isOpen = header.classList.toggle('nav-open');
       navToggle.setAttribute('aria-expanded', String(isOpen));
+      if (!isOpen) closeAllDropdowns();
     });
     header.querySelectorAll('.site-nav a').forEach((a) => {
       a.addEventListener('click', () => {
         header.classList.remove('nav-open');
         navToggle.setAttribute('aria-expanded', 'false');
+        closeAllDropdowns();
       });
     });
     window.addEventListener('resize', () => {
       if (window.innerWidth > 860) {
         header.classList.remove('nav-open');
         navToggle.setAttribute('aria-expanded', 'false');
+        closeAllDropdowns();
       }
     });
   }
+
+  // Mobile dropdown accordions — each "has-dropdown" li gets a chevron
+  // button (touch-only; desktop keeps the existing hover reveal) that
+  // toggles a "dropdown-open" class, expanding just that one submenu
+  // instead of showing every submenu at once.
+  document.querySelectorAll('.dropdown-toggle').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const li = btn.closest('.has-dropdown');
+      if (!li) return;
+      const isOpen = li.classList.toggle('dropdown-open');
+      btn.setAttribute('aria-expanded', String(isOpen));
+    });
+  });
 
   // Testimonial carousels — every ".testimonials" block on the page gets
   // its own independent rotation among its ".testimonial-slide" /

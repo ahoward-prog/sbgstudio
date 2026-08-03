@@ -6,70 +6,25 @@
 <title>Social Media | Springbolt Studio</title>
 <link rel="stylesheet" href="styles.css">
 <style>
-/* ============================ PAGE-SPECIFIC: SOCIAL MEDIA ============================ */
-
-/* ---- HERO ---- */
-.svc-hero{
-  position:relative;
-  min-height: 460px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding: 130px 0 60px;
-  background: var(--sb-black);
-  color: var(--sb-white);
-  text-align:center;
-  overflow:hidden;
-}
-.svc-hero .container{ position:relative; z-index:1; max-width: 760px; }
-.svc-hero .eyebrow{ text-align:center; }
-.svc-hero h1{ color: var(--sb-white); font-size: 44px; margin-bottom: 22px; }
-.svc-hero p{ color: var(--sb-gray-200); font-size: 17px; margin:0; }
-
-/* ---- APPROACH CARD ---- */
-.svc-approach{ background: linear-gradient(160deg, var(--sb-gray-50), #eef7f6 60%, var(--sb-gray-50)); }
-.svc-card{
+/* ============================ PAGE-SPECIFIC: SOCIAL MEDIA (DESIGN REFERENCE) ============================ */
+.ref-section{ background: linear-gradient(160deg, var(--sb-gray-50), #eef7f6 60%, var(--sb-gray-50)); }
+.ref-card{
   background: var(--sb-white);
   border-radius: var(--radius-card);
-  padding: 48px;
+  padding: 56px;
   box-shadow: 0 12px 40px rgba(0,0,0,.06);
-  max-width: 900px;
+  max-width: 640px;
   margin: 0 auto;
+  text-align:center;
 }
-.svc-card > h2.label{ font-size: 15px; font-weight: var(--fw-semibold); letter-spacing:1.5px; text-transform:uppercase; color: var(--sb-gray-500); margin-bottom: 36px; }
-.svc-card > *:not(:first-child){ border-top: 1px solid var(--sb-gray-200); margin-top: 36px; padding-top: 36px; }
-.svc-block{ display:flex; gap: 24px; align-items:flex-start; }
-.svc-block img{ width: 44px; height:44px; flex-shrink:0; margin-top: 4px; }
-.svc-block h3{ font-size: 21px; margin-bottom: 8px; color: var(--sb-green-main); }
-.svc-block .lead{ font-weight: var(--fw-semibold); color: var(--sb-black); font-size: 16px; margin-bottom: 10px; }
-.svc-block p{ font-size: 15px; color: var(--sb-gray-500); margin-bottom: 0; }
-.svc-block p + p{ margin-top: 14px; }
-
-/* ---- CASE STUDY ---- */
-.svc-case{ background: var(--sb-black); color: var(--sb-gray-200); }
-.svc-case .case-head{ max-width: 820px; margin: 0 auto 56px; text-align:center; }
-.svc-case .case-head h2{ color: var(--sb-white); }
-.svc-case .case-head p{ color: var(--sb-gray-200); font-size: 16px; }
-.svc-case-cols{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 32px; max-width: 1000px; margin: 0 auto; }
-.svc-case-cols h3{ color: var(--sb-green-light); font-size: 15px; font-weight: var(--fw-semibold); letter-spacing:1.5px; text-transform:uppercase; margin-bottom: 12px; }
-.svc-case-cols p{ font-size: 14.5px; color: var(--sb-gray-200); margin:0; }
-.svc-case-images{ display:grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 820px; margin: 48px auto 0; }
-.svc-case-images img{ width:100%; border-radius: var(--radius-card); }
-.svc-case-actions{ text-align:center; margin-top: 44px; }
-
-/* ---- CTA ---- */
-.svc-cta{ text-align:center; }
-.svc-cta h2{ margin-bottom: 24px; }
-.svc-cta p{ max-width: 560px; margin: 0 auto 32px; color: var(--sb-gray-500); }
-
-@media (max-width: 900px){
-  .svc-case-cols{ grid-template-columns: 1fr; }
-  .svc-case-images{ grid-template-columns: 1fr; }
-}
-@media (max-width: 700px){
-  .svc-card{ padding: 32px 24px; }
-  .svc-block{ flex-direction:column; }
-  .svc-hero h1{ font-size: 34px; }
+.ref-card .eyebrow{ text-align:center; }
+.ref-card h2{ font-size: 28px; margin-bottom: 14px; }
+.ref-card p{ color: var(--sb-gray-500); font-size: 15px; margin-bottom: 28px; }
+.ref-divider{ border-top: 1px solid var(--sb-gray-200); margin: 40px 0; }
+.ref-guide h3{ font-size: 17px; margin-bottom: 14px; }
+.ref-guide p{ font-size: 14px; margin-bottom: 10px; }
+@media (max-width:600px){
+  .ref-card{ padding: 36px 24px; }
 }
 </style>
 </head>
@@ -84,6 +39,7 @@
       <ul>
         <li class="has-dropdown">
           <a href="products.html">Products</a>
+          <button type="button" class="dropdown-toggle" aria-label="Toggle Products submenu" aria-expanded="false"></button>
           <div class="dropdown">
           <div class="dropdown-inner">
             <a href="website-monitor.html">Website Monitor</a>
@@ -96,9 +52,9 @@
         </li>
         <li class="has-dropdown">
           <a href="what-we-do.html">What We Do</a>
+          <button type="button" class="dropdown-toggle" aria-label="Toggle What We Do submenu" aria-expanded="false"></button>
           <div class="dropdown">
           <div class="dropdown-inner">
-            <a href="what-we-do.html">Overview</a>
             <a href="service-brand-strategy.html">Brand Strategy</a>
             <a href="service-web-applications.html">Web Applications</a>
             <a href="service-digital-marketing.html">Digital Marketing</a>
@@ -112,6 +68,7 @@
         </li>
         <li class="has-dropdown">
           <a href="work-branding.html">Work</a>
+          <button type="button" class="dropdown-toggle" aria-label="Toggle Work submenu" aria-expanded="false"></button>
           <div class="dropdown">
           <div class="dropdown-inner">
             <a href="work-branding.html">Branding</a>
@@ -134,94 +91,32 @@
 </header>
 
 <!-- HERO -->
-<section class="svc-hero">
-  <div class="hero-bg-image" aria-hidden="true">
-    <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2023/10/img-hero-a50-00005.jpg" alt="">
-    <div class="fade"></div>
-  </div>
+<section class="work-hero">
   <div class="container">
-    <span class="eyebrow">What We Do</span>
     <h1 class="reveal-heading">
       <span class="reveal-mask"><span class="reveal-line">Social Media</span></span>
     </h1>
-    <div class="stagger">
-      <p class="fade-in-up">Most companies treat social media as a megaphone. Post content, hope for engagement, wonder why it doesn&rsquo;t work. Social media isn&rsquo;t about broadcasting &mdash; it&rsquo;s about conversation. The brands that succeed understand this distinction.</p>
-    </div>
   </div>
 </section>
 
-<!-- APPROACH -->
-<section class="section svc-approach">
+<!-- REFERENCE + STYLE GUIDE -->
+<section class="section ref-section">
   <div class="container">
-    <div class="svc-card">
-      <h2 class="label">Our Approach</h2>
+    <div class="ref-card">
+      <span class="eyebrow">What We Do &rarr; Social Media</span>
+      <h2>Use Design From This Link</h2>
+      <p>Build this page&rsquo;s layout and content to match the reference below.</p>
+      <a href="https://raulvarela.net/social-media/" target="_blank" rel="noopener" class="btn btn-primary">Open Reference Page</a>
 
-      <div class="svc-block">
-        <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2022/08/icon-social-media-made-simple.svg" alt="">
-        <div>
-          <h3>What Most Companies Get Wrong</h3>
-          <p class="lead">Posting more doesn&rsquo;t increase engagement. Posting content that sparks conversation does.</p>
-          <p>Social media management becomes a full-time job when companies confuse activity with strategy. They post daily because they think consistency matters. It doesn&rsquo;t &mdash; relevance matters.</p>
-          <p>We&rsquo;ve managed social for companies from startups to major brands. Most companies optimize for the wrong metric; the companies that succeed prioritize quality of conversation over quantity of posts.</p>
-        </div>
-      </div>
+      <div class="ref-divider"></div>
 
-      <div class="svc-block">
-        <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2022/08/icon-social-media-strategy.svg" alt="">
-        <div>
-          <h3>Platform Strategy vs Platform Presence</h3>
-          <p class="lead">Better to dominate one platform than be invisible on five.</p>
-          <p>Most companies are on every platform because they think they should be. This dilutes effort and produces mediocre results everywhere. The question isn&rsquo;t &ldquo;should we be on Instagram?&rdquo; It&rsquo;s &ldquo;where does our audience actually engage?&rdquo;</p>
-          <p>B2B companies waste resources on Instagram while ignoring LinkedIn. Consumer brands chase TikTok trends their customers don&rsquo;t care about. Strategy means choosing where to compete, not trying to be everywhere.</p>
-        </div>
+      <div class="ref-guide">
+        <h3>Typeface &amp; Color</h3>
+        <p>Use Inter font for everything.</p>
+        <p>Use only our brand colors &mdash; no new colors.</p>
+        <a href="style-guide.html" class="btn btn-outline-dark">View Style Guide</a>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- CASE STUDY -->
-<section class="section svc-case">
-  <div class="container">
-    <div class="case-head">
-      <span class="eyebrow">Case Study</span>
-      <h2 class="reveal-heading"><span class="reveal-mask"><span class="reveal-line">GOOD DAY FARM</span></span></h2>
-      <p>The South&rsquo;s #1 medical dispensary cannabis brand, with a loyal following across its online and retail network in Arkansas, Missouri, Mississippi, and Louisiana, built on an approachable brand and a high-tech, high-touch combination of cultivation and distribution.</p>
-    </div>
-
-    <div class="svc-case-cols">
-      <div>
-        <h3>Objective</h3>
-        <p>GOOD DAY FARM started with a single store and asked us to build their brand with a heavy social media presence from the ground up &mdash; multiple websites, social media, text and email campaigns, and a new database resource customized for the cannabis industry.</p>
-      </div>
-      <div>
-        <h3>Tactics</h3>
-        <p>A systematic process of content creation, scheduling, and posting; weekly calls with leadership and store managers; a content calendar with approval tracking in Monday.com; and integrated text/email marketing via Alpine IQ for each new location.</p>
-      </div>
-      <div>
-        <h3>Results</h3>
-        <p>Within the first few weeks we established a cadence of messaging that resonated with customers, helping the first four stores hit their sales goals, then facilitated four more openings plus two retail outlets with distinct branding.</p>
-      </div>
-    </div>
-
-    <div class="svc-case-images">
-      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2022/08/img-gdf-case-study-post2.jpg" alt="GOOD DAY FARM social media">
-      <img src="https://darkblue-mule-484055.hostingersite.com/wp-content/uploads/2022/08/img-gdf-case-study-post1.jpg" alt="GOOD DAY FARM social media">
-    </div>
-
-    <div class="svc-case-actions">
-      <a href="project-template.html" class="btn btn-outline">See More GOOD DAY FARM Work</a>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="section svc-cta">
-  <div class="container">
-    <h2 class="reveal-heading text-center">
-      <span class="reveal-mask"><span class="reveal-line">Ready to Start a Conversation?</span></span>
-    </h2>
-    <p>Let&rsquo;s find the one platform worth dominating, not five worth diluting.</p>
-    <a href="lets-talk.html" class="btn btn-primary">Let's Talk</a>
   </div>
 </section>
 

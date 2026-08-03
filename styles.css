@@ -358,36 +358,83 @@ p{ line-height: 1.75; margin: 0 0 20px; font-size: 18px; }
   .site-header.nav-open .site-nav ul{
     opacity:1; visibility:visible; pointer-events:auto; transform:translateY(0);
   }
+  /* Base rule (desktop) makes every <li> a flex ROW so the pill's own
+     stretched-height trick works — left un-overridden here, a has-dropdown
+     li's trigger link and its (much taller) submenu block were rendering
+     side-by-side instead of stacked, which is what caused the overlapping/
+     cluttered mess. Force plain block stacking for every nav item on touch. */
+  .site-nav ul > li{ display:block; }
+  .site-nav li.has-dropdown{ position:relative; }
   .site-nav a{ display:block; padding: 12px 14px; border-radius: 12px; }
   .site-nav a:hover{ background: rgba(255,255,255,.08); color: var(--sb-green-light); }
 
-  /* Products/Work submenu: on desktop this is a centered card that grows
-     out of the pill's own background — none of that applies on touch, so
-     reset it back to a plain indented inline list under its parent link
-     whenever the mobile panel is open. */
+  /* Products/What We Do/Work submenu: on desktop this is a centered card
+     that grows out of the pill's own background on :hover — none of that
+     applies on touch, so it becomes a tap-to-expand accordion instead:
+     collapsed (0 height) by default, expanded via the "dropdown-open"
+     class site.js toggles on the parent <li> when its chevron is tapped.
+     Leaving every submenu permanently expanded (the old behavior) meant
+     up to ~25 links were always on screen at once — this keeps only the
+     3 top-level items visible until someone actually wants a submenu. */
   .site-nav .dropdown{
     position:static;
     display:block;
     width:auto;
     height:auto;
-    margin-top: 2px;
   }
+  .site-nav li.has-dropdown.dropdown-open .dropdown{ margin-top: 2px; }
   .site-nav .dropdown-inner{
     position:static;
     transform:none;
     min-width:0;
     clip-path:none;
+    max-height: 0;
+    overflow:hidden;
     background:none;
     backdrop-filter:none;
     -webkit-backdrop-filter:none;
     border-radius:0;
-    padding: 2px 0 2px 14px;
+    padding: 0 0 0 14px;
     gap: 0;
+    transition: max-height .3s ease;
+  }
+  .site-nav li.has-dropdown.dropdown-open .dropdown-inner{
+    max-height: 600px;
+    padding: 2px 0 2px 14px;
   }
   .site-nav .dropdown a{
     font-size: 13px;
     padding: 9px 14px;
   }
+
+  /* Chevron toggle button — touch-only, sits over the right edge of the
+     trigger link so the link text itself still just navigates normally. */
+  .dropdown-toggle{
+    display:block;
+    position:absolute;
+    top:0; right:0;
+    width:44px; height:44px;
+    background:none;
+    border:none;
+    padding:0;
+    cursor:pointer;
+  }
+  .dropdown-toggle::before{
+    content:"";
+    position:absolute;
+    top:50%; left:50%;
+    width:7px; height:7px;
+    border-right:2px solid var(--sb-white);
+    border-bottom:2px solid var(--sb-white);
+    transform: translate(-50%,-65%) rotate(45deg);
+    transition: transform .25s ease;
+  }
+  .site-nav li.has-dropdown.dropdown-open .dropdown-toggle::before{
+    transform: translate(-50%,-35%) rotate(-135deg);
+  }
+}
+@media (min-width: 861px){
+  .dropdown-toggle{ display:none; }
 }
 
 /* ---- FOOTER ------------------------------------------------------------ */
