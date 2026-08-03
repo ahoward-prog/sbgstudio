@@ -275,6 +275,11 @@ p{ line-height: 1.75; margin: 0 0 20px; font-size: 18px; }
    below the nav stays empty. Same fill as the pill, no border/shadow of
    its own, flat top so it reads as a continuation of the pill's curve. */
 .site-nav li.has-dropdown{ position:relative; }
+/* Touch-only chevron toggle — hidden by default (same pattern as
+   .nav-toggle below: unconditional display:none, flipped to display:block
+   only inside the mobile breakpoint), rather than depending on a separate
+   min-width media query to hide it back out on desktop. */
+.dropdown-toggle{ display:none; }
 .site-nav .dropdown{
   position:absolute;
   top: 100%; /* flush with the trigger's own (stretched) box — no gap */
@@ -432,9 +437,6 @@ p{ line-height: 1.75; margin: 0 0 20px; font-size: 18px; }
   .site-nav li.has-dropdown.dropdown-open .dropdown-toggle::before{
     transform: translate(-50%,-35%) rotate(-135deg);
   }
-}
-@media (min-width: 861px){
-  .dropdown-toggle{ display:none; }
 }
 
 /* ---- FOOTER ------------------------------------------------------------ */
